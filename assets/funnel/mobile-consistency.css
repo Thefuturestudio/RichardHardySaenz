@@ -1,0 +1,4064 @@
+/* Shared mobile and tablet consistency overrides. Loaded after page CSS. */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip !important;
+}
+
+/* Source-of-truth mobile/tablet consistency pass.
+   Keep this at the end so it overrides older per-page mobile rules. */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+body {
+  position: relative;
+}
+
+img,
+video,
+canvas,
+svg,
+iframe {
+  max-width: 100%;
+}
+
+section,
+header,
+footer,
+main,
+nav,
+.page,
+.wrap,
+.container {
+  max-width: 100%;
+}
+
+#nav,
+#nav.scrolled,
+#nav.nav-hidden,
+nav#nav,
+body > nav#nav,
+#tfs-nav,
+#tfs-nav.tfs-scrolled,
+#tfs-nav.tfs-nav-hidden,
+.site-nav,
+.site-nav.scrolled,
+.site-nav.nav-hidden,
+.nav,
+.nav.scrolled,
+.nav.nav-hidden {
+  background: #fff !important;
+  background-color: #fff !important;
+  opacity: 1 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.mobile-sticky-cta,
+.tfs-mobile-sticky-cta,
+.sticky-demo-bar,
+.sticky-demo-cta,
+.bottom-cta-bar,
+.fixed-demo-bar,
+.tfs-bottom-cta,
+.mobile-bottom-cta,
+.fixed-bottom-cta,
+.package-bottom-offer,
+.starter-bottom-offer,
+.growth-bottom-offer,
+.premium-bottom-offer,
+.system-bottom-offer,
+[data-bottom-cta],
+[data-mobile-sticky-cta] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+body.has-starter-bottom-offer,
+body.has-growth-bottom-offer,
+body.has-premium-bottom-offer {
+  padding-bottom: 0 !important;
+}
+
+.top,
+.urgency-bar,
+.top-urgency-bar,
+.tfs-urgency-bar,
+.funnel-urgency-bar {
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  text-align: center !important;
+}
+
+.urgency-inner,
+.top-urgency-inner,
+.tfs-urgency-inner,
+.funnel-urgency-inner {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  padding-inline: 12px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+.discount-banner {
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  z-index: 1500 !important;
+}
+
+.discount-banner-inner {
+  width: min(100%, 1180px) !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+#whatsapp-btn,
+#tfs-whatsapp-btn,
+.tfs-whatsapp-floating {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  white-space: nowrap !important;
+  max-width: calc(100vw - 32px) !important;
+}
+
+#whatsapp-btn svg,
+#tfs-whatsapp-btn svg,
+.tfs-whatsapp-floating svg {
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+}
+
+#vapi-widget,
+.vapi-float,
+.float-ai {
+  max-width: min(180px, calc(100vw - 110px)) !important;
+}
+
+@media (max-width: 1100px) {
+  #nav,
+  #nav.scrolled,
+  #nav.nav-hidden,
+  nav#nav,
+  body > nav#nav,
+  #tfs-nav,
+  #tfs-nav.tfs-scrolled,
+  #tfs-nav.tfs-nav-hidden,
+  .site-nav,
+  .site-nav.scrolled,
+  .site-nav.nav-hidden,
+  .nav,
+  .nav.scrolled,
+  .nav.nav-hidden {
+    position: fixed !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    transform: none !important;
+    background: #fff !important;
+    background-color: #fff !important;
+    border-bottom: 1px solid rgba(5, 5, 5, 0.18) !important;
+    z-index: 1450 !important;
+  }
+
+  #nav .nav-inner,
+  body > nav#nav .nav-inner,
+  #tfs-nav .tfs-nav-inner,
+  .site-nav-inner,
+  .nav-inner {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 44px minmax(0, 1fr) 44px !important;
+    align-items: center !important;
+    justify-items: center !important;
+    gap: 0 !important;
+    padding-inline: 16px !important;
+  }
+
+  #nav .nav-inner::before,
+  body > nav#nav .nav-inner::before,
+  #tfs-nav .tfs-nav-inner::before,
+  .site-nav-inner::before,
+  .nav-inner::before {
+    content: "" !important;
+    grid-column: 1 !important;
+    width: 44px !important;
+    height: 44px !important;
+    display: block !important;
+  }
+
+  #nav .nav-logo,
+  body > nav#nav .nav-logo,
+  #tfs-nav .tfs-nav-logo,
+  .site-nav-logo,
+  .nav-logo {
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    grid-column: 2 !important;
+    justify-self: center !important;
+    align-self: center !important;
+    width: auto !important;
+    max-width: min(250px, 58vw) !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+
+  #nav .nav-logo img,
+  body > nav#nav .nav-logo img,
+  #tfs-nav .tfs-nav-logo img,
+  .site-nav-logo img,
+  .nav-logo img {
+    display: block !important;
+    margin: 0 auto !important;
+    max-width: min(230px, 56vw) !important;
+    height: auto !important;
+    max-height: 82px !important;
+    object-fit: contain !important;
+  }
+
+  #nav .nav-hamburger,
+  body > nav#nav .nav-hamburger,
+  #tfs-nav .tfs-nav-hamburger,
+  .site-nav-hamburger,
+  .nav-hamburger,
+  .hamburger {
+    display: flex !important;
+    position: static !important;
+    grid-column: 3 !important;
+    justify-self: end !important;
+    align-self: center !important;
+    transform: none !important;
+    width: 44px !important;
+    min-width: 44px !important;
+    height: 44px !important;
+  }
+
+  #nav .nav-links,
+  body > nav#nav .nav-links,
+  #nav .nav-actions,
+  body > nav#nav .nav-actions,
+  #tfs-nav .tfs-nav-links,
+  #tfs-nav .tfs-nav-actions,
+  .site-nav-links,
+  .site-nav-actions,
+  body > nav .tfs-nav-links,
+  body > nav .tfs-nav-actions {
+    display: none !important;
+  }
+
+  #nav .nav-mobile,
+  #tfs-nav .tfs-nav-mobile,
+  .nav-mobile {
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    background: #fff !important;
+  }
+
+  .hero,
+  .system-hero,
+  .page-hero,
+  .academy-hero {
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .urgency-inner,
+  .top-urgency-inner,
+  .tfs-urgency-inner,
+  .funnel-urgency-inner {
+    min-height: 58px !important;
+    flex-wrap: wrap !important;
+    gap: 6px 12px !important;
+    line-height: 1.2 !important;
+  }
+
+  #nav,
+  #nav.scrolled,
+  #nav.nav-hidden,
+  nav#nav,
+  body > nav#nav,
+  #tfs-nav,
+  #tfs-nav.tfs-scrolled,
+  #tfs-nav.tfs-nav-hidden,
+  .site-nav,
+  .site-nav.scrolled,
+  .site-nav.nav-hidden,
+  .nav,
+  .nav.scrolled,
+  .nav.nav-hidden {
+    top: 58px !important;
+  }
+
+  .discount-banner-inner {
+    min-height: 124px !important;
+    padding: 12px 14px !important;
+    flex-wrap: wrap !important;
+    gap: 8px 12px !important;
+    flex-direction: column !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .urgency-inner,
+  .top-urgency-inner,
+  .tfs-urgency-inner,
+  .funnel-urgency-inner {
+    min-height: 66px !important;
+  }
+
+  #nav,
+  #nav.scrolled,
+  #nav.nav-hidden,
+  nav#nav,
+  body > nav#nav,
+  #tfs-nav,
+  #tfs-nav.tfs-scrolled,
+  #tfs-nav.tfs-nav-hidden,
+  .site-nav,
+  .site-nav.scrolled,
+  .site-nav.nav-hidden,
+  .nav,
+  .nav.scrolled,
+  .nav.nav-hidden {
+    top: 66px !important;
+  }
+
+  #nav .nav-inner,
+  body > nav#nav .nav-inner,
+  #tfs-nav .tfs-nav-inner,
+  .site-nav-inner,
+  .nav-inner {
+    height: 86px !important;
+    padding-inline: 14px !important;
+  }
+
+  #whatsapp-btn,
+  #tfs-whatsapp-btn,
+  .tfs-whatsapp-floating {
+    position: fixed !important;
+    right: max(12px, env(safe-area-inset-right)) !important;
+    left: auto !important;
+    bottom: calc(16px + env(safe-area-inset-bottom)) !important;
+    width: 56px !important;
+    min-width: 56px !important;
+    height: 56px !important;
+    padding: 0 !important;
+    gap: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  #whatsapp-btn .wa-label,
+  #tfs-whatsapp-btn .tfs-wa-label,
+  .tfs-whatsapp-floating span {
+    display: none !important;
+  }
+
+  #vapi-widget,
+  .vapi-float,
+  .float-ai {
+    position: fixed !important;
+    left: max(12px, env(safe-area-inset-left)) !important;
+    right: auto !important;
+    bottom: calc(16px + env(safe-area-inset-bottom)) !important;
+    max-width: calc(100vw - 92px) !important;
+  }
+
+  body.discount-banner-visible #whatsapp-btn,
+  body.discount-banner-visible #tfs-whatsapp-btn,
+  body.discount-banner-visible .tfs-whatsapp-floating,
+  body.discount-banner-visible #vapi-widget,
+  body.discount-banner-visible .vapi-float,
+  body.discount-banner-visible .float-ai {
+    bottom: calc(154px + env(safe-area-inset-bottom)) !important;
+  }
+}
+
+/* Final cross-page mobile/tablet source-of-truth overrides. */
+html,
+body {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: clip !important;
+}
+
+@supports not (overflow-x: clip) {
+  html,
+  body {
+    overflow-x: hidden !important;
+  }
+}
+
+body {
+  min-width: 0 !important;
+}
+
+body > * {
+  max-width: 100% !important;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box !important;
+}
+
+img,
+video,
+canvas,
+svg {
+  max-width: 100% !important;
+}
+
+body .top,
+body .urgency-bar,
+body .top-urgency-bar,
+body .tfs-urgency-bar,
+body .funnel-urgency-bar {
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  display: flex !important;
+  justify-content: center !important;
+  text-align: center !important;
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+}
+
+body .urgency-inner,
+body .top-urgency-inner,
+body .tfs-urgency-inner,
+body .funnel-urgency-inner,
+body .top > *,
+body .urgency-bar > * {
+  max-width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+body .discount-banner {
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+body .discount-banner-inner {
+  width: min(100%, 1440px) !important;
+  max-width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+body > .mobile-sticky-cta,
+body > .tfs-mobile-sticky-cta,
+body > .sticky-demo-bar,
+body > .sticky-demo-cta,
+body > .bottom-cta-bar,
+body > .fixed-demo-bar,
+body > .tfs-bottom-cta,
+body > .mobile-bottom-cta,
+body > .fixed-bottom-cta,
+body > .package-bottom-offer,
+body > .starter-bottom-offer,
+body > .growth-bottom-offer,
+body > .premium-bottom-offer,
+body > .system-bottom-offer,
+body > [data-bottom-cta],
+body > [data-mobile-sticky-cta] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+@media (max-width: 1100px) {
+  body #nav,
+  body #nav.scrolled,
+  body nav#nav,
+  body > nav#nav,
+  body > nav.site-nav,
+  body > nav.tfs-nav,
+  body #tfs-nav,
+  body .site-nav {
+    position: fixed !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    z-index: 9990 !important;
+    background: #fff !important;
+    background-color: #fff !important;
+    opacity: 1 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-bottom: 1px solid rgba(5, 5, 5, 0.18) !important;
+    transform: none !important;
+  }
+
+  body #nav .nav-inner,
+  body nav#nav .nav-inner,
+  body > nav#nav .nav-inner,
+  body > nav .nav-inner,
+  body #tfs-nav .tfs-nav-inner,
+  body .site-nav-inner {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 96px !important;
+    min-height: 96px !important;
+    display: grid !important;
+    grid-template-columns: 56px minmax(0, 1fr) 56px !important;
+    align-items: center !important;
+    justify-items: center !important;
+    gap: 0 !important;
+    padding: 0 18px !important;
+    margin: 0 !important;
+  }
+
+  body #nav .nav-logo,
+  body nav#nav .nav-logo,
+  body > nav#nav .nav-logo,
+  body #nav .logo,
+  body nav#nav .logo,
+  body > nav#nav .logo,
+  body > nav .logo,
+  body .site-brand,
+  body .site-nav-logo,
+  body #tfs-nav .tfs-nav-logo {
+    position: static !important;
+    grid-column: 2 !important;
+    justify-self: center !important;
+    align-self: center !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    margin: 0 auto !important;
+    width: auto !important;
+    max-width: min(280px, 62vw) !important;
+    text-align: center !important;
+  }
+
+  body #nav .nav-logo img,
+  body nav#nav .nav-logo img,
+  body > nav#nav .nav-logo img,
+  body #nav .logo img,
+  body nav#nav .logo img,
+  body > nav#nav .logo img,
+  body > nav .logo img,
+  body .site-brand img,
+  body .site-nav-logo img,
+  body #tfs-nav .tfs-nav-logo img {
+    display: block !important;
+    height: auto !important;
+    max-height: 86px !important;
+    width: auto !important;
+    max-width: min(280px, 62vw) !important;
+    margin: 0 auto !important;
+    padding: 8px 0 !important;
+    object-fit: contain !important;
+  }
+
+  body #nav .nav-hamburger,
+  body nav#nav .nav-hamburger,
+  body > nav#nav .nav-hamburger,
+  body > nav .nav-hamburger,
+  body .site-nav-hamburger,
+  body .nav-hamburger,
+  body #nav-hamburger {
+    display: flex !important;
+    position: absolute !important;
+    right: 18px !important;
+    left: auto !important;
+    top: 50% !important;
+    bottom: auto !important;
+    transform: translateY(-50%) !important;
+    grid-column: 3 !important;
+    justify-self: end !important;
+    align-self: center !important;
+    width: 44px !important;
+    min-width: 44px !important;
+    height: 44px !important;
+    margin: 0 !important;
+    padding: 8px !important;
+  }
+
+  body #nav .nav-links,
+  body nav#nav .nav-links,
+  body > nav#nav .nav-links,
+  body #nav .nav-actions,
+  body nav#nav .nav-actions,
+  body > nav#nav .nav-actions,
+  body > nav .links,
+  body > nav .actions,
+  body .site-nav-links,
+  body .site-nav-actions {
+    display: none !important;
+  }
+}
+
+body #whatsapp-btn,
+body #tfs-whatsapp-btn,
+body .tfs-whatsapp-floating {
+  position: fixed !important;
+  right: max(16px, env(safe-area-inset-right)) !important;
+  bottom: calc(18px + env(safe-area-inset-bottom)) !important;
+  z-index: 10020 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  min-width: 146px !important;
+  max-width: calc(100vw - 32px) !important;
+  height: 54px !important;
+  padding: 0 18px !important;
+  overflow: hidden !important;
+}
+
+body #whatsapp-btn svg,
+body #tfs-whatsapp-btn svg,
+body .tfs-whatsapp-floating svg,
+body #whatsapp-btn img,
+body #tfs-whatsapp-btn img,
+body .tfs-whatsapp-floating img {
+  width: 22px !important;
+  min-width: 22px !important;
+  height: 22px !important;
+  margin: 0 !important;
+  flex: 0 0 22px !important;
+}
+
+body #whatsapp-btn span,
+body #tfs-whatsapp-btn span,
+body .tfs-whatsapp-floating span,
+body #whatsapp-btn .wa-label,
+body #tfs-whatsapp-btn .wa-label,
+body .tfs-whatsapp-floating .wa-label {
+  margin-left: 0 !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+}
+
+body #vapi-widget,
+body .vapi-float,
+body .float-ai,
+body .ai-assistant-floating {
+  position: fixed !important;
+  left: max(16px, env(safe-area-inset-left)) !important;
+  bottom: calc(18px + env(safe-area-inset-bottom)) !important;
+  z-index: 10010 !important;
+  max-width: min(190px, calc(100vw - 112px)) !important;
+  overflow: hidden !important;
+}
+
+body.discount-banner-visible #whatsapp-btn,
+body.discount-banner-visible #tfs-whatsapp-btn,
+body.discount-banner-visible .tfs-whatsapp-floating,
+body.discount-banner-visible #vapi-widget,
+body.discount-banner-visible .vapi-float,
+body.discount-banner-visible .float-ai,
+body.discount-banner-visible .ai-assistant-floating {
+  bottom: calc(156px + env(safe-area-inset-bottom)) !important;
+}
+
+@media (max-width: 768px) {
+  body .top,
+  body .urgency-bar,
+  body .top-urgency-bar,
+  body .tfs-urgency-bar,
+  body .funnel-urgency-bar {
+    min-height: 58px !important;
+    flex-wrap: wrap !important;
+    gap: 6px 10px !important;
+    line-height: 1.15 !important;
+  }
+
+  body #nav,
+  body #nav.scrolled,
+  body nav#nav,
+  body > nav#nav,
+  body > nav.site-nav,
+  body > nav.tfs-nav,
+  body #tfs-nav,
+  body .site-nav {
+    top: 58px !important;
+  }
+
+  body .discount-banner-inner {
+    min-height: 132px !important;
+    padding: 12px !important;
+    flex-wrap: wrap !important;
+    gap: 8px 12px !important;
+  }
+
+  body.discount-banner-visible #whatsapp-btn,
+  body.discount-banner-visible #tfs-whatsapp-btn,
+  body.discount-banner-visible .tfs-whatsapp-floating,
+  body.discount-banner-visible #vapi-widget,
+  body.discount-banner-visible .vapi-float,
+  body.discount-banner-visible .float-ai,
+  body.discount-banner-visible .ai-assistant-floating {
+    bottom: calc(220px + env(safe-area-inset-bottom)) !important;
+  }
+}
+
+@media (max-width: 560px) {
+  body .top,
+  body .urgency-bar,
+  body .top-urgency-bar,
+  body .tfs-urgency-bar,
+  body .funnel-urgency-bar {
+    min-height: 66px !important;
+  }
+
+  body #nav,
+  body #nav.scrolled,
+  body nav#nav,
+  body > nav#nav,
+  body > nav.site-nav,
+  body > nav.tfs-nav,
+  body #tfs-nav,
+  body .site-nav {
+    top: 66px !important;
+  }
+
+  body #nav .nav-inner,
+  body nav#nav .nav-inner,
+  body > nav#nav .nav-inner,
+  body > nav .nav-inner,
+  body #tfs-nav .tfs-nav-inner,
+  body .site-nav-inner {
+    height: 96px !important;
+    min-height: 96px !important;
+    padding: 0 14px !important;
+  }
+
+  body #nav .nav-logo img,
+  body nav#nav .nav-logo img,
+  body > nav#nav .nav-logo img,
+  body #nav .logo img,
+  body nav#nav .logo img,
+  body > nav#nav .logo img,
+  body > nav .logo img,
+  body .site-brand img,
+  body .site-nav-logo img,
+  body #tfs-nav .tfs-nav-logo img {
+    max-height: 76px !important;
+    max-width: min(250px, 64vw) !important;
+  }
+
+  body #nav .nav-hamburger,
+  body nav#nav .nav-hamburger,
+  body > nav#nav .nav-hamburger,
+  body > nav .nav-hamburger,
+  body .site-nav-hamburger,
+  body .nav-hamburger,
+  body #nav-hamburger {
+    right: 14px !important;
+  }
+
+  body #whatsapp-btn,
+  body #tfs-whatsapp-btn,
+  body .tfs-whatsapp-floating {
+    width: 54px !important;
+    min-width: 54px !important;
+    max-width: 54px !important;
+    height: 54px !important;
+    padding: 0 !important;
+    right: max(12px, env(safe-area-inset-right)) !important;
+  }
+
+  body #whatsapp-btn span,
+  body #tfs-whatsapp-btn span,
+  body .tfs-whatsapp-floating span,
+  body #whatsapp-btn .wa-label,
+  body #tfs-whatsapp-btn .wa-label,
+  body .tfs-whatsapp-floating .wa-label {
+    display: none !important;
+  }
+
+  body #vapi-widget,
+  body .vapi-float,
+  body .float-ai,
+  body .ai-assistant-floating {
+    left: max(12px, env(safe-area-inset-left)) !important;
+    max-width: calc(100vw - 92px) !important;
+  }
+
+  body.discount-banner-visible #whatsapp-btn,
+  body.discount-banner-visible #tfs-whatsapp-btn,
+  body.discount-banner-visible .tfs-whatsapp-floating,
+  body.discount-banner-visible #vapi-widget,
+  body.discount-banner-visible .vapi-float,
+  body.discount-banner-visible .float-ai,
+  body.discount-banner-visible .ai-assistant-floating {
+    bottom: calc(248px + env(safe-area-inset-bottom)) !important;
+  }
+}
+
+/* Final cross-page mobile guardrail.
+   Many product pages still carry older inline header/floating rules; this block
+   keeps the landing-page mobile behavior as the source of truth. */
+html,
+body {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: clip !important;
+}
+
+@supports not (overflow-x: clip) {
+  html,
+  body {
+    overflow-x: hidden !important;
+  }
+}
+
+body {
+  min-width: 0 !important;
+}
+
+body > * {
+  max-width: 100% !important;
+}
+
+.wrap,
+.container,
+.section,
+main,
+footer,
+header {
+  max-width: 100% !important;
+}
+
+img,
+video,
+canvas,
+svg {
+  max-width: 100% !important;
+}
+
+#nav,
+#nav.scrolled,
+nav#nav,
+body > nav#nav,
+body > nav.site-nav,
+body > nav.tfs-nav,
+#tfs-nav,
+.site-nav,
+.tfs-nav {
+  background: #fff8f5 !important;
+  background-color: #fff8f5 !important;
+  opacity: 1 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-bottom: 1px solid rgba(5, 5, 5, 0.18) !important;
+}
+
+body > .mobile-sticky-cta,
+body > .tfs-mobile-sticky-cta,
+body > .sticky-demo-bar,
+body > .sticky-demo-cta,
+body > .bottom-cta-bar,
+body > .fixed-demo-bar,
+body > .tfs-bottom-cta,
+body > .mobile-bottom-cta,
+body > .fixed-bottom-cta,
+body > .package-bottom-offer,
+body > .starter-bottom-offer,
+body > .growth-bottom-offer,
+body > .premium-bottom-offer,
+body > .system-bottom-offer,
+body > [data-bottom-cta],
+body > [data-mobile-sticky-cta] {
+  display: none !important;
+}
+
+.top,
+.urgency-bar,
+.top-urgency-bar,
+.tfs-urgency-bar,
+.funnel-urgency-bar {
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  text-align: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+}
+
+.top *,
+.urgency-bar *,
+.top-urgency-bar *,
+.tfs-urgency-bar *,
+.funnel-urgency-bar * {
+  max-width: 100% !important;
+}
+
+.urgency-inner,
+.top-urgency-inner,
+.tfs-urgency-inner,
+.funnel-urgency-inner,
+.top .inner {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-inline: auto !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  flex-wrap: wrap !important;
+}
+
+.discount-banner,
+.discount-bar,
+.discount-strip {
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+}
+
+.discount-banner-inner,
+.discount-bar-inner,
+.discount-strip-inner {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-inline: auto !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  flex-wrap: wrap !important;
+}
+
+#whatsapp-btn,
+#tfs-whatsapp-btn,
+.tfs-whatsapp-floating {
+  position: fixed !important;
+  right: max(16px, env(safe-area-inset-right)) !important;
+  bottom: calc(18px + env(safe-area-inset-bottom)) !important;
+  z-index: 9997 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+}
+
+#whatsapp-btn svg,
+#tfs-whatsapp-btn svg,
+.tfs-whatsapp-floating svg {
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+}
+
+#vapi-widget,
+.vapi-float,
+.float-ai {
+  position: fixed !important;
+  left: max(16px, env(safe-area-inset-left)) !important;
+  bottom: calc(18px + env(safe-area-inset-bottom)) !important;
+  z-index: 9996 !important;
+  max-width: min(180px, calc(100vw - 110px)) !important;
+}
+
+body.discount-banner-visible #whatsapp-btn,
+body.discount-banner-visible #tfs-whatsapp-btn,
+body.discount-banner-visible .tfs-whatsapp-floating,
+body.discount-banner-visible #vapi-widget,
+body.discount-banner-visible .vapi-float,
+body.discount-banner-visible .float-ai {
+  bottom: calc(188px + env(safe-area-inset-bottom)) !important;
+}
+
+@media (max-width: 1100px) {
+  #nav,
+  #nav.scrolled,
+  nav#nav,
+  body > nav#nav,
+  body > nav.site-nav,
+  body > nav.tfs-nav,
+  #tfs-nav,
+  .site-nav,
+  .tfs-nav {
+    position: fixed !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block !important;
+    background: #fff8f5 !important;
+    background-color: #fff8f5 !important;
+    transform: none !important;
+  }
+
+  #nav .nav-inner,
+  body > nav#nav .nav-inner,
+  body > nav .nav-inner,
+  #tfs-nav .tfs-nav-inner,
+  .site-nav-inner,
+  .tfs-nav-inner {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 96px !important;
+    min-height: 96px !important;
+    display: grid !important;
+    grid-template-columns: 56px minmax(0, 1fr) 56px !important;
+    align-items: center !important;
+    justify-items: center !important;
+    gap: 0 !important;
+    padding: 0 18px !important;
+    margin: 0 !important;
+  }
+
+  #nav .nav-inner::before,
+  body > nav#nav .nav-inner::before,
+  body > nav .nav-inner::before,
+  #tfs-nav .tfs-nav-inner::before,
+  .site-nav-inner::before,
+  .tfs-nav-inner::before {
+    content: "" !important;
+    display: block !important;
+    grid-column: 1 !important;
+    width: 56px !important;
+    height: 44px !important;
+  }
+
+  #nav .nav-logo,
+  body > nav#nav .nav-logo,
+  body > nav .nav-logo,
+  #tfs-nav .tfs-nav-logo,
+  .site-nav-logo,
+  .tfs-nav-logo,
+  .nav-logo,
+  #nav .logo,
+  body > nav .logo,
+  .site-brand {
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    grid-column: 2 !important;
+    justify-self: center !important;
+    align-self: center !important;
+    width: auto !important;
+    max-width: min(270px, 60vw) !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+
+  #nav .nav-logo img,
+  body > nav#nav .nav-logo img,
+  body > nav .nav-logo img,
+  #tfs-nav .tfs-nav-logo img,
+  .site-nav-logo img,
+  .tfs-nav-logo img,
+  .nav-logo img,
+  #nav .logo img,
+  body > nav .logo img,
+  .site-brand img {
+    display: block !important;
+    width: auto !important;
+    max-width: min(270px, 60vw) !important;
+    height: auto !important;
+    max-height: 92px !important;
+    object-fit: contain !important;
+    margin: 0 auto !important;
+    padding: 8px 0 !important;
+  }
+
+  #nav .nav-hamburger,
+  body > nav#nav .nav-hamburger,
+  body > nav .nav-hamburger,
+  #tfs-nav .tfs-nav-hamburger,
+  .site-nav-hamburger,
+  .tfs-nav-hamburger,
+  .nav-hamburger,
+  .menu-toggle,
+  #nav-hamburger {
+    display: flex !important;
+    position: static !important;
+    grid-column: 3 !important;
+    justify-self: end !important;
+    align-self: center !important;
+    transform: none !important;
+    width: 44px !important;
+    min-width: 44px !important;
+    height: 44px !important;
+    margin: 0 !important;
+    padding: 8px !important;
+  }
+
+  #nav .nav-links,
+  body > nav#nav .nav-links,
+  body > nav .nav-links,
+  #nav .nav-actions,
+  body > nav#nav .nav-actions,
+  body > nav .nav-actions,
+  .site-nav-links,
+  .site-nav-actions,
+  .nav-primary {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .top,
+  .urgency-bar,
+  .top-urgency-bar,
+  .tfs-urgency-bar,
+  .funnel-urgency-bar {
+    min-height: 58px !important;
+    padding: 8px 12px !important;
+    line-height: 1.15 !important;
+  }
+
+  #nav,
+  #nav.scrolled,
+  nav#nav,
+  body > nav#nav,
+  body > nav.site-nav,
+  body > nav.tfs-nav,
+  #tfs-nav,
+  .site-nav,
+  .tfs-nav {
+    top: 58px !important;
+  }
+
+  .discount-banner-inner,
+  .discount-bar-inner,
+  .discount-strip-inner {
+    min-height: 130px !important;
+    padding: 12px !important;
+    gap: 8px 12px !important;
+  }
+
+  body.discount-banner-visible #whatsapp-btn,
+  body.discount-banner-visible #tfs-whatsapp-btn,
+  body.discount-banner-visible .tfs-whatsapp-floating,
+  body.discount-banner-visible #vapi-widget,
+  body.discount-banner-visible .vapi-float,
+  body.discount-banner-visible .float-ai {
+    bottom: calc(224px + env(safe-area-inset-bottom)) !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .top,
+  .urgency-bar,
+  .top-urgency-bar,
+  .tfs-urgency-bar,
+  .funnel-urgency-bar {
+    min-height: 66px !important;
+    padding: 8px 10px !important;
+  }
+
+  #nav,
+  #nav.scrolled,
+  nav#nav,
+  body > nav#nav,
+  body > nav.site-nav,
+  body > nav.tfs-nav,
+  #tfs-nav,
+  .site-nav,
+  .tfs-nav {
+    top: 66px !important;
+  }
+
+  #nav .nav-inner,
+  body > nav#nav .nav-inner,
+  body > nav .nav-inner,
+  #tfs-nav .tfs-nav-inner,
+  .site-nav-inner,
+  .tfs-nav-inner {
+    height: 92px !important;
+    min-height: 92px !important;
+    padding: 0 14px !important;
+  }
+
+  #nav .nav-logo img,
+  body > nav .nav-logo img,
+  .nav-logo img,
+  #nav .logo img,
+  body > nav .logo img,
+  .site-brand img {
+    max-width: min(235px, 58vw) !important;
+    max-height: 82px !important;
+  }
+
+  #whatsapp-btn,
+  #tfs-whatsapp-btn,
+  .tfs-whatsapp-floating {
+    right: max(12px, env(safe-area-inset-right)) !important;
+    width: 56px !important;
+    min-width: 56px !important;
+    height: 56px !important;
+    padding: 0 !important;
+    gap: 0 !important;
+  }
+
+  #whatsapp-btn .wa-label,
+  #tfs-whatsapp-btn .tfs-wa-label,
+  .tfs-whatsapp-floating span {
+    display: none !important;
+  }
+
+  #vapi-widget,
+  .vapi-float,
+  .float-ai {
+    left: max(12px, env(safe-area-inset-left)) !important;
+    max-width: calc(100vw - 92px) !important;
+  }
+
+  body.discount-banner-visible #whatsapp-btn,
+  body.discount-banner-visible #tfs-whatsapp-btn,
+  body.discount-banner-visible .tfs-whatsapp-floating,
+  body.discount-banner-visible #vapi-widget,
+  body.discount-banner-visible .vapi-float,
+  body.discount-banner-visible .float-ai {
+    bottom: calc(246px + env(safe-area-inset-bottom)) !important;
+  }
+}
+
+/* Final cross-page mobile source of truth. Must remain last. */
+html,
+body {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+#nav,
+#nav.scrolled,
+#nav.nav-hidden,
+nav#nav,
+body > nav#nav,
+#tfs-nav,
+#tfs-nav.tfs-scrolled,
+#tfs-nav.tfs-nav-hidden,
+.site-nav,
+.site-nav.scrolled,
+.site-nav.nav-hidden,
+.nav,
+.nav.scrolled,
+.nav.nav-hidden {
+  background: #fff !important;
+  background-color: #fff !important;
+  opacity: 1 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.mobile-sticky-cta,
+.tfs-mobile-sticky-cta,
+.sticky-demo-bar,
+.sticky-demo-cta,
+.bottom-cta-bar,
+.fixed-demo-bar,
+.tfs-bottom-cta,
+.mobile-bottom-cta,
+.fixed-bottom-cta,
+.package-bottom-offer,
+.starter-bottom-offer,
+.growth-bottom-offer,
+.premium-bottom-offer,
+.system-bottom-offer,
+[data-bottom-cta],
+[data-mobile-sticky-cta] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+body.has-starter-bottom-offer,
+body.has-growth-bottom-offer,
+body.has-premium-bottom-offer {
+  padding-bottom: 0 !important;
+}
+
+.top,
+.urgency-bar,
+.top-urgency-bar,
+.tfs-urgency-bar,
+.funnel-urgency-bar,
+.discount-banner {
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  text-align: center !important;
+}
+
+.urgency-inner,
+.top-urgency-inner,
+.tfs-urgency-inner,
+.funnel-urgency-inner,
+.discount-banner-inner {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+#whatsapp-btn,
+#tfs-whatsapp-btn,
+.tfs-whatsapp-floating {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  white-space: nowrap !important;
+  max-width: calc(100vw - 32px) !important;
+}
+
+#whatsapp-btn svg,
+#tfs-whatsapp-btn svg,
+.tfs-whatsapp-floating svg {
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+}
+
+#vapi-widget,
+.vapi-float,
+.float-ai {
+  max-width: min(180px, calc(100vw - 110px)) !important;
+}
+
+@media (max-width: 1100px) {
+  #nav,
+  #nav.scrolled,
+  #nav.nav-hidden,
+  nav#nav,
+  body > nav#nav,
+  #tfs-nav,
+  #tfs-nav.tfs-scrolled,
+  #tfs-nav.tfs-nav-hidden,
+  .site-nav,
+  .site-nav.scrolled,
+  .site-nav.nav-hidden,
+  .nav,
+  .nav.scrolled,
+  .nav.nav-hidden {
+    position: fixed !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    transform: none !important;
+    border-bottom: 1px solid rgba(5, 5, 5, 0.18) !important;
+    z-index: 1450 !important;
+  }
+
+  #nav .nav-inner,
+  body > nav#nav .nav-inner,
+  #tfs-nav .tfs-nav-inner,
+  .site-nav-inner,
+  .nav-inner {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 44px minmax(0, 1fr) 44px !important;
+    align-items: center !important;
+    justify-items: center !important;
+    gap: 0 !important;
+    padding-inline: 16px !important;
+  }
+
+  #nav .nav-inner::before,
+  body > nav#nav .nav-inner::before,
+  #tfs-nav .tfs-nav-inner::before,
+  .site-nav-inner::before,
+  .nav-inner::before {
+    content: "" !important;
+    grid-column: 1 !important;
+    width: 44px !important;
+    height: 44px !important;
+    display: block !important;
+  }
+
+  #nav .nav-logo,
+  body > nav#nav .nav-logo,
+  #tfs-nav .tfs-nav-logo,
+  .site-nav-logo,
+  .nav-logo {
+    position: static !important;
+    transform: none !important;
+    grid-column: 2 !important;
+    justify-self: center !important;
+    align-self: center !important;
+    width: auto !important;
+    max-width: min(250px, 58vw) !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+
+  #nav .nav-logo img,
+  body > nav#nav .nav-logo img,
+  #tfs-nav .tfs-nav-logo img,
+  .site-nav-logo img,
+  .nav-logo img {
+    display: block !important;
+    margin: 0 auto !important;
+    max-width: min(230px, 56vw) !important;
+    height: auto !important;
+    max-height: 82px !important;
+    object-fit: contain !important;
+  }
+
+  #nav .nav-hamburger,
+  body > nav#nav .nav-hamburger,
+  #tfs-nav .tfs-nav-hamburger,
+  .site-nav-hamburger,
+  .nav-hamburger,
+  .hamburger {
+    display: flex !important;
+    position: static !important;
+    grid-column: 3 !important;
+    justify-self: end !important;
+    align-self: center !important;
+    transform: none !important;
+    width: 44px !important;
+    min-width: 44px !important;
+    height: 44px !important;
+  }
+
+  #nav .nav-links,
+  body > nav#nav .nav-links,
+  #nav .nav-actions,
+  body > nav#nav .nav-actions,
+  #tfs-nav .tfs-nav-links,
+  #tfs-nav .tfs-nav-actions,
+  .site-nav-links,
+  .site-nav-actions,
+  body > nav .tfs-nav-links,
+  body > nav .tfs-nav-actions {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .urgency-inner,
+  .top-urgency-inner,
+  .tfs-urgency-inner,
+  .funnel-urgency-inner {
+    min-height: 58px !important;
+    flex-wrap: wrap !important;
+    gap: 6px 12px !important;
+    line-height: 1.2 !important;
+  }
+
+  #nav,
+  #nav.scrolled,
+  #nav.nav-hidden,
+  nav#nav,
+  body > nav#nav,
+  #tfs-nav,
+  #tfs-nav.tfs-scrolled,
+  #tfs-nav.tfs-nav-hidden,
+  .site-nav,
+  .site-nav.scrolled,
+  .site-nav.nav-hidden,
+  .nav,
+  .nav.scrolled,
+  .nav.nav-hidden {
+    top: 58px !important;
+  }
+
+  .discount-banner-inner {
+    min-height: 124px !important;
+    padding: 12px 14px !important;
+    flex-wrap: wrap !important;
+    gap: 8px 12px !important;
+    flex-direction: column !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .urgency-inner,
+  .top-urgency-inner,
+  .tfs-urgency-inner,
+  .funnel-urgency-inner {
+    min-height: 66px !important;
+  }
+
+  #nav,
+  #nav.scrolled,
+  #nav.nav-hidden,
+  nav#nav,
+  body > nav#nav,
+  #tfs-nav,
+  #tfs-nav.tfs-scrolled,
+  #tfs-nav.tfs-nav-hidden,
+  .site-nav,
+  .site-nav.scrolled,
+  .site-nav.nav-hidden,
+  .nav,
+  .nav.scrolled,
+  .nav.nav-hidden {
+    top: 66px !important;
+  }
+
+  #nav .nav-inner,
+  body > nav#nav .nav-inner,
+  #tfs-nav .tfs-nav-inner,
+  .site-nav-inner,
+  .nav-inner {
+    height: 86px !important;
+    padding-inline: 14px !important;
+  }
+
+  #whatsapp-btn,
+  #tfs-whatsapp-btn,
+  .tfs-whatsapp-floating {
+    position: fixed !important;
+    right: max(12px, env(safe-area-inset-right)) !important;
+    left: auto !important;
+    bottom: calc(16px + env(safe-area-inset-bottom)) !important;
+    width: 56px !important;
+    min-width: 56px !important;
+    height: 56px !important;
+    padding: 0 !important;
+    gap: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  #whatsapp-btn .wa-label,
+  #tfs-whatsapp-btn .tfs-wa-label,
+  .tfs-whatsapp-floating span {
+    display: none !important;
+  }
+
+  #vapi-widget,
+  .vapi-float,
+  .float-ai {
+    position: fixed !important;
+    left: max(12px, env(safe-area-inset-left)) !important;
+    right: auto !important;
+    bottom: calc(16px + env(safe-area-inset-bottom)) !important;
+    max-width: calc(100vw - 92px) !important;
+  }
+
+  body.discount-banner-visible #whatsapp-btn,
+  body.discount-banner-visible #tfs-whatsapp-btn,
+  body.discount-banner-visible .tfs-whatsapp-floating,
+  body.discount-banner-visible #vapi-widget,
+  body.discount-banner-visible .vapi-float,
+  body.discount-banner-visible .float-ai {
+    bottom: calc(154px + env(safe-area-inset-bottom)) !important;
+  }
+}
+
+/* Final mobile/tablet source-of-truth override.
+   This intentionally sits last so the homepage header, banners, and floating buttons
+   win over older page-level package/system rules. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+body {
+  position: relative;
+}
+
+img,
+video,
+canvas,
+svg,
+iframe {
+  max-width: 100%;
+}
+
+#nav,
+#nav.scrolled,
+#nav.nav-hidden,
+nav#nav,
+body > nav#nav,
+#tfs-nav,
+#tfs-nav.tfs-scrolled,
+#tfs-nav.tfs-nav-hidden,
+.site-nav,
+.site-nav.scrolled,
+.site-nav.nav-hidden {
+  background: #fff !important;
+  background-color: #fff !important;
+  opacity: 1 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.mobile-sticky-cta,
+.tfs-mobile-sticky-cta,
+.sticky-demo-bar,
+.sticky-demo-cta,
+.bottom-cta-bar,
+.fixed-demo-bar,
+.tfs-bottom-cta,
+.mobile-bottom-cta,
+.fixed-bottom-cta,
+.package-bottom-offer,
+.system-bottom-offer,
+.starter-bottom-offer,
+.growth-bottom-offer,
+.premium-bottom-offer,
+[data-bottom-cta],
+[data-mobile-sticky-cta] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.top,
+.urgency-bar,
+.top-urgency-bar,
+.tfs-urgency-bar,
+.funnel-urgency-bar {
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  text-align: center !important;
+}
+
+.urgency-inner,
+.top-urgency-inner,
+.tfs-urgency-inner,
+.funnel-urgency-inner {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  padding-inline: 12px !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+.discount-banner {
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  z-index: 1500 !important;
+}
+
+.discount-banner-inner {
+  width: min(100%, 1180px) !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+#whatsapp-btn,
+#tfs-whatsapp-btn,
+.tfs-whatsapp-floating {
+  position: fixed !important;
+  right: max(16px, env(safe-area-inset-right)) !important;
+  left: auto !important;
+  bottom: calc(18px + env(safe-area-inset-bottom)) !important;
+  z-index: 9997 !important;
+  max-width: calc(100vw - 32px) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+}
+
+#whatsapp-btn svg,
+#tfs-whatsapp-btn svg,
+.tfs-whatsapp-floating svg {
+  margin: 0 !important;
+  flex: 0 0 auto !important;
+}
+
+#vapi-widget,
+.vapi-float,
+.float-ai {
+  position: fixed !important;
+  left: max(16px, env(safe-area-inset-left)) !important;
+  right: auto !important;
+  bottom: calc(18px + env(safe-area-inset-bottom)) !important;
+  z-index: 9996 !important;
+  max-width: min(180px, calc(100vw - 110px)) !important;
+}
+
+body.discount-banner-visible #whatsapp-btn,
+body.discount-banner-visible #tfs-whatsapp-btn,
+body.discount-banner-visible .tfs-whatsapp-floating {
+  bottom: calc(132px + env(safe-area-inset-bottom)) !important;
+}
+
+body.discount-banner-visible #vapi-widget,
+body.discount-banner-visible .vapi-float,
+body.discount-banner-visible .float-ai {
+  bottom: calc(132px + env(safe-area-inset-bottom)) !important;
+}
+
+@media (max-width: 1100px) {
+  #nav,
+  #nav.scrolled,
+  #nav.nav-hidden,
+  nav#nav,
+  body > nav#nav,
+  #tfs-nav,
+  #tfs-nav.tfs-scrolled,
+  #tfs-nav.tfs-nav-hidden,
+  .site-nav,
+  .site-nav.scrolled,
+  .site-nav.nav-hidden {
+    position: fixed !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    transform: none !important;
+    background: #fff !important;
+    background-color: #fff !important;
+    border-bottom: 1px solid rgba(5, 5, 5, 0.18) !important;
+    z-index: 1450 !important;
+  }
+
+  #nav .nav-inner,
+  body > nav#nav .nav-inner,
+  #tfs-nav .tfs-nav-inner,
+  .site-nav-inner {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 44px minmax(0, 1fr) 44px !important;
+    align-items: center !important;
+    justify-items: center !important;
+    gap: 0 !important;
+    padding-inline: 16px !important;
+  }
+
+  #nav .nav-inner::before,
+  body > nav#nav .nav-inner::before,
+  #tfs-nav .tfs-nav-inner::before,
+  .site-nav-inner::before {
+    content: "" !important;
+    grid-column: 1 !important;
+    width: 44px !important;
+    height: 44px !important;
+    display: block !important;
+  }
+
+  #nav .nav-logo,
+  body > nav#nav .nav-logo,
+  #tfs-nav .tfs-nav-logo,
+  .site-nav-logo,
+  .nav-logo {
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    grid-column: 2 !important;
+    justify-self: center !important;
+    align-self: center !important;
+    width: auto !important;
+    max-width: min(250px, 58vw) !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+
+  #nav .nav-logo img,
+  body > nav#nav .nav-logo img,
+  #tfs-nav .tfs-nav-logo img,
+  .site-nav-logo img,
+  .nav-logo img {
+    display: block !important;
+    margin: 0 auto !important;
+    max-width: min(230px, 56vw) !important;
+    height: auto !important;
+    max-height: 82px !important;
+    object-fit: contain !important;
+  }
+
+  #nav .nav-hamburger,
+  body > nav#nav .nav-hamburger,
+  #tfs-nav .tfs-nav-hamburger,
+  .site-nav-hamburger,
+  .nav-hamburger {
+    display: flex !important;
+    position: static !important;
+    grid-column: 3 !important;
+    justify-self: end !important;
+    align-self: center !important;
+    transform: none !important;
+    width: 44px !important;
+    min-width: 44px !important;
+    height: 44px !important;
+  }
+
+  #nav .nav-links,
+  body > nav#nav .nav-links,
+  #nav .nav-actions,
+  body > nav#nav .nav-actions,
+  #tfs-nav .tfs-nav-links,
+  #tfs-nav .tfs-nav-actions,
+  body > nav .tfs-nav-links,
+  body > nav .tfs-nav-actions,
+  .site-nav-links,
+  .site-nav-actions {
+    display: none !important;
+  }
+
+  #nav .nav-mobile,
+  #tfs-nav .tfs-nav-mobile,
+  .site-nav-mobile {
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    background: #fff !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .urgency-inner,
+  .top-urgency-inner,
+  .tfs-urgency-inner,
+  .funnel-urgency-inner {
+    min-height: 58px !important;
+    flex-wrap: wrap !important;
+    gap: 6px 12px !important;
+    line-height: 1.2 !important;
+  }
+
+  #nav,
+  #nav.scrolled,
+  #nav.nav-hidden,
+  nav#nav,
+  body > nav#nav,
+  #tfs-nav,
+  #tfs-nav.tfs-scrolled,
+  #tfs-nav.tfs-nav-hidden,
+  .site-nav,
+  .site-nav.scrolled,
+  .site-nav.nav-hidden {
+    top: 58px !important;
+  }
+
+  .discount-banner-inner {
+    min-height: 124px !important;
+    padding: 12px 14px !important;
+    flex-wrap: wrap !important;
+    gap: 8px 12px !important;
+    flex-direction: column !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .urgency-inner,
+  .top-urgency-inner,
+  .tfs-urgency-inner,
+  .funnel-urgency-inner {
+    min-height: 66px !important;
+  }
+
+  #nav,
+  #nav.scrolled,
+  #nav.nav-hidden,
+  nav#nav,
+  body > nav#nav,
+  #tfs-nav,
+  #tfs-nav.tfs-scrolled,
+  #tfs-nav.tfs-nav-hidden,
+  .site-nav,
+  .site-nav.scrolled,
+  .site-nav.nav-hidden {
+    top: 66px !important;
+  }
+
+  #nav .nav-inner,
+  body > nav#nav .nav-inner,
+  #tfs-nav .tfs-nav-inner,
+  .site-nav-inner {
+    height: 86px !important;
+    padding-inline: 14px !important;
+  }
+
+  #whatsapp-btn,
+  #tfs-whatsapp-btn,
+  .tfs-whatsapp-floating {
+    right: max(12px, env(safe-area-inset-right)) !important;
+    left: auto !important;
+    bottom: calc(16px + env(safe-area-inset-bottom)) !important;
+    width: 56px !important;
+    min-width: 56px !important;
+    height: 56px !important;
+    padding: 0 !important;
+    gap: 0 !important;
+  }
+
+  #whatsapp-btn .wa-label,
+  #tfs-whatsapp-btn .tfs-wa-label,
+  .tfs-whatsapp-floating span {
+    display: none !important;
+  }
+
+  #vapi-widget,
+  .vapi-float,
+  .float-ai {
+    left: max(12px, env(safe-area-inset-left)) !important;
+    right: auto !important;
+    bottom: calc(16px + env(safe-area-inset-bottom)) !important;
+    max-width: calc(100vw - 92px) !important;
+  }
+
+  body.discount-banner-visible #whatsapp-btn,
+  body.discount-banner-visible #tfs-whatsapp-btn,
+  body.discount-banner-visible .tfs-whatsapp-floating,
+  body.discount-banner-visible #vapi-widget,
+  body.discount-banner-visible .vapi-float,
+  body.discount-banner-visible .float-ai {
+    bottom: calc(154px + env(safe-area-inset-bottom)) !important;
+  }
+}
+
+@supports not (overflow-x: clip) {
+  html,
+  body {
+    overflow-x: hidden !important;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+}
+
+main,
+section,
+footer,
+.wrap,
+.wrap-wide,
+.wrap-narrow,
+.container {
+  max-width: 100%;
+}
+
+#nav,
+#nav.scrolled,
+#tfs-nav,
+#tfs-nav.tfs-scrolled,
+.site-nav,
+.site-nav.scrolled,
+body > header,
+body > header.scrolled,
+body > nav,
+body > nav.scrolled {
+  background: #fff !important;
+  background-color: #fff !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-bottom: 1px solid rgba(10, 10, 10, 0.16) !important;
+}
+
+#nav.nav-hidden,
+#tfs-nav.tfs-nav-hidden {
+  transform: none !important;
+}
+
+.nav-mobile,
+.tfs-nav-mobile,
+.mobile-nav {
+  background: #fff !important;
+}
+
+.top,
+.urgency-bar,
+.top-urgency-bar,
+.tfs-urgency-bar,
+.funnel-urgency-bar {
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+  text-align: center !important;
+}
+
+.urgency-inner,
+.top-urgency-inner,
+.tfs-urgency-inner,
+.funnel-urgency-inner {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-height: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  gap: 6px 14px !important;
+  text-align: center !important;
+  padding: 8px 14px !important;
+}
+
+.urgency-copy,
+.top-urgency-copy,
+.tfs-urgency-copy,
+.funnel-urgency-copy {
+  min-width: 0 !important;
+  text-align: center !important;
+}
+
+.urgency-link,
+.top-urgency-cta,
+.tfs-urgency-link,
+.funnel-urgency-cta {
+  white-space: nowrap !important;
+}
+
+.mobile-sticky-cta,
+.tfs-mobile-sticky-cta,
+.sticky-demo-bar,
+.bottom-cta-bar,
+.fixed-demo-bar,
+.tfs-bottom-cta,
+.mobile-bottom-cta,
+.funnel-sticky-cta,
+.package-bottom-offer,
+.package-sticky-offer,
+.starter-bottom-offer,
+.growth-bottom-offer,
+.premium-bottom-offer,
+.system-bottom-offer,
+.sticky-package-offer,
+.fixed-bottom-cta,
+.bottom-demo-cta,
+.mobile-demo-cta {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+body,
+body.tfs-has-mobile-cta,
+body.tfs-has-shell.tfs-has-mobile-cta,
+body.has-starter-bottom-offer,
+body.has-growth-bottom-offer,
+body.has-premium-bottom-offer {
+  padding-bottom: 0 !important;
+}
+
+.discount-banner {
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  max-width: 100vw !important;
+  bottom: 0 !important;
+  overflow: hidden !important;
+  z-index: 99960 !important;
+}
+
+.discount-banner-inner {
+  width: 100% !important;
+  max-width: 1180px !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  gap: 10px 18px !important;
+  padding: 13px 16px !important;
+  text-align: center !important;
+}
+
+.discount-kicker,
+.discount-banner strong,
+.discount-countdown,
+.discount-banner a {
+  margin: 0 !important;
+  text-align: center !important;
+  white-space: normal !important;
+}
+
+.discount-countdown {
+  white-space: nowrap !important;
+  line-height: 1 !important;
+}
+
+#whatsapp-btn,
+#tfs-whatsapp-btn,
+.tfs-whatsapp-floating {
+  position: fixed !important;
+  right: max(14px, env(safe-area-inset-right)) !important;
+  bottom: calc(18px + env(safe-area-inset-bottom)) !important;
+  z-index: 99990 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  max-width: calc(100vw - 28px) !important;
+  white-space: nowrap !important;
+}
+
+#whatsapp-btn svg,
+#tfs-whatsapp-btn svg,
+.tfs-whatsapp-floating svg {
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+}
+
+#whatsapp-btn .wa-label,
+#tfs-whatsapp-btn .tfs-wa-label,
+.tfs-whatsapp-floating span {
+  margin-left: 4px !important;
+  line-height: 1 !important;
+}
+
+#vapi-widget,
+.vapi-float {
+  position: fixed !important;
+  left: max(14px, env(safe-area-inset-left)) !important;
+  bottom: calc(18px + env(safe-area-inset-bottom)) !important;
+  z-index: 99980 !important;
+  max-width: calc(100vw - 128px) !important;
+}
+
+.vapi-float vapi-widget {
+  max-width: calc(100vw - 128px) !important;
+}
+
+body.discount-banner-visible #whatsapp-btn,
+body.discount-banner-visible #tfs-whatsapp-btn,
+body.discount-banner-visible .tfs-whatsapp-floating {
+  bottom: calc(124px + env(safe-area-inset-bottom)) !important;
+}
+
+body.discount-banner-visible #vapi-widget,
+body.discount-banner-visible .vapi-float {
+  bottom: calc(124px + env(safe-area-inset-bottom)) !important;
+}
+
+body.has-starter-bottom-offer #whatsapp-btn,
+body.has-growth-bottom-offer #whatsapp-btn,
+body.has-premium-bottom-offer #whatsapp-btn,
+body.has-starter-bottom-offer #tfs-whatsapp-btn,
+body.has-growth-bottom-offer #tfs-whatsapp-btn,
+body.has-premium-bottom-offer #tfs-whatsapp-btn,
+body.has-starter-bottom-offer .tfs-whatsapp-floating,
+body.has-growth-bottom-offer .tfs-whatsapp-floating,
+body.has-premium-bottom-offer .tfs-whatsapp-floating {
+  bottom: calc(18px + env(safe-area-inset-bottom)) !important;
+}
+
+body.has-starter-bottom-offer #vapi-widget,
+body.has-growth-bottom-offer #vapi-widget,
+body.has-premium-bottom-offer #vapi-widget,
+body.has-starter-bottom-offer .vapi-float,
+body.has-growth-bottom-offer .vapi-float,
+body.has-premium-bottom-offer .vapi-float,
+body.has-starter-bottom-offer .float-ai,
+body.has-growth-bottom-offer .float-ai,
+body.has-premium-bottom-offer .float-ai {
+  bottom: calc(18px + env(safe-area-inset-bottom)) !important;
+}
+
+body.discount-banner-visible.has-starter-bottom-offer #whatsapp-btn,
+body.discount-banner-visible.has-growth-bottom-offer #whatsapp-btn,
+body.discount-banner-visible.has-premium-bottom-offer #whatsapp-btn,
+body.discount-banner-visible.has-starter-bottom-offer #tfs-whatsapp-btn,
+body.discount-banner-visible.has-growth-bottom-offer #tfs-whatsapp-btn,
+body.discount-banner-visible.has-premium-bottom-offer #tfs-whatsapp-btn,
+body.discount-banner-visible.has-starter-bottom-offer .tfs-whatsapp-floating,
+body.discount-banner-visible.has-growth-bottom-offer .tfs-whatsapp-floating,
+body.discount-banner-visible.has-premium-bottom-offer .tfs-whatsapp-floating,
+body.discount-banner-visible.has-starter-bottom-offer #vapi-widget,
+body.discount-banner-visible.has-growth-bottom-offer #vapi-widget,
+body.discount-banner-visible.has-premium-bottom-offer #vapi-widget,
+body.discount-banner-visible.has-starter-bottom-offer .vapi-float,
+body.discount-banner-visible.has-growth-bottom-offer .vapi-float,
+body.discount-banner-visible.has-premium-bottom-offer .vapi-float,
+body.discount-banner-visible.has-starter-bottom-offer .float-ai,
+body.discount-banner-visible.has-growth-bottom-offer .float-ai,
+body.discount-banner-visible.has-premium-bottom-offer .float-ai {
+  bottom: calc(124px + env(safe-area-inset-bottom)) !important;
+}
+
+.package-demo::after,
+.demo-link::after,
+.package-card a[href*="calendly"]::after,
+.package-card a[href="#packages"]::after {
+  content: none !important;
+}
+
+.carousel,
+.track,
+.product-track,
+.proof-track,
+.testimonials-track,
+.video-track,
+[data-carousel],
+[data-track] {
+  max-width: 100% !important;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.carousel-wrap,
+.track-wrap,
+.product-track-wrap,
+.proof-track-wrap,
+.video-track-wrap {
+  max-width: 100vw !important;
+  overflow: hidden !important;
+}
+
+@media (max-width: 1100px) {
+  #nav .nav-inner,
+  #tfs-nav .tfs-nav-inner,
+  .site-nav-inner,
+  body > nav .nav-inner,
+  body > nav .tfs-nav-inner,
+  body > nav .site-nav-inner {
+    display: grid !important;
+    grid-template-columns: 44px minmax(0, 1fr) 44px !important;
+    align-items: center !important;
+    height: 96px !important;
+    padding: 0 18px !important;
+    gap: 0 !important;
+    max-width: 100% !important;
+  }
+
+  #nav .nav-logo,
+  #tfs-nav .tfs-nav-logo,
+  .site-brand,
+  body > nav .logo,
+  body > nav .nav-logo,
+  body > nav .tfs-nav-logo,
+  body > nav .site-brand {
+    grid-column: 2 !important;
+    justify-self: center !important;
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  #nav .nav-logo img,
+  #tfs-nav .tfs-nav-logo img,
+  .site-brand img,
+  body > nav .logo img,
+  body > nav .nav-logo img,
+  body > nav .tfs-nav-logo img,
+  body > nav .site-brand img {
+    height: 98px !important;
+    width: auto !important;
+    max-width: min(240px, 58vw) !important;
+    margin: 0 auto !important;
+    padding: 10px 0 !important;
+    object-fit: contain !important;
+  }
+
+  #nav .nav-hamburger,
+  #tfs-nav .tfs-nav-hamburger,
+  body > nav .hamburger,
+  body > nav .nav-hamburger,
+  body > nav .tfs-nav-hamburger,
+  body > nav .menu-toggle {
+    grid-column: 3 !important;
+    justify-self: end !important;
+    position: static !important;
+    right: auto !important;
+    top: auto !important;
+    transform: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+    margin: 0 !important;
+  }
+
+  #nav .nav-links,
+  #nav .nav-actions,
+  #tfs-nav .tfs-nav-links,
+  #tfs-nav .tfs-nav-actions,
+  .site-nav-links,
+  body > nav .links,
+  body > nav .actions,
+  body > nav .nav-links,
+  body > nav .nav-actions,
+  body > nav .tfs-nav-links,
+  body > nav .tfs-nav-actions {
+    display: none !important;
+  }
+
+  .nav-mobile,
+  .tfs-nav-mobile,
+  .mobile-nav {
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .urgency-inner,
+  .top-urgency-inner,
+  .tfs-urgency-inner,
+  .funnel-urgency-inner {
+    min-height: 64px !important;
+    gap: 6px 12px !important;
+  }
+
+  .urgency-copy,
+  .top-urgency-copy,
+  .tfs-urgency-copy,
+  .funnel-urgency-copy {
+    flex: 1 1 100% !important;
+    font-size: 12px !important;
+    line-height: 1.15 !important;
+  }
+
+  .urgency-link,
+  .top-urgency-cta,
+  .tfs-urgency-link,
+  .funnel-urgency-cta {
+    font-size: 11px !important;
+    margin-inline: auto !important;
+  }
+
+  .discount-banner-inner {
+    flex-direction: column !important;
+    gap: 8px !important;
+    padding: 12px 14px !important;
+  }
+
+  .discount-banner strong {
+    font-size: 13px !important;
+    line-height: 1.15 !important;
+  }
+
+  .discount-countdown {
+    font-size: 18px !important;
+    min-width: 96px !important;
+    padding: 7px 10px !important;
+  }
+
+  body.discount-banner-visible #whatsapp-btn,
+  body.discount-banner-visible #tfs-whatsapp-btn,
+  body.discount-banner-visible .tfs-whatsapp-floating,
+  body.discount-banner-visible #vapi-widget,
+  body.discount-banner-visible .vapi-float,
+  body.discount-banner-visible.has-starter-bottom-offer #whatsapp-btn,
+  body.discount-banner-visible.has-growth-bottom-offer #whatsapp-btn,
+  body.discount-banner-visible.has-premium-bottom-offer #whatsapp-btn,
+  body.discount-banner-visible.has-starter-bottom-offer #tfs-whatsapp-btn,
+  body.discount-banner-visible.has-growth-bottom-offer #tfs-whatsapp-btn,
+  body.discount-banner-visible.has-premium-bottom-offer #tfs-whatsapp-btn,
+  body.discount-banner-visible.has-starter-bottom-offer .tfs-whatsapp-floating,
+  body.discount-banner-visible.has-growth-bottom-offer .tfs-whatsapp-floating,
+  body.discount-banner-visible.has-premium-bottom-offer .tfs-whatsapp-floating,
+  body.discount-banner-visible.has-starter-bottom-offer #vapi-widget,
+  body.discount-banner-visible.has-growth-bottom-offer #vapi-widget,
+  body.discount-banner-visible.has-premium-bottom-offer #vapi-widget,
+  body.discount-banner-visible.has-starter-bottom-offer .vapi-float,
+  body.discount-banner-visible.has-growth-bottom-offer .vapi-float,
+  body.discount-banner-visible.has-premium-bottom-offer .vapi-float,
+  body.discount-banner-visible.has-starter-bottom-offer .float-ai,
+  body.discount-banner-visible.has-growth-bottom-offer .float-ai,
+  body.discount-banner-visible.has-premium-bottom-offer .float-ai {
+    bottom: calc(156px + env(safe-area-inset-bottom)) !important;
+  }
+}
+
+@media (max-width: 520px) {
+  #whatsapp-btn,
+  #tfs-whatsapp-btn,
+  .tfs-whatsapp-floating {
+    min-width: 54px !important;
+    width: 54px !important;
+    height: 54px !important;
+    padding: 0 !important;
+    gap: 0 !important;
+  }
+
+  #whatsapp-btn .wa-label,
+  #tfs-whatsapp-btn .tfs-wa-label,
+  .tfs-whatsapp-floating span {
+    display: none !important;
+  }
+
+  #vapi-widget,
+  .vapi-float {
+    max-width: calc(100vw - 88px) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  #nav .nav-inner,
+  #tfs-nav .tfs-nav-inner,
+  .site-nav-inner,
+  body > nav .nav-inner,
+  body > nav .tfs-nav-inner,
+  body > nav .site-nav-inner {
+    height: 82px !important;
+    padding: 0 16px !important;
+  }
+
+  #nav .nav-logo img,
+  #tfs-nav .tfs-nav-logo img,
+  .site-brand img,
+  body > nav .logo img,
+  body > nav .nav-logo img,
+  body > nav .tfs-nav-logo img,
+  body > nav .site-brand img {
+    height: 84px !important;
+    max-width: min(220px, 56vw) !important;
+    padding: 8px 0 !important;
+  }
+
+  .nav-mobile,
+  .tfs-nav-mobile {
+    max-height: calc(100vh - 82px) !important;
+    padding: 14px 18px 24px !important;
+  }
+}
+
+/* Final shared tablet/mobile hardening pass. This file is intentionally loaded
+   last so subpages inherit the homepage's header, banner, and floating controls. */
+#nav,
+#nav.scrolled,
+nav#nav,
+body > nav#nav {
+  background: #fff !important;
+  background-color: #fff !important;
+  opacity: 1 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.nav-mobile,
+.nav-mobile.open,
+.nav-mobile.active,
+.tfs-nav-mobile,
+.tfs-nav-mobile.open,
+.mobile-nav,
+.mobile-nav.open {
+  background: #fff !important;
+  background-color: #fff !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+}
+
+#whatsapp-btn,
+#tfs-whatsapp-btn,
+.tfs-whatsapp-floating {
+  box-sizing: border-box !important;
+  flex-direction: row !important;
+}
+
+#whatsapp-btn svg,
+#whatsapp-btn img,
+#tfs-whatsapp-btn svg,
+#tfs-whatsapp-btn img,
+.tfs-whatsapp-floating svg,
+.tfs-whatsapp-floating img {
+  display: block !important;
+  width: 22px !important;
+  height: 22px !important;
+  min-width: 22px !important;
+  margin: 0 !important;
+}
+
+#vapi-widget,
+.vapi-float,
+.float-ai {
+  box-sizing: border-box !important;
+}
+
+@media (max-width: 1100px) {
+  #nav,
+  nav#nav,
+  body > nav#nav {
+    background: #fff !important;
+    background-color: #fff !important;
+    border-bottom: 1px solid rgba(10, 10, 10, 0.18) !important;
+  }
+
+  #nav .nav-inner::before,
+  body > nav#nav .nav-inner::before {
+    content: "" !important;
+    grid-column: 1 !important;
+    width: 44px !important;
+    height: 44px !important;
+    display: block !important;
+  }
+
+  #nav .nav-logo,
+  body > nav#nav .nav-logo {
+    grid-column: 2 !important;
+    width: auto !important;
+    max-width: min(260px, 58vw) !important;
+    text-align: center !important;
+  }
+
+  #nav .nav-hamburger,
+  body > nav#nav .nav-hamburger {
+    grid-column: 3 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .top,
+  .urgency-bar,
+  .top-urgency-bar,
+  .tfs-urgency-bar,
+  .funnel-urgency-bar {
+    min-height: 58px !important;
+  }
+
+  #nav,
+  nav#nav,
+  body > nav#nav {
+    top: 58px !important;
+  }
+
+  .discount-banner {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .discount-banner-inner {
+    max-width: 100% !important;
+    min-height: 126px !important;
+  }
+
+  .discount-kicker,
+  .discount-banner strong,
+  .discount-banner a {
+    width: 100% !important;
+  }
+
+  #whatsapp-btn,
+  #tfs-whatsapp-btn,
+  .tfs-whatsapp-floating {
+    right: max(12px, env(safe-area-inset-right)) !important;
+  }
+
+  #vapi-widget,
+  .vapi-float,
+  .float-ai {
+    left: max(12px, env(safe-area-inset-left)) !important;
+  }
+
+  body.discount-banner-visible #whatsapp-btn,
+  body.discount-banner-visible #tfs-whatsapp-btn,
+  body.discount-banner-visible .tfs-whatsapp-floating,
+  body.discount-banner-visible #vapi-widget,
+  body.discount-banner-visible .vapi-float,
+  body.discount-banner-visible .float-ai {
+    bottom: calc(148px + env(safe-area-inset-bottom)) !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .urgency-inner,
+  .top-urgency-inner,
+  .tfs-urgency-inner,
+  .funnel-urgency-inner {
+    min-height: 66px !important;
+    padding: 8px 12px !important;
+  }
+
+  #nav,
+  nav#nav,
+  body > nav#nav {
+    top: 66px !important;
+  }
+
+  #nav .nav-inner,
+  body > nav#nav .nav-inner {
+    height: 86px !important;
+    grid-template-columns: 44px minmax(0, 1fr) 44px !important;
+    padding: 0 14px !important;
+  }
+
+  #nav .nav-logo img,
+  body > nav#nav .nav-logo img {
+    height: 76px !important;
+    max-width: min(210px, 54vw) !important;
+    padding: 7px 0 !important;
+  }
+
+  .nav-mobile,
+  .tfs-nav-mobile,
+  .mobile-nav {
+    top: 152px !important;
+    max-height: calc(100vh - 152px) !important;
+  }
+
+  .discount-banner-inner {
+    min-height: 132px !important;
+    padding: 12px 10px !important;
+  }
+
+  #whatsapp-btn,
+  #tfs-whatsapp-btn,
+  .tfs-whatsapp-floating {
+    width: 56px !important;
+    min-width: 56px !important;
+    height: 56px !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  #whatsapp-btn .wa-label,
+  #tfs-whatsapp-btn .tfs-wa-label,
+  .tfs-whatsapp-floating span {
+    display: none !important;
+  }
+
+  #vapi-widget,
+  .vapi-float,
+  .float-ai {
+    max-width: calc(100vw - 92px) !important;
+  }
+
+  body.discount-banner-visible #whatsapp-btn,
+  body.discount-banner-visible #tfs-whatsapp-btn,
+  body.discount-banner-visible .tfs-whatsapp-floating,
+  body.discount-banner-visible #vapi-widget,
+  body.discount-banner-visible .vapi-float,
+  body.discount-banner-visible .float-ai {
+    bottom: calc(154px + env(safe-area-inset-bottom)) !important;
+  }
+}
+
+/* Cross-page mobile authority pass: landing page is the source of truth. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+}
+
+#nav,
+#nav.scrolled,
+#nav.nav-hidden,
+nav#nav,
+body > nav#nav,
+#tfs-nav,
+#tfs-nav.tfs-scrolled,
+#tfs-nav.tfs-nav-hidden,
+.site-nav {
+  background: #fff !important;
+  background-color: #fff !important;
+  opacity: 1 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.mobile-sticky-cta,
+.tfs-mobile-sticky-cta,
+.sticky-demo-bar,
+.sticky-demo-cta,
+.bottom-cta-bar,
+.fixed-demo-bar,
+.fixed-bottom-cta,
+.mobile-bottom-cta,
+.tfs-bottom-cta,
+.starter-bottom-offer,
+[data-bottom-cta],
+[data-mobile-sticky-cta] {
+  display: none !important;
+}
+
+.top,
+.urgency-bar,
+.top-urgency-bar,
+.tfs-urgency-bar,
+.funnel-urgency-bar {
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  text-align: center !important;
+}
+
+.urgency-inner,
+.top-urgency-inner,
+.tfs-urgency-inner,
+.funnel-urgency-inner {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-inline: auto !important;
+  padding-inline: 12px !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+.discount-banner {
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  z-index: 1500 !important;
+}
+
+.discount-banner-inner {
+  width: min(100%, 1180px) !important;
+  max-width: 100% !important;
+  margin-inline: auto !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+@media (max-width: 1100px) {
+  #nav,
+  #nav.scrolled,
+  #nav.nav-hidden,
+  nav#nav,
+  body > nav#nav,
+  #tfs-nav,
+  #tfs-nav.tfs-scrolled,
+  #tfs-nav.tfs-nav-hidden,
+  .site-nav {
+    position: fixed !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    transform: none !important;
+    background: #fff !important;
+    background-color: #fff !important;
+    border-bottom: 1px solid rgba(5, 5, 5, 0.18) !important;
+    z-index: 1450 !important;
+  }
+
+  #nav .nav-inner,
+  body > nav#nav .nav-inner,
+  #tfs-nav .tfs-nav-inner,
+  .site-nav-inner {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 44px minmax(0, 1fr) 44px !important;
+    align-items: center !important;
+    justify-items: center !important;
+    gap: 0 !important;
+    padding-inline: 16px !important;
+  }
+
+  #nav .nav-inner::before,
+  body > nav#nav .nav-inner::before,
+  #tfs-nav .tfs-nav-inner::before,
+  .site-nav-inner::before {
+    content: "" !important;
+    grid-column: 1 !important;
+    width: 44px !important;
+    height: 44px !important;
+    display: block !important;
+  }
+
+  #nav .nav-logo,
+  body > nav#nav .nav-logo,
+  #tfs-nav .tfs-nav-logo,
+  .site-nav-logo,
+  .nav-logo {
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    grid-column: 2 !important;
+    justify-self: center !important;
+    align-self: center !important;
+    width: auto !important;
+    max-width: min(250px, 58vw) !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+
+  #nav .nav-logo img,
+  body > nav#nav .nav-logo img,
+  #tfs-nav .tfs-nav-logo img,
+  .site-nav-logo img,
+  .nav-logo img {
+    display: block !important;
+    margin: 0 auto !important;
+    max-width: min(230px, 56vw) !important;
+    height: auto !important;
+    max-height: 82px !important;
+    object-fit: contain !important;
+  }
+
+  #nav .nav-hamburger,
+  body > nav#nav .nav-hamburger,
+  #tfs-nav .tfs-nav-hamburger,
+  .site-nav-hamburger,
+  .nav-hamburger {
+    display: flex !important;
+    position: static !important;
+    grid-column: 3 !important;
+    justify-self: end !important;
+    align-self: center !important;
+    transform: none !important;
+    width: 44px !important;
+    min-width: 44px !important;
+    height: 44px !important;
+  }
+
+  #nav .nav-links,
+  body > nav#nav .nav-links,
+  #nav .nav-actions,
+  body > nav#nav .nav-actions,
+  #tfs-nav .tfs-nav-links,
+  #tfs-nav .tfs-nav-actions,
+  .site-nav-links,
+  .site-nav-actions {
+    display: none !important;
+  }
+
+  #nav .nav-mobile,
+  #tfs-nav .tfs-nav-mobile,
+  .site-nav-mobile {
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    background: #fff !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .urgency-inner,
+  .top-urgency-inner,
+  .tfs-urgency-inner,
+  .funnel-urgency-inner {
+    min-height: 58px !important;
+    flex-wrap: wrap !important;
+    gap: 6px 12px !important;
+    line-height: 1.2 !important;
+  }
+
+  #nav,
+  #nav.scrolled,
+  #nav.nav-hidden,
+  nav#nav,
+  body > nav#nav,
+  #tfs-nav,
+  #tfs-nav.tfs-scrolled,
+  #tfs-nav.tfs-nav-hidden,
+  .site-nav {
+    top: 58px !important;
+  }
+
+  .discount-banner-inner {
+    min-height: 124px !important;
+    padding: 12px 14px !important;
+    flex-wrap: wrap !important;
+    flex-direction: column !important;
+    gap: 8px 12px !important;
+  }
+
+  .discount-banner-inner > *,
+  .discount-kicker,
+  .discount-banner strong,
+  .discount-banner a {
+    text-align: center !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .urgency-inner,
+  .top-urgency-inner,
+  .tfs-urgency-inner,
+  .funnel-urgency-inner {
+    min-height: 66px !important;
+  }
+
+  #nav,
+  #nav.scrolled,
+  #nav.nav-hidden,
+  nav#nav,
+  body > nav#nav,
+  #tfs-nav,
+  #tfs-nav.tfs-scrolled,
+  #tfs-nav.tfs-nav-hidden,
+  .site-nav {
+    top: 66px !important;
+  }
+
+  #nav .nav-inner,
+  body > nav#nav .nav-inner,
+  #tfs-nav .tfs-nav-inner,
+  .site-nav-inner {
+    height: 86px !important;
+    padding-inline: 14px !important;
+  }
+
+  #whatsapp-btn,
+  #tfs-whatsapp-btn,
+  .tfs-whatsapp-floating {
+    right: max(12px, env(safe-area-inset-right)) !important;
+    left: auto !important;
+    bottom: calc(16px + env(safe-area-inset-bottom)) !important;
+    width: 56px !important;
+    min-width: 56px !important;
+    height: 56px !important;
+    padding: 0 !important;
+    gap: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  #whatsapp-btn svg,
+  #tfs-whatsapp-btn svg,
+  .tfs-whatsapp-floating svg {
+    margin: 0 !important;
+    flex: 0 0 auto !important;
+  }
+
+  #whatsapp-btn .wa-label,
+  #tfs-whatsapp-btn .tfs-wa-label,
+  .tfs-whatsapp-floating span {
+    display: none !important;
+  }
+
+  #vapi-widget,
+  .vapi-float,
+  .float-ai {
+    left: max(12px, env(safe-area-inset-left)) !important;
+    right: auto !important;
+    bottom: calc(16px + env(safe-area-inset-bottom)) !important;
+    max-width: calc(100vw - 92px) !important;
+  }
+
+  body.discount-banner-visible #whatsapp-btn,
+  body.discount-banner-visible #tfs-whatsapp-btn,
+  body.discount-banner-visible .tfs-whatsapp-floating,
+  body.discount-banner-visible #vapi-widget,
+  body.discount-banner-visible .vapi-float,
+  body.discount-banner-visible .float-ai {
+    bottom: calc(154px + env(safe-area-inset-bottom)) !important;
+  }
+}
+
+/* Final shared mobile/tablet guard.
+   This intentionally sits at the end so subpages inherit the homepage behavior. */
+html,
+body {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+video,
+canvas,
+svg,
+iframe {
+  max-width: 100%;
+}
+
+main,
+section,
+header,
+footer,
+nav,
+.page,
+.site-wrap,
+.tfs-page,
+.tfs-shell,
+.wrap,
+.container,
+.section-inner {
+  max-width: 100%;
+}
+
+.mobile-sticky-cta,
+.tfs-mobile-sticky-cta,
+.sticky-demo-bar,
+.sticky-bottom-demo,
+.bottom-cta-bar,
+.bottom-demo-bar,
+.fixed-bottom-cta,
+.fixed-demo-bar,
+.tfs-bottom-cta,
+.mobile-bottom-cta {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+@media (max-width: 1100px) {
+  #nav,
+  #nav.scrolled,
+  nav#nav,
+  body > nav#nav,
+  #tfs-nav,
+  .site-nav,
+  .site-header,
+  .tfs-site-header,
+  [data-site-header] {
+    background: #fff !important;
+    background-color: #fff !important;
+    background-image: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    opacity: 1 !important;
+    isolation: isolate !important;
+  }
+
+  #nav.nav-hidden,
+  nav#nav.nav-hidden,
+  #tfs-nav.nav-hidden,
+  .site-nav.nav-hidden {
+    transform: none !important;
+  }
+
+  .hero,
+  .system-hero,
+  .academy-hero,
+  .funnel-hero,
+  .package-hero {
+    overflow: hidden !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .top,
+  .urgency-bar,
+  .top-urgency-bar,
+  .tfs-urgency-bar,
+  .funnel-urgency-bar {
+    overflow: hidden !important;
+  }
+
+  .top a,
+  .urgency-bar a,
+  .top-urgency-bar a,
+  .tfs-urgency-bar a,
+  .funnel-urgency-bar a {
+    white-space: normal !important;
+  }
+
+  .discount-banner,
+  .discount-bar,
+  .tfs-discount-bar {
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+}
+
+@media (max-width: 560px) {
+  #whatsapp-btn,
+  #tfs-whatsapp-btn,
+  .tfs-whatsapp-floating {
+    right: max(12px, env(safe-area-inset-right)) !important;
+    bottom: max(18px, env(safe-area-inset-bottom)) !important;
+    width: 56px !important;
+    min-width: 56px !important;
+    max-width: 56px !important;
+    height: 56px !important;
+    min-height: 56px !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0 !important;
+    overflow: hidden !important;
+  }
+
+  #whatsapp-btn svg,
+  #whatsapp-btn img,
+  #tfs-whatsapp-btn svg,
+  #tfs-whatsapp-btn img,
+  .tfs-whatsapp-floating svg,
+  .tfs-whatsapp-floating img {
+    width: 24px !important;
+    height: 24px !important;
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+  }
+
+  #whatsapp-btn .wa-label,
+  #tfs-whatsapp-btn .tfs-wa-label,
+  .tfs-whatsapp-floating span {
+    display: none !important;
+  }
+
+  #vapi-widget,
+  .vapi-float,
+  .float-ai {
+    left: max(12px, env(safe-area-inset-left)) !important;
+    right: auto !important;
+    bottom: max(18px, env(safe-area-inset-bottom)) !important;
+    max-width: calc(100vw - 92px) !important;
+  }
+
+  body.discount-banner-visible #whatsapp-btn,
+  body.discount-banner-visible #tfs-whatsapp-btn,
+  body.discount-banner-visible .tfs-whatsapp-floating,
+  body.discount-banner-visible #vapi-widget,
+  body.discount-banner-visible .vapi-float,
+  body.discount-banner-visible .float-ai {
+    bottom: calc(154px + env(safe-area-inset-bottom)) !important;
+  }
+}
+
+/* Final shared mobile guard: keep every live page locked to the viewport and
+   make the homepage header/floating-button behavior win on subpages too. */
+html,
+body {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  overflow-x: clip !important;
+}
+
+@supports not (overflow-x: clip) {
+  html,
+  body {
+    overflow-x: hidden !important;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  position: relative !important;
+}
+
+img,
+video,
+canvas,
+iframe,
+svg {
+  max-width: 100% !important;
+}
+
+#nav,
+#nav.scrolled,
+nav#nav,
+body > nav#nav,
+#tfs-nav,
+.site-nav,
+.site-header,
+.tfs-site-header,
+header.site-header,
+[data-site-header] {
+  background: #fff !important;
+  background-color: #fff !important;
+  opacity: 1 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.tfs-mobile-sticky-cta,
+.mobile-sticky-cta,
+.sticky-demo-bar,
+.bottom-cta-bar,
+.fixed-demo-bar,
+.tfs-bottom-cta,
+.mobile-bottom-cta,
+.funnel-sticky-cta,
+.package-bottom-offer,
+.package-sticky-offer,
+.starter-bottom-offer,
+.growth-bottom-offer,
+.premium-bottom-offer,
+.system-bottom-offer,
+.sticky-package-offer,
+.fixed-bottom-cta,
+.bottom-demo-cta,
+.mobile-demo-cta {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  max-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  transform: none !important;
+}
+
+.package-demo::after,
+.package-demo:after,
+.demo-link::after,
+.demo-link:after,
+a[data-en="Prefer to see a demo first?"]::after,
+a[data-en="Prefer to see a demo first?"]:after,
+a[data-es="¿Prefiere ver una demo primero?"]::after,
+a[data-es="¿Prefiere ver una demo primero?"]:after {
+  content: none !important;
+  display: none !important;
+}
+
+#whatsapp-btn,
+#tfs-whatsapp-btn,
+.tfs-whatsapp-floating {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  max-width: calc(100vw - 28px) !important;
+  overflow: hidden !important;
+}
+
+#whatsapp-btn svg,
+#tfs-whatsapp-btn svg,
+.tfs-whatsapp-floating svg {
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+}
+
+body.tfs-has-checkout-bar #whatsapp-btn,
+body.tfs-has-checkout-bar #tfs-whatsapp-btn,
+body.tfs-has-checkout-bar .tfs-whatsapp-floating {
+  bottom: calc(18px + env(safe-area-inset-bottom)) !important;
+}
+
+body.discount-banner-visible #whatsapp-btn,
+body.discount-banner-visible #tfs-whatsapp-btn,
+body.discount-banner-visible .tfs-whatsapp-floating {
+  bottom: calc(136px + env(safe-area-inset-bottom)) !important;
+}
+
+body.discount-banner-visible #vapi-widget,
+body.discount-banner-visible .vapi-float,
+body.discount-banner-visible .float-ai {
+  bottom: calc(136px + env(safe-area-inset-bottom)) !important;
+}
+
+.discount-banner,
+.discount-banner * {
+  max-width: 100% !important;
+}
+
+.discount-banner-inner,
+.urgency-inner,
+.top-urgency-inner,
+.tfs-urgency-inner,
+.funnel-urgency-inner {
+  margin-inline: auto !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+@media (max-width: 1100px) {
+  #nav .nav-inner,
+  body > nav#nav .nav-inner,
+  #tfs-nav .tfs-nav-inner,
+  .site-nav-inner {
+    grid-template-columns: 44px minmax(0, 1fr) 44px !important;
+    overflow: hidden !important;
+  }
+
+  #nav .nav-logo,
+  body > nav#nav .nav-logo,
+  #tfs-nav .tfs-nav-logo,
+  .site-nav-logo,
+  .nav-logo {
+    grid-column: 2 !important;
+    justify-self: center !important;
+    margin-inline: auto !important;
+    max-width: min(260px, 58vw) !important;
+  }
+
+  #nav .nav-hamburger,
+  body > nav#nav .nav-hamburger,
+  #tfs-nav .tfs-nav-hamburger,
+  .site-nav-hamburger,
+  .nav-hamburger {
+    grid-column: 3 !important;
+    justify-self: end !important;
+  }
+}
+
+@media (max-width: 560px) {
+  #whatsapp-btn,
+  #tfs-whatsapp-btn,
+  .tfs-whatsapp-floating {
+    right: max(12px, env(safe-area-inset-right)) !important;
+    width: 56px !important;
+    min-width: 56px !important;
+    height: 56px !important;
+    padding: 0 !important;
+    gap: 0 !important;
+  }
+
+  #whatsapp-btn span,
+  #whatsapp-btn .wa-label,
+  #tfs-whatsapp-btn span,
+  #tfs-whatsapp-btn .tfs-wa-label,
+  .tfs-whatsapp-floating span {
+    display: none !important;
+  }
+
+  #vapi-widget,
+  .vapi-float,
+  .float-ai {
+    left: max(12px, env(safe-area-inset-left)) !important;
+    max-width: calc(100vw - 92px) !important;
+  }
+}
+
+/* Final cross-page mobile/tablet consistency layer.
+   This keeps the shared shell from adding stray fixed CTAs or side-scroll on subpages. */
+html,
+body {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: clip !important;
+}
+
+@supports not (overflow: clip) {
+  html,
+  body {
+    overflow-x: hidden !important;
+  }
+}
+
+body {
+  position: relative !important;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box !important;
+}
+
+img,
+video,
+canvas,
+iframe,
+svg {
+  max-width: 100% !important;
+}
+
+main,
+section,
+header,
+footer,
+.wrap,
+.wrap-wide,
+.container {
+  max-width: 100% !important;
+}
+
+#nav,
+#nav.scrolled,
+nav#nav,
+body > nav#nav,
+#tfs-nav,
+.site-nav {
+  background: #fff !important;
+  background-color: #fff !important;
+  opacity: 1 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.mobile-sticky-cta,
+.tfs-mobile-sticky-cta,
+.sticky-demo-bar,
+.bottom-cta-bar,
+.fixed-demo-bar,
+.tfs-bottom-cta,
+.mobile-bottom-cta,
+.funnel-sticky-cta,
+.package-bottom-offer,
+.package-sticky-offer,
+.starter-bottom-offer,
+.growth-bottom-offer,
+.premium-bottom-offer,
+.system-bottom-offer,
+.sticky-package-offer,
+.fixed-bottom-cta,
+.bottom-demo-cta,
+.mobile-demo-cta {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.package-demo::after,
+.demo-link::after,
+a[data-en="Prefer to see a demo first?"]::after,
+a[data-es="Prefiere ver una demo primero?"]::after {
+  content: none !important;
+  display: none !important;
+}
+
+#whatsapp-btn,
+#tfs-whatsapp-btn,
+.tfs-whatsapp-floating {
+  position: fixed !important;
+  right: max(14px, env(safe-area-inset-right)) !important;
+  bottom: calc(18px + env(safe-area-inset-bottom)) !important;
+  z-index: 9998 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  max-width: calc(100vw - 28px) !important;
+  overflow: hidden !important;
+}
+
+#whatsapp-btn svg,
+#whatsapp-btn img,
+#tfs-whatsapp-btn svg,
+#tfs-whatsapp-btn img,
+.tfs-whatsapp-floating svg,
+.tfs-whatsapp-floating img {
+  flex: 0 0 auto !important;
+}
+
+#vapi-widget,
+.vapi-float,
+.float-ai {
+  position: fixed !important;
+  left: max(14px, env(safe-area-inset-left)) !important;
+  bottom: calc(18px + env(safe-area-inset-bottom)) !important;
+  z-index: 9997 !important;
+  max-width: calc(100vw - 96px) !important;
+}
+
+body.discount-banner-visible #whatsapp-btn,
+body.discount-banner-visible #tfs-whatsapp-btn,
+body.discount-banner-visible .tfs-whatsapp-floating,
+body.discount-banner-visible #vapi-widget,
+body.discount-banner-visible .vapi-float,
+body.discount-banner-visible .float-ai {
+  bottom: calc(154px + env(safe-area-inset-bottom)) !important;
+}
+
+.top,
+.urgency-bar,
+.top-urgency-bar,
+.tfs-urgency-bar,
+.funnel-urgency-bar {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+.urgency-inner,
+.top-urgency-inner,
+.tfs-urgency-inner,
+.funnel-urgency-inner {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-inline: auto !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  gap: 10px 14px !important;
+  flex-wrap: wrap !important;
+}
+
+.discount-banner {
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+.discount-banner-inner {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  justify-content: center !important;
+  text-align: center !important;
+  flex-wrap: wrap !important;
+  gap: 8px 12px !important;
+}
+
+@media (max-width: 1100px) {
+  #nav,
+  #nav.scrolled,
+  nav#nav,
+  body > nav#nav,
+  #tfs-nav,
+  .site-nav {
+    position: fixed !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    background: #fff !important;
+    background-color: #fff !important;
+    border-bottom: 1px solid rgba(5, 5, 5, 0.18) !important;
+  }
+
+  #nav .nav-inner,
+  body > nav#nav .nav-inner,
+  #tfs-nav .tfs-nav-inner,
+  .site-nav-inner {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 44px minmax(0, 1fr) 44px !important;
+    align-items: center !important;
+    justify-items: center !important;
+    gap: 0 !important;
+    padding-inline: 14px !important;
+  }
+
+  #nav .nav-inner::before,
+  body > nav#nav .nav-inner::before,
+  #tfs-nav .tfs-nav-inner::before,
+  .site-nav-inner::before {
+    content: "" !important;
+    grid-column: 1 !important;
+    width: 44px !important;
+    height: 44px !important;
+    display: block !important;
+  }
+
+  #nav .nav-logo,
+  body > nav#nav .nav-logo,
+  #tfs-nav .tfs-nav-logo,
+  .site-nav-logo,
+  .nav-logo {
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    grid-column: 2 !important;
+    justify-self: center !important;
+    align-self: center !important;
+    width: auto !important;
+    max-width: min(260px, 58vw) !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+
+  #nav .nav-logo img,
+  body > nav#nav .nav-logo img,
+  #tfs-nav .tfs-nav-logo img,
+  .site-nav-logo img,
+  .nav-logo img {
+    display: block !important;
+    margin: 0 auto !important;
+    object-fit: contain !important;
+  }
+
+  #nav .nav-hamburger,
+  body > nav#nav .nav-hamburger,
+  #tfs-nav .tfs-nav-hamburger,
+  .site-nav-hamburger,
+  .nav-hamburger {
+    display: flex !important;
+    position: static !important;
+    grid-column: 3 !important;
+    justify-self: end !important;
+    align-self: center !important;
+    transform: none !important;
+    width: 44px !important;
+    min-width: 44px !important;
+    height: 44px !important;
+  }
+
+  #nav .nav-links,
+  body > nav#nav .nav-links,
+  #nav .nav-actions,
+  body > nav#nav .nav-actions,
+  .site-nav-links,
+  .site-nav-actions {
+    display: none !important;
+  }
+}
+
+@media (max-width: 560px) {
+  #whatsapp-btn,
+  #tfs-whatsapp-btn,
+  .tfs-whatsapp-floating {
+    right: max(12px, env(safe-area-inset-right)) !important;
+    width: 56px !important;
+    min-width: 56px !important;
+    height: 56px !important;
+    padding: 0 !important;
+    gap: 0 !important;
+  }
+
+  #whatsapp-btn .wa-label,
+  #tfs-whatsapp-btn .tfs-wa-label,
+  .tfs-whatsapp-floating span {
+    display: none !important;
+  }
+
+  #vapi-widget,
+  .vapi-float,
+  .float-ai {
+    left: max(12px, env(safe-area-inset-left)) !important;
+    max-width: calc(100vw - 92px) !important;
+  }
+}
+
+/* Source-of-truth mobile/tablet lock, loaded last across the site.
+   This keeps subpages aligned with the homepage header and removes old fixed CTA collisions. */
+html,
+body {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+body {
+  position: relative !important;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+video,
+canvas,
+iframe,
+svg {
+  max-width: 100%;
+}
+
+main,
+section,
+header,
+footer,
+.wrap,
+.wrap-wide,
+.container,
+.page-shell,
+.hero,
+.hero-grid,
+.section {
+  max-width: 100% !important;
+}
+
+#nav,
+#nav.scrolled,
+nav#nav,
+body > nav#nav,
+#tfs-nav,
+.site-nav {
+  background: #fff !important;
+  background-color: #fff !important;
+  opacity: 1 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.mobile-sticky-cta,
+.tfs-mobile-sticky-cta,
+.sticky-demo-bar,
+.bottom-cta-bar,
+.fixed-demo-bar,
+.tfs-bottom-cta,
+.mobile-bottom-cta,
+.funnel-sticky-cta,
+.package-bottom-offer,
+.package-sticky-offer,
+.starter-bottom-offer,
+.growth-bottom-offer,
+.premium-bottom-offer,
+.system-bottom-offer,
+.sticky-package-offer,
+.fixed-bottom-cta,
+.bottom-demo-cta,
+.mobile-demo-cta,
+[class*="bottom"][class*="demo"],
+[class*="sticky"][class*="demo"],
+[class*="fixed"][class*="demo"] {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.package-demo::after,
+.demo-link::after,
+.package-card a[href*="calendly"]::after,
+.package-card a[href="#packages"]::after,
+a[data-en="Prefer to see a demo first?"]::after,
+a[data-es="¿Prefiere ver una demo primero?"]::after {
+  content: none !important;
+  display: none !important;
+}
+
+#whatsapp-btn,
+#tfs-whatsapp-btn,
+.tfs-whatsapp-floating {
+  position: fixed !important;
+  right: max(16px, env(safe-area-inset-right)) !important;
+  bottom: max(18px, env(safe-area-inset-bottom)) !important;
+  z-index: 9997 !important;
+  max-width: calc(100vw - 32px) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+}
+
+#vapi-widget,
+.vapi-float,
+.float-ai {
+  position: fixed !important;
+  left: max(16px, env(safe-area-inset-left)) !important;
+  bottom: max(18px, env(safe-area-inset-bottom)) !important;
+  z-index: 9996 !important;
+  max-width: min(180px, calc(100vw - 110px)) !important;
+}
+
+body.discount-banner-visible #whatsapp-btn,
+body.discount-banner-visible #tfs-whatsapp-btn,
+body.discount-banner-visible .tfs-whatsapp-floating,
+body.discount-banner-visible #vapi-widget,
+body.discount-banner-visible .vapi-float,
+body.discount-banner-visible .float-ai {
+  bottom: calc(132px + env(safe-area-inset-bottom)) !important;
+}
+
+.top,
+.urgency-bar,
+.top-urgency-bar,
+.tfs-urgency-bar,
+.funnel-urgency-bar {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+.urgency-inner,
+.top-urgency-inner,
+.tfs-urgency-inner,
+.funnel-urgency-inner {
+  max-width: 100% !important;
+  margin-inline: auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  gap: 12px !important;
+}
+
+.discount-banner {
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+.discount-banner-inner {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+@media (max-width: 1100px) {
+  #nav,
+  #nav.scrolled,
+  nav#nav,
+  body > nav#nav,
+  #tfs-nav,
+  .site-nav {
+    position: fixed !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    background: #fff !important;
+    background-color: #fff !important;
+    border-bottom: 1px solid rgba(5, 5, 5, 0.18) !important;
+  }
+
+  #nav .nav-inner,
+  body > nav#nav .nav-inner,
+  #tfs-nav .tfs-nav-inner,
+  .site-nav-inner {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 44px minmax(0, 1fr) 44px !important;
+    align-items: center !important;
+    justify-items: center !important;
+    gap: 0 !important;
+    padding-inline: 16px !important;
+  }
+
+  #nav .nav-inner::before,
+  body > nav#nav .nav-inner::before,
+  #tfs-nav .tfs-nav-inner::before,
+  .site-nav-inner::before {
+    content: "" !important;
+    grid-column: 1 !important;
+    width: 44px !important;
+    height: 44px !important;
+    display: block !important;
+  }
+
+  #nav .nav-logo,
+  body > nav#nav .nav-logo,
+  #tfs-nav .tfs-nav-logo,
+  .site-nav-logo,
+  .nav-logo {
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    grid-column: 2 !important;
+    justify-self: center !important;
+    align-self: center !important;
+    width: auto !important;
+    max-width: min(260px, 58vw) !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+
+  #nav .nav-logo img,
+  body > nav#nav .nav-logo img,
+  #tfs-nav .tfs-nav-logo img,
+  .site-nav-logo img,
+  .nav-logo img {
+    display: block !important;
+    margin: 0 auto !important;
+    object-fit: contain !important;
+  }
+
+  #nav .nav-hamburger,
+  body > nav#nav .nav-hamburger,
+  #tfs-nav .tfs-nav-hamburger,
+  .site-nav-hamburger,
+  .nav-hamburger {
+    display: flex !important;
+    position: static !important;
+    grid-column: 3 !important;
+    justify-self: end !important;
+    align-self: center !important;
+    transform: none !important;
+    width: 44px !important;
+    min-width: 44px !important;
+    height: 44px !important;
+  }
+
+  #nav .nav-links,
+  body > nav#nav .nav-links,
+  #nav .nav-actions,
+  body > nav#nav .nav-actions,
+  .site-nav-links,
+  .site-nav-actions {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .urgency-inner,
+  .top-urgency-inner,
+  .tfs-urgency-inner,
+  .funnel-urgency-inner {
+    min-height: 58px !important;
+    padding: 8px 12px !important;
+    flex-wrap: wrap !important;
+    line-height: 1.2 !important;
+  }
+
+  #nav,
+  #nav.scrolled,
+  nav#nav,
+  body > nav#nav,
+  #tfs-nav,
+  .site-nav {
+    top: 58px !important;
+  }
+
+  .discount-banner-inner {
+    min-height: 126px !important;
+    padding: 12px !important;
+    flex-wrap: wrap !important;
+    gap: 8px 12px !important;
+  }
+
+  .discount-banner-inner > *,
+  .discount-kicker,
+  .discount-banner strong,
+  .discount-banner a {
+    text-align: center !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .urgency-inner,
+  .top-urgency-inner,
+  .tfs-urgency-inner,
+  .funnel-urgency-inner {
+    min-height: 66px !important;
+  }
+
+  #nav,
+  #nav.scrolled,
+  nav#nav,
+  body > nav#nav,
+  #tfs-nav,
+  .site-nav {
+    top: 66px !important;
+  }
+
+  #nav .nav-inner,
+  body > nav#nav .nav-inner,
+  #tfs-nav .tfs-nav-inner,
+  .site-nav-inner {
+    height: 86px !important;
+    padding-inline: 14px !important;
+  }
+
+  #whatsapp-btn,
+  #tfs-whatsapp-btn,
+  .tfs-whatsapp-floating {
+    right: max(12px, env(safe-area-inset-right)) !important;
+    width: 56px !important;
+    min-width: 56px !important;
+    height: 56px !important;
+    padding: 0 !important;
+    gap: 0 !important;
+  }
+
+  #whatsapp-btn .wa-label,
+  #tfs-whatsapp-btn .tfs-wa-label,
+  .tfs-whatsapp-floating span {
+    display: none !important;
+  }
+
+  #vapi-widget,
+  .vapi-float,
+  .float-ai {
+    left: max(12px, env(safe-area-inset-left)) !important;
+    max-width: calc(100vw - 92px) !important;
+  }
+
+  body.discount-banner-visible #whatsapp-btn,
+  body.discount-banner-visible #tfs-whatsapp-btn,
+  body.discount-banner-visible .tfs-whatsapp-floating,
+  body.discount-banner-visible #vapi-widget,
+  body.discount-banner-visible .vapi-float,
+  body.discount-banner-visible .float-ai {
+    bottom: calc(154px + env(safe-area-inset-bottom)) !important;
+  }
+}

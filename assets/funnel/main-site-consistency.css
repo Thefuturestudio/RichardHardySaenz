@@ -355,6 +355,26 @@ body.has-discount-banner #vapi-widget {
   }
 }
 
+/* The WhatsApp mark's handset is visually high/left inside its own speech bubble. */
+html body a#whatsapp-btn#whatsapp-btn svg,
+html body a#tfs-whatsapp-btn#tfs-whatsapp-btn svg,
+html body a.tfs-whatsapp-floating.tfs-whatsapp-floating svg,
+#whatsapp-btn svg,
+#tfs-whatsapp-btn svg,
+.tfs-whatsapp-floating svg {
+  transform: none !important;
+}
+
+html body a#whatsapp-btn#whatsapp-btn svg path:first-child,
+html body a#tfs-whatsapp-btn#tfs-whatsapp-btn svg path:first-child,
+html body a.tfs-whatsapp-floating.tfs-whatsapp-floating svg path:first-child,
+#whatsapp-btn svg path:first-child,
+#tfs-whatsapp-btn svg path:first-child,
+.tfs-whatsapp-floating svg path:first-child {
+  transform: translate(0.9px, 0.8px) !important;
+  transform-origin: center center !important;
+}
+
 @media (max-width: 768px) {
   .top-urgency-inner,
   .urgency-inner,

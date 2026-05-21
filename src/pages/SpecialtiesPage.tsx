@@ -26,26 +26,26 @@ const specialtyKeys: SpecialtyKey[] = [
 
 const pathwayCopy = {
   es: {
-    eyebrow: "Ruta de orientacion",
-    title: "Entienda el motivo, elija la ruta y confirme el proximo paso.",
+    eyebrow: "Ruta de orientación",
+    title: "Entienda el motivo, elija la ruta y confirme el próximo paso.",
     body:
-      "La seleccion de una especialidad debe partir de sintomas, estudios disponibles y el objetivo de la visita. Si no esta seguro, el equipo puede orientar el primer contacto.",
+      "La selección de una especialidad debe partir de síntomas, estudios disponibles y el objetivo de la visita. Si no está seguro, el equipo puede orientar el primer contacto.",
     understandLabel: "01 Entender",
-    understandTitle: "Primero se organiza la preocupacion.",
+    understandTitle: "Primero se organiza la preocupación.",
     understandBody:
-      "Sintomas, antecedentes, estudios previos y dudas principales ayudan a definir que area conviene revisar.",
+      "Síntomas, antecedentes, estudios previos y dudas principales ayudan a definir qué área conviene revisar.",
     evaluateLabel: "02 Evaluar",
-    evaluateTitle: "Despues se define la ruta de evaluacion.",
+    evaluateTitle: "Después se define la ruta de evaluación.",
     evaluateBody:
-      "La consulta permite revisar hallazgos y conversar opciones responsables segun cada caso.",
+      "La consulta permite revisar hallazgos y conversar opciones responsables según cada caso.",
     closing:
-      "Esta ruta ayuda a que el primer contacto sea mas claro, ordenado y util para decidir el tipo de evaluacion.",
+      "Esta ruta ayuda a que el primer contacto sea más claro, ordenado y útil para decidir el tipo de evaluación.",
     gridLead:
-      "Seleccione el area que mejor coincide con su motivo de consulta.",
-    guidanceTitle: "No esta seguro por donde empezar?",
+      "Seleccione el área que mejor coincide con su motivo de consulta.",
+    guidanceTitle: "¿No está seguro por dónde empezar?",
     guidanceBody:
-      "Comparta sus sintomas o estudios disponibles y el equipo le orientara hacia la especialidad adecuada.",
-    guidanceCta: "Solicitar orientacion",
+      "Comparta sus síntomas o estudios disponibles y el equipo le orientará hacia la especialidad adecuada.",
+    guidanceCta: "Solicitar orientación",
   },
   en: {
     eyebrow: "Guided pathway",
@@ -96,7 +96,7 @@ export function SpecialtiesPage() {
       />
       <PageHero
         title={hub.title}
-        titleAccent={language === "en" ? "specialties" : "urológicas"}
+        titleAccent={language === "en" ? "Urology specialties" : "Especialidades urológicas"}
         subtitle={hub.subtitle}
         intro={hub.intro}
         image={imageAssets.bluegatiSpecialtiesHero}

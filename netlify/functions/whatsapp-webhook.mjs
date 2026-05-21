@@ -23,10 +23,10 @@ const whatsappKnowledge = [
 ].join(" ");
 
 const unavailableReply =
-  "Gracias por escribir a UroPanama. En este momento el asistente automatico no esta disponible. El equipo revisara su mensaje. Si presenta dolor fuerte, fiebre, sangrado, no puede orinar, vomitos, escalofrios o una preocupacion postoperatoria, busque atencion medica urgente.";
+  "Gracias por escribir a UroPanama. En este momento el asistente automático no está disponible. El equipo revisará su mensaje. Si presenta dolor fuerte, fiebre, sangrado, imposibilidad para orinar, vómitos, escalofríos o una preocupación postoperatoria, acuda a urgencias o busque atención médica urgente.";
 
 const textOnlyReply =
-  "Por ahora puedo ayudar mejor por mensaje de texto. Escriba el motivo general de su consulta y, si desea coordinar una cita, comparta su nombre, telefono y horario de preferencia.";
+  "Por ahora puedo ayudar mejor por mensaje de texto. Escriba el motivo general de su consulta y, si desea coordinar una cita, comparta su nombre, teléfono y horario de preferencia.";
 
 export async function handler(event) {
   if (event.httpMethod === "OPTIONS") {

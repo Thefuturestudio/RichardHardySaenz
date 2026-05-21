@@ -159,7 +159,7 @@ Sí. Algunas enfermedades urinarias pueden afectar la función sexual y calidad 
 
 ### 37. ¿La disfunción eréctil tiene tratamiento?
 
-Sí. La disfunción eréctil tiene tratamiento y, en muchos casos, puede mejorar significativamente. Existen diferentes opciones según la causa, edad, antecedentes médicos y estilo de vida del paciente. El manejo puede incluir cambios de hábitos, medicamentos, terapias especializadas y tratamientos avanzados. Lo más importante es realizar una evaluación adecuada para identificar la causa y ofrecer el tratamiento más efectivo y seguro para cada caso.
+Sí. La disfunción eréctil puede manejarse en muchos casos después de una evaluación adecuada. Existen diferentes opciones según la causa, edad, antecedentes médicos, medicamentos, seguridad cardiovascular y estilo de vida. El objetivo es identificar factores relevantes y conversar opciones seguras para cada paciente.
 
 ### 38. ¿La diabetes puede afectar la erección?
 
@@ -259,7 +259,7 @@ Sí. En caso necesario se entrega factura y documentación médica para trámite
 
 ### 62. ¿Atienden urgencias urológicas?
 
-Sí. Evaluamos urgencias urológicas según disponibilidad y gravedad del caso.
+El equipo puede orientar según disponibilidad y gravedad del caso. Si presenta dolor intenso, fiebre, sangrado importante, imposibilidad para orinar, vómitos o deterioro rápido, acuda a urgencias.
 
 ### 63. ¿Cuánto tiempo demora conseguir una cita?
 
@@ -327,7 +327,7 @@ No. El crecimiento prostático benigno es muy frecuente y no siempre se relacion
 
 ### 79. ¿El cáncer de próstata tiene cura?
 
-Detectado tempranamente, muchos casos pueden tratarse exitosamente.
+Cuando se detecta temprano, muchos casos tienen opciones de manejo con buenos resultados. El pronóstico depende del tipo de tumor, etapa, estudios y condición general del paciente.
 
 ### 80. ¿El PSA elevado siempre significa cáncer?
 

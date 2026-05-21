@@ -223,15 +223,15 @@ function getArticleHero(articleKey: ArticleKey) {
 
 function getArticleTitleAccent(articleKey: ArticleKey) {
   const accents: Record<ArticleKey, string> = {
-    holepProstata: "HoLEP",
-    calculosEndourologia: "cálculos",
-    segundaOpinionUroOncologia: "segunda opinión",
+    holepProstata: "próstata agrandada",
+    calculosEndourologia: "Cálculos renales",
+    segundaOpinionUroOncologia: "Segunda opinión",
     psaBiopsiaProstata: "PSA",
-    vasectomiaSaludMasculina: "vasectomía",
-    rtupVsHolep: "RTUP",
-    sangreOrinaHematuria: "sangre",
-    primeraConsultaUrologica: "primera consulta",
-    cistoscopiaPreparacion: "cistoscopia",
+    vasectomiaSaludMasculina: "Vasectomía",
+    rtupVsHolep: "RTUP vs HoLEP",
+    sangreOrinaHematuria: "Sangre en la orina",
+    primeraConsultaUrologica: "Primera consulta urológica",
+    cistoscopiaPreparacion: "Cistoscopia",
   };
 
   return accents[articleKey];

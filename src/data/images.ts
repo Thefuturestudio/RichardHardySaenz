@@ -147,7 +147,7 @@ export const imageAssets = {
   },
   bluegatiHomeHero: {
     src: "/images/bluegati/brugiati-hero-home.png",
-    alt: "Dr. Carlos A. Brugiati en una clinica privada con vista a Panama.",
+    alt: "Dr. Carlos A. Brugiati en una clínica privada con vista a Panamá.",
   },
   bluegatiSpecialtiesHero: {
     src: "/images/bluegati/brugiati-hero-specialties.png",
@@ -167,7 +167,7 @@ export const imageAssets = {
   },
   bluegatiSecondOpinionHero: {
     src: "/images/bluegati/brugiati-hero-oncology-second-opinion.png",
-    alt: "Dr. Carlos A. Brugiati revisando estudios de imagen para segunda opinion.",
+    alt: "Dr. Carlos A. Brugiati revisando estudios de imagen para segunda opinión.",
   },
   bluegatiProstateHero: {
     src: "/images/bluegati/brugiati-hero-prostate.png",
@@ -195,7 +195,7 @@ export const imageAssets = {
   },
   bluegatiUreteroscopyHero: {
     src: "/images/bluegati/brugiati-hero-stones-endourology.png",
-    alt: "Dr. Carlos A. Brugiati con interfaz medica azul de endourologia.",
+    alt: "Dr. Carlos A. Brugiati con interfaz médica azul de endourología.",
   },
   bluegatiScrubsProcedureHero: {
     src: "/images/bluegati/brugiati-procedure-feature-v2.png",
@@ -207,7 +207,7 @@ export const imageAssets = {
   },
   bluegatiEducationBlogHero: {
     src: "/images/bluegati/brugiati-hero-education.png",
-    alt: "Urologo revisando material educativo y estudios en una clinica privada.",
+    alt: "Urólogo revisando material educativo y estudios en una clínica privada.",
   },
   bluegatiEducationVisitHero: {
     src: "/images/bluegati/bluegati-education-visit-hero.webp",

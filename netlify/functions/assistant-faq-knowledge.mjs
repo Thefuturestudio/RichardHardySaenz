@@ -77,7 +77,7 @@ export const assistantFaqs = [
   },
   {
     "question": "¿Cómo se trata una infección urinaria?",
-    "answer": "El tratamiento depende de la causa e incluye hidratación, antibióticos y sobre todo evaluación médica oportuna. Son los pilares del tratamiento."
+    "answer": "El manejo depende de la causa y de la evaluación médica. Puede incluir hidratación, estudios de orina, antibióticos cuando están indicados y seguimiento oportuno."
   },
   {
     "question": "¿Por qué tengo dolor en los riñones o espalda baja?",
@@ -145,7 +145,7 @@ export const assistantFaqs = [
   },
   {
     "question": "¿La disfunción eréctil tiene tratamiento?",
-    "answer": "Sí. La disfunción eréctil tiene tratamiento y, en muchos casos, puede mejorar significativamente. Existen diferentes opciones según la causa, edad, antecedentes médicos y estilo de vida del paciente. El manejo puede incluir cambios de hábitos, medicamentos, terapias especializadas y tratamientos avanzados. Lo más importante es realizar una evaluación adecuada para identificar la causa y ofrecer el tratamiento más efectivo y seguro para cada caso."
+    "answer": "Sí. La disfunción eréctil puede manejarse en muchos casos después de una evaluación adecuada. Existen diferentes opciones según la causa, edad, antecedentes médicos, medicamentos, seguridad cardiovascular y estilo de vida. El objetivo es identificar factores relevantes y conversar opciones seguras para cada paciente."
   },
   {
     "question": "¿La diabetes puede afectar la erección?",
@@ -245,7 +245,7 @@ export const assistantFaqs = [
   },
   {
     "question": "¿Atienden urgencias urológicas?",
-    "answer": "Sí. Evaluamos urgencias urológicas según disponibilidad y gravedad del caso."
+    "answer": "El equipo puede orientar según disponibilidad y gravedad del caso. Si presenta dolor intenso, fiebre, sangrado importante, imposibilidad para orinar, vómitos o deterioro rápido, acuda a urgencias."
   },
   {
     "question": "¿Cuánto tiempo demora conseguir una cita?",
@@ -313,7 +313,7 @@ export const assistantFaqs = [
   },
   {
     "question": "¿El cáncer de próstata tiene cura?",
-    "answer": "Detectado tempranamente, muchos casos pueden tratarse exitosamente."
+    "answer": "Cuando se detecta temprano, muchos casos tienen opciones de manejo con buenos resultados. El pronóstico depende del tipo de tumor, etapa, estudios y condición general del paciente."
   },
   {
     "question": "¿El PSA elevado siempre significa cáncer?",
@@ -630,11 +630,11 @@ export const assistantFaqs = [
 ];
 
 const defaultQuestions = new Set([
-  "?Qu? hace exactamente un ur?logo?",
-  "?Qu? debo llevar a mi primera cita?",
-  "?Qu? s?ntomas son preocupantes en urolog?a?",
-  "?C?mo puedo agendar una cita?",
-  "?Qu? se?ales indican que debo acudir a urgencias?",
+  "¿Qué hace exactamente un urólogo?",
+  "¿Qué debo llevar a mi primera cita?",
+  "¿Qué síntomas son preocupantes en urología?",
+  "¿Cómo puedo agendar una cita?",
+  "¿Qué señales indican que debo acudir a urgencias?",
 ]);
 
 export function getRelevantFaqContext(query = "", maxEntries = 6, useDefault = true) {

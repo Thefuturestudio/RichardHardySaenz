@@ -189,7 +189,7 @@ export function getAssistantKnowledgeReply(language: Language, query: string) {
         (faq) => `${faq.question} ${faq.answer}`,
       ),
       language === "es"
-        ? "No puedo diagnosticar por este chat ni confirmar disponibilidad automaticamente, pero puedo ayudarle a preparar una solicitud para que el equipo le contacte."
+        ? "No puedo diagnosticar por este chat ni confirmar disponibilidad automáticamente, pero puedo ayudarle a preparar una solicitud para que el equipo le contacte."
         : "I cannot diagnose through this chat or confirm availability automatically, but I can help prepare a request for the team to contact you.",
     ].join(" ");
   }

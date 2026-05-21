@@ -24,59 +24,59 @@ import { simpleBreadcrumbs } from "../seo/breadcrumbs";
 
 const accessibleProcedureTitles: Record<ProcedureKey, { es: string; en: string }> = {
   ureteroscopia: {
-    es: "Ureteroscopia: evaluacion y tratamiento endoscopico del ureter",
+    es: "Ureteroscopia: evaluación y tratamiento endoscópico del uréter",
     en: "Ureteroscopy: endoscopic evaluation and treatment of the ureter",
   },
   laserCalculos: {
-    es: "Laser para calculos urinarios",
+    es: "Láser para cálculos urinarios",
     en: "Laser treatment for urinary stones",
   },
   biopsiaProstata: {
-    es: "Biopsia de prostata para aclarar hallazgos",
+    es: "Biopsia de próstata para aclarar hallazgos",
     en: "Prostate biopsy to clarify findings",
   },
   nefrolitotomiaPercutanea: {
-    es: "Nefrolitotomia percutanea para calculos grandes o complejos",
+    es: "Nefrolitotomía percutánea para cálculos grandes o complejos",
     en: "Percutaneous nephrolithotomy for large or complex stones",
   },
   cistoscopia: {
-    es: "Cistoscopia para evaluar vejiga y via urinaria",
+    es: "Cistoscopia para evaluar vejiga y vía urinaria",
     en: "Cystoscopy to evaluate the bladder and urinary tract",
   },
   laparoscopiaRenal: {
-    es: "Cirugia renal laparoscopica de minima invasion",
+    es: "Cirugía renal laparoscópica de mínima invasión",
     en: "Minimally invasive laparoscopic kidney surgery",
   },
   holep: {
-    es: "HoLEP: cirugia laser para crecimiento benigno de prostata",
+    es: "HoLEP: cirugía láser para crecimiento benigno de próstata",
     en: "HoLEP: laser surgery for benign prostate enlargement",
   },
   rtup: {
-    es: "RTUP: reseccion endoscopica para obstruccion prostatica",
+    es: "RTUP: resección endoscópica para obstrucción prostática",
     en: "TURP: endoscopic resection for prostate obstruction",
   },
   adenectomiaProstatica: {
-    es: "Adenectomia prostatica para prostatas de gran tamano",
+    es: "Adenectomía prostática para próstatas de gran tamaño",
     en: "Prostate adenomectomy for very enlarged prostates",
   },
   ureteroscopiaFlexible: {
-    es: "Ureteroscopia flexible para calculos dentro del rinon",
+    es: "Ureteroscopia flexible para cálculos dentro del riñón",
     en: "Flexible ureteroscopy for stones inside the kidney",
   },
   ureteroscopiaSemirrigida: {
-    es: "Ureteroscopia semirrigida para calculos en el ureter",
+    es: "Ureteroscopia semirrígida para cálculos en el uréter",
     en: "Semirigid ureteroscopy for stones in the ureter",
   },
   litotriciaExtracorporea: {
-    es: "Litotricia extracorporea con ondas de choque",
+    es: "Litotricia extracorpórea con ondas de choque",
     en: "Extracorporeal shock wave lithotripsy",
   },
   disfuncionErectil: {
-    es: "Evaluacion integral de disfuncion erectil",
+    es: "Evaluación integral de disfunción eréctil",
     en: "Comprehensive erectile dysfunction evaluation",
   },
   vasectomia: {
-    es: "Vasectomia: anticoncepcion masculina ambulatoria",
+    es: "Vasectomía: anticoncepción masculina ambulatoria",
     en: "Vasectomy: outpatient male contraception",
   },
 };
@@ -100,38 +100,38 @@ const procedureCardImages: Record<ProcedureKey, (typeof imageAssets)[keyof typeo
 
 const copy = {
   es: {
-    title: "Procedimientos urologicos explicados con claridad.",
+    title: "Procedimientos urológicos explicados con claridad.",
     subtitle:
-      "Rutas educativas para entender cuando se conversa cada procedimiento, que estudios se revisan y como se confirma la indicacion medica.",
+      "Rutas educativas para entender cuándo se conversa cada procedimiento, qué estudios se revisan y cómo se confirma la indicación médica.",
     eyebrow: "Procedimientos",
     sectionTitle: "Opciones frecuentes de procedimiento",
     sectionSubtitle:
-      "Cada tarjeta usa un titulo descriptivo para pacientes que visitan el sitio por primera vez, manteniendo el nombre medico como referencia.",
-    cta: "Agendar orientacion",
+      "Cada tarjeta usa un título descriptivo para pacientes que visitan el sitio por primera vez, manteniendo el nombre médico como referencia.",
+    cta: "Agendar orientación",
     pathwayEyebrow: "Ruta de procedimiento",
-    pathwayTitle: "Revise la indicacion, confirme la opcion y entienda el seguimiento.",
+    pathwayTitle: "Revise la indicación, confirme la opción y entienda el seguimiento.",
     pathwayBody:
-      "Los procedimientos se conversan despues de revisar sintomas, estudios disponibles, objetivos del paciente y alternativas razonables.",
+      "Los procedimientos se conversan después de revisar síntomas, estudios disponibles, objetivos del paciente y alternativas razonables.",
     stepOneLabel: "01 Evaluar",
     stepOneTitle: "Primero se revisa el caso.",
     stepOneBody:
-      "Sintomas, imagenes, laboratorios y antecedentes ayudan a confirmar si el procedimiento tiene sentido.",
+      "Síntomas, imágenes, laboratorios y antecedentes ayudan a confirmar si el procedimiento tiene sentido.",
     stepTwoLabel: "02 Planificar",
-    stepTwoTitle: "Luego se compara la opcion.",
+    stepTwoTitle: "Luego se compara la opción.",
     stepTwoBody:
-      "La consulta permite explicar alternativas, preparacion, riesgos generales y expectativas responsables.",
+      "La consulta permite explicar alternativas, preparación, riesgos generales y expectativas responsables.",
     closing:
-      "Esta estructura ayuda a que cada procedimiento se entienda como una decision medica, no como una opcion aislada.",
+      "Esta estructura ayuda a que cada procedimiento se entienda como una decisión médica, no como una opción aislada.",
     gridLead:
       "Seleccione el procedimiento que desea entender con mayor claridad.",
-    guidanceTitle: "No esta seguro cual procedimiento corresponde?",
+    guidanceTitle: "¿No está seguro cuál procedimiento corresponde?",
     guidanceBody:
-      "Puede enviar sus sintomas o estudios disponibles para orientar si conviene iniciar por una evaluacion, una segunda opinion o una pagina especifica.",
+      "Puede enviar sus síntomas o estudios disponibles para orientar si conviene iniciar por una evaluación, una segunda opinión o una página específica.",
     guidanceSupport:
-      "El asistente puede ayudar a ordenar sus dudas antes de escribir o solicitar cita. Si ya tiene estudios, reportes o una recomendacion previa, puede explicar que pagina revisar primero.",
-    guidanceCta: "Solicitar orientacion",
+      "El asistente puede ayudar a ordenar sus dudas antes de escribir o solicitar cita. Si ya tiene estudios, reportes o una recomendación previa, puede explicar qué página revisar primero.",
+    guidanceCta: "Solicitar orientación",
     assistantEyebrow: "Asistente",
-    cardPurpose: "Que aclara",
+    cardPurpose: "Qué aclara",
     cardReviewed: "Se revisa",
   },
   en: {
@@ -196,7 +196,7 @@ export function ProceduresPage() {
       <PageHero
         eyebrow={t.eyebrow}
         title={t.title}
-        titleAccent={language === "en" ? "clearly" : "claridad"}
+        titleAccent={language === "en" ? "Urologic procedures" : "Procedimientos urológicos"}
         subtitle={t.subtitle}
         image={imageAssets.bluegatiProceduresHero}
         imageClassName="page-hero-image--v2"

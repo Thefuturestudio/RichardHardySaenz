@@ -140,7 +140,7 @@ export const educationArticles: Record<ArticleKey, EducationArticle> = {
         heading: "Qué llevar a la consulta",
         body: [
           "Lleve tomografía, ultrasonido, radiografías, laboratorios, urocultivos, medicamentos y antecedentes de piedras previas si los tiene. Cuando sea posible, lleve el informe escrito y las imágenes, no solo una foto del reporte.",
-          "Anote cuándo empezo el dolor, dónde se localiza, si hubo fiebre, escalofríos, vómitos, sangre en la orina, dificultad para orinar, visitas a urgencias o uso reciente de antibióticos.",
+          "Anote cuándo empezó el dolor, dónde se localiza, si hubo fiebre, escalofríos, vómitos, sangre en la orina, dificultad para orinar, visitas a urgencias o uso reciente de antibióticos.",
         ],
       },
       {
@@ -153,7 +153,7 @@ export const educationArticles: Record<ArticleKey, EducationArticle> = {
       {
         heading: "Señales de alarma",
         body: [
-          "Fiebre, escalofríos, dolor intenso qué no cede, vómitos persistentes, debilidad marcada, dificultad para orinar o sospecha de infección con obstrucción requieren atención urgente.",
+          "Fiebre, escalofríos, dolor intenso que no cede, vómitos persistentes, debilidad marcada, dificultad para orinar o sospecha de infección con obstrucción requieren atención urgente.",
           "Una página web no puede determinar si una piedra está obstruyendo o infectada. Si hay síntomas de alarma, no espere una cita rutinaria.",
         ],
       },
@@ -180,8 +180,8 @@ export const educationArticles: Record<ArticleKey, EducationArticle> = {
     key: "segundaOpinionUroOncologia",
     path: "/educacion/segunda-opinion-uro-oncologia",
     title:
-      "Segúnda opinión en uro-oncología: cómo preparar estudios y preguntas",
-    shortTitle: "Segúnda opinión en uro-oncología",
+      "Segunda opinión en uro-oncología: cómo preparar estudios y preguntas",
+    shortTitle: "Segunda opinión en uro-oncología",
     description:
       "Guía para preparar una segunda opinión urológica en cáncer de próstata, riñón, vejiga o testículo, con estudios, reportes y preguntas útiles.",
     eyebrow: "Educación para pacientes",
@@ -243,7 +243,7 @@ export const educationArticles: Record<ArticleKey, EducationArticle> = {
       {
         question: "Una segunda opinión reemplaza urgencias?",
         answer:
-          "No. Si hay fiebre, dolor intenso, sangrado importante, dificultad para orinar o deterioro rápido, busqué atención urgente.",
+          "No. Si hay fiebre, dolor intenso, sangrado importante, dificultad para orinar o deterioro rápido, busque atención urgente.",
       },
     ],
   },
@@ -323,67 +323,67 @@ export const educationArticles: Record<ArticleKey, EducationArticle> = {
     title: "Vasectomía y salud masculina: guía clara antes de decidir",
     shortTitle: "Vasectomía y salud masculina",
     description:
-      "Guía educativa sobre vasectomia en Panamá, anticoncepcion masculina permanente, preparación, dudas frecuentes y seguimiento posterior.",
+      "Guía educativa sobre vasectomía en Panamá, anticoncepción masculina permanente, preparación, dudas frecuentes y seguimiento posterior.",
     eyebrow: "Educación para pacientes",
     category: "Salud masculina",
     readingTime: "5 min",
     summary:
-      "Una guía para hombres o parejas que desean entender la vasectomia, su caracter permanente, la preparación y el seguimiento necesario.",
+      "Una guía para hombres o parejas que desean entender la vasectomía, su carácter permanente, la preparación y el seguimiento necesario.",
     schemaAbout: "Vasectomía",
     relatedProcedurePath: "/vasectomia",
-    relatedProcedureLabel: "Ver vasectomia",
+    relatedProcedureLabel: "Ver vasectomía",
     sections: [
       {
-        heading: "Qué es una vasectomia",
+        heading: "Qué es una vasectomía",
         body: [
-          "La vasectomia es un método de anticoncepcion masculina permanente. Consiste en interrumpir el paso de los espermatozoides por los conductos deferentes. No es una decisión menor: debe conversarse con claridad y sin presion.",
-          "La vasectomia no está pensada cómo método temporal. Aunque existen procedimientos de reversa en algunos contextos, no deben asumirse como garantizados. La decisión debe tomarse cuando el paciente entiende su caracter permanente.",
+          "La vasectomía es un método de anticoncepción masculina permanente. Consiste en interrumpir el paso de los espermatozoides por los conductos deferentes. No es una decisión menor: debe conversarse con claridad y sin presión.",
+          "La vasectomía no está pensada como método temporal. Aunque existen procedimientos de reversa en algunos contextos, no deben asumirse como garantizados. La decisión debe tomarse cuando el paciente entiende su carácter permanente.",
         ],
       },
       {
-        heading: "Qué no cambia con la vasectomia",
+        heading: "Qué no cambia con la vasectomía",
         body: [
-          "La vasectomia no debe entenderse como una cirugía que cambia la masculinidad, el deseo sexual o la capacidad de erección. Su objetivo es anticonceptivo.",
-          "También es importante saber qué no protege contra infecciones de transmisión sexual. Si existe riesgo, se deben mantener medidas de proteccion apropiadas.",
+          "La vasectomía no debe entenderse como una cirugía que cambia la masculinidad, el deseo sexual o la capacidad de erección. Su objetivo es anticonceptivo.",
+          "También es importante saber que no protege contra infecciones de transmisión sexual. Si existe riesgo, se deben mantener medidas de protección apropiadas.",
         ],
       },
       {
         heading: "Qué llevar a la consulta",
         body: [
           "Lleve antecedentes de cirugías escrotales, dolor testicular, infecciones, medicamentos, anticoagulantes, alergias y preguntas personales. También conviene tener clara la razón de la decisión y si ya fue conversada en pareja cuando aplique.",
-          "El urólogo puede explicar preparación, cuidados posteriores, tiempo de reposo relativo y el control necesario antes de considerar qué el método ya es efectivo.",
+          "El urólogo puede explicar preparación, cuidados posteriores, tiempo de reposo relativo y el control necesario antes de considerar que el método ya es efectivo.",
         ],
       },
       {
         heading: "Seguimiento después del procedimiento",
         body: [
-          "La vasectomia no es efectiva de inmediato. Generalmente se requiere un periodo y una prueba de semen posterior para confirmar ausencia de espermatozoides según la indicación médica.",
+          "La vasectomía no es efectiva de inmediato. Generalmente se requiere un periodo y una prueba de semen posterior para confirmar ausencia de espermatozoides según la indicación médica.",
           "Hasta tener confirmación, se debe usar otro método anticonceptivo. El seguimiento es parte esencial del proceso y no debe omitirse.",
         ],
       },
       {
         heading: "Señales de alarma",
         body: [
-          "Dolor intenso, fiebre, aumento importante de volumen, secrecion, sangrado persistente o empeoramiento rápido después de un procedimiento requieren contacto médico o atención urgente.",
+          "Dolor intenso, fiebre, aumento importante de volumen, secreción, sangrado persistente o empeoramiento rápido después de un procedimiento requieren contacto médico o atención urgente.",
           "Esta guía es educativa. La preparación exacta y los cuidados dependen de la evaluación y las instrucciones del equipo médico.",
         ],
       },
     ],
     faqs: [
       {
-        question: "La vasectomia afecta la erección o el deseo sexual?",
+        question: "La vasectomía afecta la erección o el deseo sexual?",
         answer:
-          "La vasectomia se realiza con objetivo anticonceptivo y no está destinada a afectar la erección o el deseo sexual. Las dudas individuales deben conversarse en consulta.",
+          "La vasectomía se realiza con objetivo anticonceptivo y no está destinada a afectar la erección o el deseo sexual. Las dudas individuales deben conversarse en consulta.",
       },
       {
-        question: "La vasectomia funcióna de inmediato?",
+        question: "¿La vasectomía funciona de inmediato?",
         answer:
           "No. Se requiere seguimiento y una prueba posterior según indicación médica antes de dejar otros métodos anticonceptivos.",
       },
       {
-        question: "La vasectomia protege contra infecciones de transmisión sexual?",
+        question: "¿La vasectomía protege contra infecciones de transmisión sexual?",
         answer:
-          "No. La vasectomia no protege contra infecciones de transmisión sexual.",
+          "No. La vasectomía no protege contra infecciones de transmisión sexual.",
       },
     ],
   },

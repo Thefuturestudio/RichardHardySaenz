@@ -27,7 +27,7 @@ export function EducationPage() {
       <PageHero
         eyebrow="Educación médica"
         title="Guías claras para preparar mejor la consulta urológica."
-        titleAccent="preparar mejor"
+        titleAccent="Guías claras"
         subtitle="Contenido educativo en español para entender síntomas, estudios y procedimientos frecuentes sin reemplazar la evaluación médica."
         image={imageAssets.bluegatiEducationBlogHero}
         imageClassName="page-hero-image--v2"

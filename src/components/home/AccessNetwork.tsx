@@ -87,10 +87,10 @@ const insurancePartners: InsurancePartner[] = [
 
 const copy = {
   es: {
-    eyebrow: "Acceso y coordinacion",
-    title: "Seguros y hospitales para una atencion mejor coordinada.",
+    eyebrow: "Acceso y coordinación",
+    title: "Seguros y hospitales para una atención mejor coordinada.",
     body:
-      "El equipo orienta la coordinacion de citas, procedimientos y validacion de cobertura segun la aseguradora y la sede correspondiente.",
+      "El equipo orienta la coordinación de citas, procedimientos y validación de cobertura según la aseguradora y la sede correspondiente.",
     insuranceTitle: "Seguros aceptados",
     insurancePrompt:
       "Seleccione una categoría para ver aseguradoras aceptadas. La cobertura y los requisitos se confirman antes de la cita.",

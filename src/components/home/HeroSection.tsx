@@ -10,7 +10,7 @@ export function HeroSection() {
   const { language, t } = useLanguage();
   const [doctorName, platformName] = t.home.hero.eyebrow.split("·").map((part) => part.trim());
   const titleAccent =
-    language === "en" ? "minimally invasive surgery" : "cirugía mínimamente invasiva";
+    language === "en" ? "advanced urology" : "Urología avanzada";
   const proofPoints =
     language === "en"
       ? [

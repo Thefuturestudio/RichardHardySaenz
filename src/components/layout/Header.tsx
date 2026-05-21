@@ -15,7 +15,6 @@ import {
 import { cn } from "../../lib/cn";
 import { CTAButton } from "../shared/CTAButton";
 import { LanguageToggle } from "../shared/LanguageToggle";
-import { OptionalImage } from "../shared/OptionalImage";
 
 type DropdownId = "specialties" | "procedures";
 
@@ -65,42 +64,51 @@ function HeaderDropdown({
       onMouseEnter={() => onOpenChange(id)}
       onMouseLeave={() => onOpenChange(null)}
     >
-      <button
-        type="button"
-        onClick={() => onOpenChange(isOpen ? null : id)}
-        onFocus={() => onOpenChange(id)}
-        onKeyDown={(event) => {
-          if (event.key === "Escape") {
-            onOpenChange(null);
-          }
+      <div className="group relative inline-flex items-center py-4">
+        <Link
+          to={href}
+          onFocus={() => onOpenChange(id)}
+          className={cn(
+            "relative whitespace-nowrap px-1 text-[13.5px] font-medium text-muted transition hover:text-medical focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan 2xl:text-[14.5px]",
+            isActive && "text-navy",
+          )}
+        >
+          {label}
+          <span
+            className={cn(
+              "absolute -bottom-3 left-0 h-0.5 w-full origin-left scale-x-0 rounded-full bg-medical opacity-0 transition duration-200 group-hover:scale-x-100 group-hover:opacity-80",
+              isActive && "opacity-100 group-hover:opacity-100",
+            )}
+          />
+        </Link>
+        <button
+          type="button"
+          onClick={() => onOpenChange(isOpen ? null : id)}
+          onFocus={() => onOpenChange(id)}
+          onKeyDown={(event) => {
+            if (event.key === "Escape") {
+              onOpenChange(null);
+            }
 
-          if (event.key === "ArrowDown") {
-            event.preventDefault();
-            onOpenChange(id);
-          }
-        }}
-        className={cn(
-          "group relative inline-flex items-center gap-1.5 px-1 py-4 text-[14.5px] font-medium tracking-[-0.01em] text-muted transition hover:text-medical focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan",
-          isActive && "text-navy",
-        )}
-        aria-expanded={isOpen}
-        aria-haspopup="menu"
-      >
-        {label}
-        <ChevronDown
-          aria-hidden="true"
-          className={cn(
-            "h-3.5 w-3.5 transition duration-200",
-            isOpen && "rotate-180",
-          )}
-        />
-        <span
-          className={cn(
-            "absolute bottom-1 left-0 h-0.5 w-full origin-left scale-x-0 rounded-full bg-medical opacity-0 transition duration-200 group-hover:scale-x-100 group-hover:opacity-80",
-            isActive && "opacity-100 group-hover:opacity-100",
-          )}
-        />
-      </button>
+            if (event.key === "ArrowDown") {
+              event.preventDefault();
+              onOpenChange(id);
+            }
+          }}
+          className="ml-1 grid h-7 w-7 place-items-center rounded-full text-muted transition hover:bg-softblue hover:text-medical focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan"
+          aria-expanded={isOpen}
+          aria-haspopup="menu"
+          aria-label={label}
+        >
+          <ChevronDown
+            aria-hidden="true"
+            className={cn(
+              "h-3.5 w-3.5 transition duration-200",
+              isOpen && "rotate-180",
+            )}
+          />
+        </button>
+      </div>
 
       {isOpen && (
         <div
@@ -205,12 +213,14 @@ export function Header() {
     t.header.nav.specialties,
     t.header.nav.procedures,
     t.header.nav.secondOpinion,
+    t.header.nav.blog,
     t.header.nav.contact,
   ];
 
   const mobilePrimaryNav = [
     t.header.nav.home,
     t.header.nav.secondOpinion,
+    t.header.nav.blog,
     t.header.nav.contact,
   ];
 
@@ -240,25 +250,6 @@ export function Header() {
     setOpenDropdown(null);
   }, [location.pathname]);
 
-  const logoFallback = (
-      <div className="flex min-w-0 items-center gap-3">
-      <div className="relative grid h-9 w-9 flex-none place-items-center rounded-full border border-navy/10 bg-white/65 text-navy shadow-[0_12px_30px_rgba(6,27,51,0.055)] backdrop-blur">
-        <span className="font-heading text-[22px] leading-none tracking-[-0.05em]">
-          U
-        </span>
-        <span className="absolute -right-0.5 top-2 h-3.5 w-px rounded-full bg-navy/70" />
-      </div>
-      <div className="min-w-0 leading-none">
-        <p className="truncate text-[15px] font-semibold tracking-[-0.01em] text-navy">
-          {t.brand.doctor}
-        </p>
-        <p className="mt-2 truncate text-[10.5px] font-semibold uppercase tracking-[0.22em] text-medical/80">
-          {t.brand.platform}
-        </p>
-      </div>
-    </div>
-  );
-
   return (
     <>
       <header
@@ -270,29 +261,22 @@ export function Header() {
             : "border-navy/5 bg-mist/70 backdrop-blur-[18px]",
         )}
       >
-        <div className="relative mx-auto grid h-[86px] max-w-[1440px] grid-cols-[1fr_auto] items-center gap-4 px-4 sm:px-5 xl:h-[104px] xl:grid-cols-[minmax(310px,1fr)_auto_minmax(310px,1fr)] xl:px-10">
+        <div className="relative mx-auto grid h-[82px] max-w-[1440px] grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 sm:h-[88px] sm:px-5 xl:h-[96px] xl:grid-cols-[auto_minmax(0,1fr)_auto] xl:gap-4 xl:px-6 2xl:gap-5 2xl:px-8">
           <NavLink
             to="/"
             aria-label={t.header.homeLabel}
             className="flex min-w-0 items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan"
           >
-            <OptionalImage
-              src={optionalImages.doctorLogo.src}
-              alt={optionalImages.doctorLogo.alt}
-              className="h-[4.35rem] max-w-[270px] object-contain sm:h-20 sm:max-w-[360px] xl:h-[5.45rem] xl:max-w-[420px]"
-              fallback={
-                <OptionalImage
-                  src={optionalImages.uropanamaLogo.src}
-                  alt={optionalImages.uropanamaLogo.alt}
-                  className="h-16 max-w-[240px] object-contain sm:max-w-[320px] xl:h-20"
-                  fallback={logoFallback}
-                />
-              }
+            <span
+              role="img"
+              aria-label={optionalImages.doctorLogo.alt}
+              className="block h-[4rem] w-[min(15.5rem,calc(100vw-6rem))] shrink-0 bg-contain bg-left bg-no-repeat sm:h-[4.6rem] sm:w-[18.5rem] xl:h-[4.35rem] xl:w-[15.75rem] 2xl:h-[4.9rem] 2xl:w-[18.5rem]"
+              style={{ backgroundImage: `url(${optionalImages.doctorLogo.src})` }}
             />
           </NavLink>
 
           <nav
-            className="hidden items-center justify-center gap-8 xl:flex"
+            className="hidden min-w-0 items-center justify-center gap-3 xl:flex 2xl:gap-4"
             aria-label={t.header.navLabel}
           >
             {mainNav.map((item) => {
@@ -336,7 +320,7 @@ export function Header() {
                   to={item.href}
                   className={({ isActive }) =>
                     cn(
-                      "group relative px-1 py-4 text-[14.5px] font-medium tracking-[-0.01em] text-muted transition hover:text-medical focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan",
+                      "group relative whitespace-nowrap px-1 py-4 text-[13.5px] font-medium text-muted transition hover:text-medical focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan 2xl:text-[14.5px]",
                       isActive && "text-navy",
                     )
                   }
@@ -357,12 +341,12 @@ export function Header() {
             })}
           </nav>
 
-          <div className="hidden items-center justify-end gap-3 xl:flex">
+          <div className="hidden min-w-max items-center justify-end gap-2 xl:flex 2xl:gap-3">
             <LanguageToggle />
             <CTAButton
               to="/agendar-cita"
               icon={<CalendarDays aria-hidden="true" className="h-4 w-4" />}
-              className="min-h-0 h-11 px-5 py-0 text-[14px] shadow-[0_10px_30px_rgba(6,27,51,0.12)]"
+              className="min-h-0 h-11 whitespace-nowrap px-4 py-0 text-[13px] shadow-[0_10px_30px_rgba(6,27,51,0.12)] 2xl:px-5 2xl:text-[14px]"
             >
               {t.cta.book}
             </CTAButton>
@@ -385,7 +369,7 @@ export function Header() {
       </header>
 
       {isOpen && (
-        <div className="fixed inset-x-0 bottom-0 top-[86px] z-[90] overflow-y-auto border-t border-navy/5 bg-mist/95 px-4 py-6 shadow-[0_28px_90px_rgba(6,27,51,0.16)] backdrop-blur-2xl xl:hidden">
+        <div className="fixed inset-x-0 bottom-0 top-[82px] z-[90] overflow-y-auto border-t border-navy/5 bg-mist/95 px-4 py-6 shadow-[0_28px_90px_rgba(6,27,51,0.16)] backdrop-blur-2xl sm:top-[88px] xl:hidden">
           <nav
             className="mx-auto max-w-[35rem]"
             aria-label={t.header.mobileNavLabel}
@@ -427,6 +411,13 @@ export function Header() {
                 {t.header.specialtiesIntro}
               </p>
               <div className="mt-3 grid gap-1">
+                <Link
+                  to={t.header.nav.specialties.href}
+                  onClick={() => setIsOpen(false)}
+                  className="rounded-xl bg-softblue px-3 py-2.5 text-sm font-bold text-navy transition hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan"
+                >
+                  {t.header.nav.specialties.label}
+                </Link>
                 {specialtyDropdownItems.map((item) => (
                   <Link
                     key={item.key}
@@ -445,6 +436,13 @@ export function Header() {
                 {t.header.proceduresIntro}
               </p>
               <div className="mt-3 grid gap-1">
+                <Link
+                  to={t.header.nav.procedures.href}
+                  onClick={() => setIsOpen(false)}
+                  className="rounded-xl bg-softblue px-3 py-2.5 text-sm font-bold text-navy transition hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan"
+                >
+                  {t.header.nav.procedures.label}
+                </Link>
                 {procedureDropdownItems.map((item) => (
                   <Link
                     key={item.key}

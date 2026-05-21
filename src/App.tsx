@@ -8,6 +8,16 @@ const AboutPage = lazy(() =>
 const BookingPage = lazy(() =>
   import("./pages/BookingPage").then((module) => ({ default: module.BookingPage })),
 );
+const ArticlePage = lazy(() =>
+  import("./pages/ArticlePage").then((module) => ({
+    default: module.ArticlePage,
+  })),
+);
+const EducationPage = lazy(() =>
+  import("./pages/EducationPage").then((module) => ({
+    default: module.EducationPage,
+  })),
+);
 const HomePage = lazy(() =>
   import("./pages/HomePage").then((module) => ({ default: module.HomePage })),
 );
@@ -120,6 +130,43 @@ export function App() {
             element={<ProcedureDetailPage procedureKey="vasectomia" />}
           />
           <Route path="/agendar-cita" element={<BookingPage />} />
+          <Route path="/educacion" element={<EducationPage />} />
+          <Route
+            path="/educacion/holep-crecimiento-prostatico"
+            element={<ArticlePage articleKey="holepProstata" />}
+          />
+          <Route
+            path="/educacion/calculos-renales-endourologia"
+            element={<ArticlePage articleKey="calculosEndourologia" />}
+          />
+          <Route
+            path="/educacion/segunda-opinion-uro-oncologia"
+            element={<ArticlePage articleKey="segundaOpinionUroOncologia" />}
+          />
+          <Route
+            path="/educacion/psa-biopsia-prostata"
+            element={<ArticlePage articleKey="psaBiopsiaProstata" />}
+          />
+          <Route
+            path="/educacion/vasectomia-salud-masculina"
+            element={<ArticlePage articleKey="vasectomiaSaludMasculina" />}
+          />
+          <Route
+            path="/educacion/rtup-vs-holep-prostata"
+            element={<ArticlePage articleKey="rtupVsHolep" />}
+          />
+          <Route
+            path="/educacion/sangre-en-la-orina-hematuria"
+            element={<ArticlePage articleKey="sangreOrinaHematuria" />}
+          />
+          <Route
+            path="/educacion/primera-consulta-urologica"
+            element={<ArticlePage articleKey="primeraConsultaUrologica" />}
+          />
+          <Route
+            path="/educacion/cistoscopia-preparacion"
+            element={<ArticlePage articleKey="cistoscopiaPreparacion" />}
+          />
           <Route
             path="/prostata"
             element={<SpecialtyDetailPage pageKey="prostata" />}
@@ -146,6 +193,7 @@ export function App() {
           />
           <Route path="/privacidad" element={<LegalPage type="privacy" />} />
           <Route path="/terminos" element={<LegalPage type="terms" />} />
+          <Route path="/404" element={<NotFoundPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

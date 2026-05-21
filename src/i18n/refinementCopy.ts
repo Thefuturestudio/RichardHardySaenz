@@ -131,16 +131,16 @@ export const refinementCopy: Record<Language, RefinementCopy> = {
     },
     booking: {
       heroBody:
-        "Complete el formulario o escriba por WhatsApp. El equipo revisa disponibilidad y confirma manualmente la cita.",
+        "Complete el formulario o escriba por WhatsApp. El equipo revisa la solicitud, valida disponibilidad y confirma manualmente la cita.",
       privacyTitle: "Privacidad desde el primer contacto",
       privacyBody:
-        "La información compartida se utiliza únicamente para coordinar la solicitud de cita y preparar la orientación inicial. No sustituye una evaluación médica.",
+        "La información compartida se utiliza únicamente para coordinar la solicitud, preparar un resumen inicial y orientar la confirmación manual. No sustituye una evaluación médica.",
       consent:
-        "Acepto que mi información sea utilizada para coordinar una cita. Este formulario no sustituye una evaluación médica.",
+        "Acepto que mi información sea utilizada para coordinar una cita y preparar un resumen para el equipo. Este formulario no sustituye una evaluación médica.",
       consentRequired: "Debe aceptar el uso de la información para coordinar la cita.",
       conciergeTitle: "Canales de coordinación",
       conciergeBody:
-        "Puede solicitar disponibilidad por formulario, WhatsApp, llamada o email. El equipo confirmará los detalles antes de la consulta; las citas no quedan reservadas automáticamente.",
+        "Puede solicitar disponibilidad por formulario, WhatsApp, llamada o email. El equipo confirmará los detalles antes de la consulta; las citas no quedan reservadas automáticamente y pueden coordinarse por HuliPractice o el canal indicado por la práctica.",
       international: "Apoyo para pacientes nacionales e internacionales.",
       nextTitle: "Qué ocurre después",
       next: [
@@ -151,7 +151,7 @@ export const refinementCopy: Record<Language, RefinementCopy> = {
       ],
       assistantTitle: "Asistente de orientación",
       assistantBody:
-        "Puede organizar información inicial y ayudarle a enviar una consulta por WhatsApp. No realiza diagnósticos.",
+        "Puede organizar información inicial y ayudarle a enviar una consulta por WhatsApp. No realiza diagnósticos, no interpreta estudios y no confirma citas.",
       assistantButton: "Abrir asistente",
     },
     assistant: {
@@ -355,16 +355,16 @@ export const refinementCopy: Record<Language, RefinementCopy> = {
     },
     booking: {
       heroBody:
-        "Complete the form or message us on WhatsApp. The team reviews availability and manually confirms the visit.",
+        "Complete the form or message us on WhatsApp. The team reviews the request, checks availability, and manually confirms the visit.",
       privacyTitle: "Privacy from the first contact",
       privacyBody:
-        "Information shared here is used only to coordinate the appointment request and prepare initial guidance. It does not replace medical evaluation.",
+        "Information shared here is used only to coordinate the request, prepare an initial summary, and support manual confirmation. It does not replace medical evaluation.",
       consent:
-        "I agree that my information may be used to coordinate a visit. This form does not replace medical evaluation.",
+        "I agree that my information may be used to coordinate a visit and prepare a summary for the team. This form does not replace medical evaluation.",
       consentRequired: "Please accept information use to coordinate the visit.",
       conciergeTitle: "Coordination channels",
       conciergeBody:
-        "You may request availability by form, WhatsApp, phone, or email. The team confirms details before the visit; appointments are not booked automatically.",
+        "You may request availability by form, WhatsApp, phone, or email. The team confirms details before the visit; appointments are not booked automatically and may be coordinated through HuliPractice or the channel indicated by the practice.",
       international: "Support for local and international patients.",
       nextTitle: "What happens next",
       next: [
@@ -375,7 +375,7 @@ export const refinementCopy: Record<Language, RefinementCopy> = {
       ],
       assistantTitle: "Guidance assistant",
       assistantBody:
-        "It can organize initial information and help you send a WhatsApp request. It does not diagnose.",
+        "It can organize initial information and help you send a WhatsApp request. It does not diagnose, interpret studies, or confirm visits.",
       assistantButton: "Open assistant",
     },
     assistant: {

@@ -8,6 +8,8 @@ screenshots/
 qa-screenshots/
 current-page-screenshots/
 output/
+.preview-*.png
+.tmp-chrome-profile/
 Bluegati Images/
 BrugiatiImages/
 design-handoff/screenshots/

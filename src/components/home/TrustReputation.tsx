@@ -8,18 +8,18 @@ const reviewCopy = {
   es: {
     label: "Testimonios",
     source:
-      "HuliHealth muestra una calificacion publica de 5.0 basada en 155 opiniones de pacientes. El texto individual de las resenas no esta disponible publicamente.",
+      "HuliHealth muestra una calificación pública de 5.0 basada en opiniones de pacientes. El texto individual de las reseñas no se publica aquí sin autorización o exportación verificable.",
     patient: "Paciente verificado",
     body:
-      "Opinion de cinco estrellas registrada en HuliHealth. El texto completo se incorporara cuando exista autorizacion o exportacion verificable.",
+      "Referencia de cinco estrellas registrada en HuliHealth. No se inventa texto testimonial; se incorporará contenido completo solo con autorización o fuente verificable.",
   },
   en: {
     label: "Testimonials",
     source:
-      "HuliHealth shows a public 5.0 rating based on 155 patient reviews. Individual review text is not publicly available.",
+      "HuliHealth shows a public 5.0 rating based on patient reviews. Individual review text is not published here without authorization or a verifiable export.",
     patient: "Verified patient",
     body:
-      "Five-star review registered on HuliHealth. Full text will be added once authorization or a verifiable export is available.",
+      "Five-star reference registered on HuliHealth. No testimonial text is invented; full content will be added only with authorization or a verifiable source.",
   },
 } as const;
 

@@ -43,9 +43,11 @@ export function AboutPage() {
       />
       <PageHero
         title={about.title}
+        titleAccent="Carlos A. Brugiati"
         subtitle={about.subtitle}
         intro={about.intro}
         image={imageAssets.bluegatiAboutHero}
+        imageClassName="page-hero-image--v2"
         actions={
           <CTAButton
             to="/agendar-cita"

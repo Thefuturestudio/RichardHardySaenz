@@ -30,7 +30,7 @@ export function SectionContainer({
       id={id}
       className={cn(
         "relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8 lg:py-32",
-        dark ? "bg-navy text-white" : "bg-white text-navy",
+        dark ? "bg-navy text-white" : "soft-white-section bg-white text-navy",
         className,
       )}
     >

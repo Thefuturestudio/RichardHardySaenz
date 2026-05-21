@@ -25,6 +25,7 @@ import { getWhatsAppHref } from "../lib/whatsapp";
 import { Breadcrumbs } from "../components/shared/Breadcrumbs";
 import { CTAButton } from "../components/shared/CTAButton";
 import { FAQAccordion } from "../components/shared/FAQAccordion";
+import { ImageCard } from "../components/shared/ImageCard";
 import { MedicalDisclaimer } from "../components/shared/MedicalDisclaimer";
 import { PageHero } from "../components/shared/PageHero";
 import { SEO } from "../components/shared/SEO";
@@ -59,6 +60,40 @@ const specialtyHeroImages: Record<SpecialtyKey, (typeof imageAssets)[keyof typeo
   saludMasculina: imageAssets.bluegatiMensHealthHero,
   segundaOpinion: imageAssets.bluegatiSecondOpinionHero,
   ureteroscopia: imageAssets.bluegatiUreteroscopyHero,
+};
+
+const specialtyHeroFocus: Record<SpecialtyKey, string> = {
+  prostata: "page-hero-image--v2",
+  calculosRenales: "page-hero-image--v2",
+  uroOncologia: "page-hero-image--v2",
+  endourologia: "page-hero-image--v2",
+  cirugiaLaparoscopica: "page-hero-image--v2",
+  saludMasculina: "page-hero-image--v2",
+  segundaOpinion: "page-hero-image--v2",
+  ureteroscopia: "page-hero-image--v2",
+};
+
+const specialtyTitleAccent: Record<"es" | "en", Record<SpecialtyKey, string>> = {
+  es: {
+    prostata: "Próstata",
+    calculosRenales: "renales",
+    uroOncologia: "oncología",
+    endourologia: "Endourología",
+    cirugiaLaparoscopica: "laparoscópica",
+    saludMasculina: "masculina",
+    segundaOpinion: "Segunda opinión",
+    ureteroscopia: "Ureteroscopía",
+  },
+  en: {
+    prostata: "Prostate",
+    calculosRenales: "stones",
+    uroOncologia: "oncology",
+    endourologia: "Endourology",
+    cirugiaLaparoscopica: "Laparoscopic",
+    saludMasculina: "Men's",
+    segundaOpinion: "second opinion",
+    ureteroscopia: "Ureteroscopy",
+  },
 };
 
 export function SpecialtyDetailPage({ pageKey }: SpecialtyDetailPageProps) {
@@ -96,9 +131,11 @@ export function SpecialtyDetailPage({ pageKey }: SpecialtyDetailPageProps) {
       <PageHero
         eyebrow={t.brand.platform}
         title={page.title}
+        titleAccent={specialtyTitleAccent[language][pageKey]}
         subtitle={page.subtitle}
         intro={page.intro}
         image={specialtyHeroImages[pageKey]}
+        imageClassName={specialtyHeroFocus[pageKey]}
         actions={
           <>
             <CTAButton
@@ -130,14 +167,21 @@ export function SpecialtyDetailPage({ pageKey }: SpecialtyDetailPageProps) {
       {pageKey === "segundaOpinion" && (
         <SecondOpinionDecisionSection
           copy={secondOpinionUx}
-          cta={page.cta}
-          whatsappLabel={t.cta.whatsapp}
-          whatsappHref={getWhatsAppHref(location.pathname, language)}
         />
       )}
 
+      {pageKey !== "segundaOpinion" && (
+        <>
       <SectionContainer className="bg-white">
-        <div className="grid items-stretch gap-6 lg:grid-cols-2">
+        <div className="grid items-stretch gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+          <ImageCard
+            image={visuals.image}
+            className="min-h-[24rem] rounded-[1.6rem] lg:min-h-full"
+            imageClassName="min-h-[24rem] object-cover"
+            sizes="(min-width: 1024px) 42vw, 100vw"
+          />
+
+          <div className="grid gap-6">
             <article className="premium-card flex flex-col justify-center rounded-[1.6rem] p-7 sm:p-9">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-medical">
                 {copy.common.overview}
@@ -169,8 +213,9 @@ export function SpecialtyDetailPage({ pageKey }: SpecialtyDetailPageProps) {
                 ))}
               </div>
             </article>
+
             {page.urgent && (
-              <aside className="premium-card flex gap-3 rounded-[1.6rem] border-red-100 bg-red-50/70 p-7 text-sm leading-7 text-muted shadow-sm lg:col-span-2">
+              <aside className="premium-card flex gap-3 rounded-[1.6rem] border-red-100 bg-red-50/70 p-7 text-sm leading-7 text-muted shadow-sm">
                 <AlertTriangle
                   aria-hidden="true"
                   className="mt-0.5 h-5 w-5 flex-none text-red-500"
@@ -183,10 +228,11 @@ export function SpecialtyDetailPage({ pageKey }: SpecialtyDetailPageProps) {
                 </div>
               </aside>
             )}
+          </div>
         </div>
       </SectionContainer>
 
-      <SectionContainer className="bg-mist">
+      <SectionContainer className="specialties-selector-section" dark>
         <div className="grid items-stretch gap-6 lg:grid-cols-3">
           <InfoBlock
             icon={<ClipboardCheck aria-hidden="true" className="h-6 w-6" />}
@@ -276,6 +322,8 @@ export function SpecialtyDetailPage({ pageKey }: SpecialtyDetailPageProps) {
           </div>
         </div>
       </SectionContainer>
+        </>
+      )}
 
       <SectionContainer title={page.faqTitle}>
         <FAQAccordion items={faqItems} />
@@ -357,20 +405,14 @@ function InfoBlock({
 
 function SecondOpinionDecisionSection({
   copy,
-  cta,
-  whatsappLabel,
-  whatsappHref,
 }: {
   copy: SecondOpinionUx;
-  cta: string;
-  whatsappLabel: string;
-  whatsappHref: string;
 }) {
   return (
     <SectionContainer className="bg-navy text-white" dark>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(38,191,232,0.20),transparent_28rem),radial-gradient(circle_at_82%_12%,rgba(201,167,106,0.13),transparent_26rem)]" />
-      <div className="relative grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-        <div>
+      <div className="relative grid items-stretch gap-8 lg:grid-cols-[0.92fr_1.08fr]">
+        <div className="flex h-full flex-col">
           <p className="text-xs font-bold uppercase tracking-[0.22em] text-cyan">
             {copy.reviewEyebrow}
           </p>
@@ -380,17 +422,19 @@ function SecondOpinionDecisionSection({
           <p className="mt-6 max-w-2xl text-base leading-8 text-blue-100">
             {copy.reviewBody}
           </p>
-          <div className="mt-8 grid gap-3">
+          <div className="mt-8 grid flex-1 gap-5">
             {copy.reviewItems.map((item, index) => (
               <div
                 key={item.title}
-                className="rounded-[1.25rem] border border-white/10 bg-white/[0.07] p-5 backdrop-blur"
+                className="brugiati-card group flex min-h-[9.75rem] flex-col justify-center rounded-[1.25rem] p-6"
               >
-                <span className="text-xs font-bold text-gold">0{index + 1}</span>
-                <h3 className="mt-3 text-base font-semibold text-white">
+                <span className="brugiati-card-number text-xs font-bold">
+                  0{index + 1}
+                </span>
+                <h3 className="mt-3 text-base font-semibold text-navy">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-sm leading-6 text-blue-100">
+                <p className="mt-2 text-sm leading-6 text-muted">
                   {item.body}
                 </p>
               </div>
@@ -398,8 +442,8 @@ function SecondOpinionDecisionSection({
           </div>
         </div>
 
-        <div className="grid gap-5">
-          <article className="rounded-[1.75rem] border border-white/12 bg-white p-6 text-navy shadow-[0_30px_90px_rgba(0,0,0,0.18)] sm:p-8">
+        <div className="grid h-full gap-6 lg:grid-rows-[auto_1fr]">
+          <article className="brugiati-card rounded-[1.75rem] p-6 text-navy sm:p-8">
             <FileText aria-hidden="true" className="h-6 w-6 text-medical" />
             <h3 className="mt-4 font-heading text-4xl leading-none">
               {copy.documentTitle}
@@ -411,7 +455,7 @@ function SecondOpinionDecisionSection({
               {copy.documentItems.map((item) => (
                 <div
                   key={item}
-                  className="flex gap-3 rounded-2xl border border-borderblue bg-softblue/55 px-4 py-3"
+                  className="flex gap-3 rounded-2xl border border-borderblue bg-white/82 px-4 py-3 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-medical hover:bg-softblue/70 hover:shadow-[0_18px_42px_rgba(13,43,69,0.08)]"
                 >
                   <CheckCircle2
                     aria-hidden="true"
@@ -425,49 +469,30 @@ function SecondOpinionDecisionSection({
             </div>
           </article>
 
-          <article className="rounded-[1.75rem] border border-white/12 bg-white/[0.08] p-6 backdrop-blur sm:p-8">
-            <h3 className="font-heading text-4xl leading-none text-white">
+          <article className="brugiati-card flex h-full flex-col rounded-[1.75rem] p-6 sm:p-8">
+            <h3 className="font-heading text-4xl leading-none text-navy">
               {copy.decisionTitle}
             </h3>
             <div className="mt-6 grid gap-4">
               {copy.decisionSteps.map((step, index) => (
                 <div key={step.title} className="flex gap-4">
-                  <span className="grid h-9 w-9 flex-none place-items-center rounded-full border border-cyan/35 bg-white/10 text-xs font-bold text-cyan">
+                  <span className="grid h-9 w-9 flex-none place-items-center rounded-full border border-borderblue bg-softblue text-xs font-bold text-medical">
                     {index + 1}
                   </span>
                   <div>
-                    <p className="text-sm font-semibold text-white">
+                    <p className="text-sm font-semibold text-navy">
                       {step.title}
                     </p>
-                    <p className="mt-1 text-sm leading-6 text-blue-100">
+                    <p className="mt-1 text-sm leading-6 text-muted">
                       {step.body}
                     </p>
                   </div>
                 </div>
               ))}
             </div>
-            <p className="mt-6 rounded-2xl border border-gold/20 bg-gold/10 p-4 text-sm leading-7 text-blue-100">
+            <p className="mt-6 rounded-2xl border border-borderblue bg-softblue/60 p-4 text-sm leading-7 text-muted">
               {copy.safetyNote}
             </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <CTAButton
-                to="/agendar-cita"
-                variant="light"
-                analyticsEvent="second_opinion_cta_click"
-                analyticsPayload={{ location: "decision_section" }}
-              >
-                {cta}
-              </CTAButton>
-              <CTAButton
-                href={whatsappHref}
-                variant="secondary"
-                icon={<MessageCircle aria-hidden="true" className="h-4 w-4" />}
-                analyticsEvent="whatsapp_click"
-                analyticsPayload={{ location: "decision_section" }}
-              >
-                {whatsappLabel}
-              </CTAButton>
-            </div>
           </article>
         </div>
       </div>

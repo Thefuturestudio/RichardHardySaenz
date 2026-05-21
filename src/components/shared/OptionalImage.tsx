@@ -5,6 +5,7 @@ type OptionalImageProps = {
   alt: string;
   className?: string;
   fallback: ReactNode;
+  loading?: "eager" | "lazy";
 };
 
 export function OptionalImage({
@@ -12,6 +13,7 @@ export function OptionalImage({
   alt,
   className,
   fallback,
+  loading = "lazy",
 }: OptionalImageProps) {
   const [failed, setFailed] = useState(false);
 
@@ -29,7 +31,7 @@ export function OptionalImage({
       alt={alt}
       className={className}
       onError={() => setFailed(true)}
-      loading="lazy"
+      loading={loading}
       decoding="async"
     />
   );

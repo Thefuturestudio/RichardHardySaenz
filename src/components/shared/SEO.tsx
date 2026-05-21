@@ -39,10 +39,12 @@ export function SEO({
     setMeta("property", "og:description", ogDescription ?? description);
     setMeta("property", "og:url", canonicalUrl);
     setMeta("property", "og:image", imageUrl);
+    setMeta("property", "og:locale", "es_PA");
     setMeta("name", "twitter:card", "summary_large_image");
     setMeta("name", "twitter:title", ogTitle ?? title);
     setMeta("name", "twitter:description", ogDescription ?? description);
     setMeta("name", "twitter:image", imageUrl);
+    setMeta("name", "robots", "index,follow");
     setCanonical(canonicalUrl);
     setJsonLd(jsonLd ?? pageSchema());
   }, [

@@ -21,6 +21,7 @@ export type IntakeLead = {
   hasStudies: boolean | null;
   studyTypes: string[];
   message: string;
+  conversationSummary?: string;
   language: Language;
   sourcePage: string;
   createdAt: string;

@@ -10,6 +10,10 @@ import { generateLeadSummary } from "../../utils/leadSummary";
 import { hasUrgentLanguage } from "../../utils/medicalSafety";
 import { trackEvent } from "../../utils/analytics";
 import { createWhatsAppLink } from "../../utils/whatsapp";
+import {
+  submitIntakeLead,
+  type IntakeSubmissionResult,
+} from "../../utils/intakeSubmission";
 
 type FormValues = {
   name: string;
@@ -25,7 +29,13 @@ type FormValues = {
 const requiredFields: Array<keyof FormValues> = ["name", "phone", "reason"];
 const calendarDays = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 14, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
 
-export function BookingForm({ compact = false }: { compact?: boolean }) {
+export function BookingForm({
+  compact = false,
+  variant = "default",
+}: {
+  compact?: boolean;
+  variant?: "default" | "dark";
+}) {
   const { language, t } = useLanguage();
   const location = useLocation();
   const bookingCopy = refinementCopy[language].booking;
@@ -48,6 +58,9 @@ export function BookingForm({ compact = false }: { compact?: boolean }) {
     {},
   );
   const [submittedLead, setSubmittedLead] = useState<IntakeLead | null>(null);
+  const [submissionResult, setSubmissionResult] =
+    useState<IntakeSubmissionResult | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const leadSummary = submittedLead
     ? generateLeadSummary(submittedLead, language)
@@ -57,9 +70,10 @@ export function BookingForm({ compact = false }: { compact?: boolean }) {
     setValues((current) => ({ ...current, [field]: value }));
     setErrors((current) => ({ ...current, [field]: undefined }));
     setSubmittedLead(null);
+    setSubmissionResult(null);
   }
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const nextErrors: Partial<Record<keyof FormValues, string>> = {};
 
@@ -86,12 +100,17 @@ export function BookingForm({ compact = false }: { compact?: boolean }) {
 
     if (Object.keys(nextErrors).length === 0) {
       const lead = buildBookingLead(values, language, location.pathname);
+      setIsSubmitting(true);
+      const result = await submitIntakeLead(lead);
+      setSubmissionResult(result);
       setSubmittedLead(lead);
+      setIsSubmitting(false);
       trackEvent("booking_form_submit", {
         concern: lead.concern,
         language,
         sourcePage: location.pathname,
         urgentFlag: lead.urgentFlag,
+        delivered: result.delivered,
       });
     }
   }
@@ -116,6 +135,18 @@ export function BookingForm({ compact = false }: { compact?: boolean }) {
             {leadSummary.recommendedNextAction}
           </p>
         </div>
+        {submissionResult && (
+          <p
+            className={cn(
+              "mt-4 rounded-2xl border px-4 py-3 text-xs font-semibold leading-6",
+              submissionResult.delivered
+                ? "border-cyan/30 bg-cyan/10 text-navy"
+                : "border-amber-100 bg-amber-50/90 text-muted",
+            )}
+          >
+            {submissionResult.message}
+          </p>
+        )}
         <div className="mt-6 flex flex-wrap gap-3">
           <a
             href={createWhatsAppLink({
@@ -139,6 +170,7 @@ export function BookingForm({ compact = false }: { compact?: boolean }) {
             type="button"
             onClick={() => {
               setSubmittedLead(null);
+              setSubmissionResult(null);
               setValues(initialValues);
             }}
             className="rounded-full border border-borderblue px-5 py-3 text-sm font-semibold text-navy transition hover:bg-softblue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan"
@@ -150,18 +182,33 @@ export function BookingForm({ compact = false }: { compact?: boolean }) {
     );
   }
 
+  const isDark = variant === "dark";
+
   return (
-    <div className={cn("premium-card rounded-[1.35rem] p-5 sm:p-7", compact && "shadow-soft")}>
+    <div
+      className={cn(
+        "rounded-[1.35rem] p-5 sm:p-7",
+        isDark
+          ? "border border-white/10 bg-navy text-white shadow-[0_28px_90px_rgba(6,27,51,0.24)]"
+          : "premium-card text-navy",
+        compact && "shadow-soft",
+      )}
+    >
       <div className="mb-6 flex items-start justify-between gap-4">
         <div>
-          <h3 className="font-heading text-4xl leading-none text-navy">
+          <h3 className={cn("font-heading text-4xl leading-none", isDark ? "text-white" : "text-navy")}>
             {t.forms.title}
           </h3>
-          <p className="mt-3 max-w-md text-sm leading-6 text-muted">
+          <p className={cn("mt-3 max-w-md text-sm leading-6", isDark ? "text-white/76" : "text-muted")}>
             {t.forms.subtitle}
           </p>
         </div>
-        <div className="hidden h-12 w-12 place-items-center rounded-2xl bg-softblue text-navy sm:grid">
+        <div
+          className={cn(
+            "hidden h-12 w-12 place-items-center rounded-2xl sm:grid",
+            isDark ? "bg-white/10 text-white" : "bg-softblue text-navy",
+          )}
+        >
           <CalendarDays aria-hidden="true" className="h-5 w-5" />
         </div>
       </div>
@@ -266,7 +313,14 @@ export function BookingForm({ compact = false }: { compact?: boolean }) {
           />
         </Field>
 
-        <label className="mt-4 flex cursor-pointer gap-3 rounded-2xl border border-borderblue bg-white/76 p-4 text-xs leading-6 text-muted transition hover:border-medical">
+        <label
+          className={cn(
+            "mt-4 flex cursor-pointer gap-3 rounded-2xl border p-4 text-xs leading-6 transition hover:border-medical",
+            isDark
+              ? "border-white/12 bg-white/8 text-white/76"
+              : "border-borderblue bg-white/76 text-muted",
+          )}
+        >
           <input
             name="consent"
             type="checkbox"
@@ -286,20 +340,31 @@ export function BookingForm({ compact = false }: { compact?: boolean }) {
           </span>
         </label>
 
-        <div className="mt-4 flex gap-3 rounded-2xl bg-softblue/70 p-4 text-xs leading-6 text-muted">
-          <Lock aria-hidden="true" className="mt-0.5 h-4 w-4 flex-none text-medical" />
+        <div
+          className={cn(
+            "mt-4 flex gap-3 rounded-2xl p-4 text-xs leading-6",
+            isDark ? "bg-white/8 text-white/76" : "bg-softblue/70 text-muted",
+          )}
+        >
+          <Lock aria-hidden="true" className={cn("mt-0.5 h-4 w-4 flex-none", isDark ? "text-cyan" : "text-medical")} />
           <span>{bookingCopy.privacyBody}</span>
         </div>
 
-        <p className="mt-3 text-xs font-semibold leading-6 text-muted">
+        <p className={cn("mt-3 text-xs font-semibold leading-6", isDark ? "text-white/72" : "text-muted")}>
           {flow.summary.emergencyNote}
         </p>
 
         <button
           type="submit"
-          className="mt-5 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-navy px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-navy-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan sm:w-auto"
+          disabled={isSubmitting}
+          className={cn(
+            "mt-5 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold shadow-soft transition hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan sm:w-auto",
+            isDark
+              ? "bg-white text-navy hover:bg-softblue"
+              : "bg-navy text-white hover:bg-navy-2",
+          )}
         >
-          {t.cta.send}
+          {isSubmitting ? (language === "es" ? "Enviando..." : "Sending...") : t.cta.send}
           <Send aria-hidden="true" className="h-4 w-4" />
         </button>
       </form>
@@ -382,7 +447,7 @@ function Field({
 }: FieldProps) {
   return (
     <div className={className}>
-      <label htmlFor={id} className="text-xs font-bold uppercase tracking-[0.12em] text-navy">
+      <label htmlFor={id} className="text-xs font-bold uppercase tracking-[0.12em] text-current">
         {label}
         {required && <span className="text-medical"> *</span>}
       </label>

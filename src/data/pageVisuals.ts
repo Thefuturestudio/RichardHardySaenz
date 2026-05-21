@@ -25,7 +25,7 @@ export const specialtyVisuals: Record<
     accent: imageAssets.precisionSurgery,
   },
   saludMasculina: {
-    image: imageAssets.prostate,
+    image: imageAssets.urinarySystem,
     accent: imageAssets.urinarySystem,
   },
   segundaOpinion: {

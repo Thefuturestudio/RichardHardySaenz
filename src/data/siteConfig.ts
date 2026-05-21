@@ -12,10 +12,10 @@ export const siteConfig = {
   disclaimer:
     "La información de este sitio tiene fines educativos y de orientación general. No sustituye una evaluación médica. En caso de emergencia, acuda a un servicio médico de urgencia.",
   assistantDisclaimer:
-    "El asistente digital no realiza diagnósticos. Su función es orientación inicial y coordinación de citas.",
+    "El asistente digital no realiza diagnósticos, decisiones de tratamiento ni indicaciones de medicamentos. Su función es organizar información inicial y apoyar la coordinación manual de citas.",
   publicTrustSignals: [
     "Perfil público con alta valoración de pacientes.",
-    "153 opiniones de pacientes",
+    "Opiniones públicas a validar antes de publicación",
     "Especialista en urología",
     "Atención en Ciudad de Panamá",
   ],
@@ -26,12 +26,12 @@ export const siteConfig = {
     "Laparoscopía",
     "Mínima invasión",
   ],
-  verifiedNote: "Datos a verificar antes de la publicación final.",
+  verifiedNote: "Datos clínicos y operativos sujetos a revisión final antes de publicación.",
 };
 
-// TODO: Finalize SEO schema, verified licensing, clinic address, business hours,
-// Google Business review integration, HuliHealth review integration, blog/articles,
-// English translations, medical referral page, and reputation automation.
+// Keep schema limited to source-backed public facts. Do not add review/rating,
+// address, hours, insurance, or affiliation claims until the source pack marks
+// them as final for publication.
 export const physicianJsonLd = {
   "@context": "https://schema.org",
   "@type": ["Physician", "MedicalBusiness"],
@@ -57,7 +57,7 @@ export const physicianJsonLd = {
     {
       "@type": "PropertyValue",
       name: "Publication status",
-      value: "Prototype schema. Final data must be verified before publishing.",
+      value: "Public CV and onboarding-source schema. Address, hours, reviews, insurance, and affiliations require final publication approval.",
     },
   ],
 };

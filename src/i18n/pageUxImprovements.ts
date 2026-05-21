@@ -128,18 +128,18 @@ export const pageUxImprovements: Record<
       ],
       panelTitle: "Coordinación privada",
       panelBody:
-        "Use el formulario para una solicitud ordenada o WhatsApp si prefiere una conversación directa con el equipo.",
+        "Use el formulario para una solicitud ordenada o WhatsApp si prefiere una conversación directa. El equipo revisa y confirma manualmente.",
       panelSteps: [
         "No use este formulario para emergencias.",
-        "La cita queda sujeta a confirmación del equipo.",
-        "No se solicitan documentos médicos sensibles desde esta página.",
+        "La cita queda sujeta a confirmación del equipo o flujo HuliPractice.",
+        "Los estudios se preparan para la consulta; no se suben documentos sensibles desde esta página.",
       ],
       assuranceTitle: "Privacidad y discreción",
       assuranceBody:
-        "Los datos se utilizan para responder la solicitud y coordinar la atención. El sitio no realiza diagnósticos ni reemplaza la evaluación médica.",
+        "Los datos se utilizan para responder la solicitud, preparar un resumen y coordinar la atención. El sitio no realiza diagnósticos ni reemplaza la evaluación médica.",
       preparationTitle: "Llegar mejor preparado",
       preparationBody:
-        "Si ya tiene estudios o informes, traerlos organizados ayuda a aprovechar mejor el tiempo de consulta.",
+        "Si ya tiene estudios, informes, biopsias, imágenes o laboratorios, llevarlos organizados ayuda a aprovechar mejor el tiempo de consulta.",
     },
     secondOpinion: {
       reviewEyebrow: "Revisión médica especializada",
@@ -275,18 +275,18 @@ export const pageUxImprovements: Record<
       ],
       panelTitle: "Private coordination",
       panelBody:
-        "Use the form for an organized request or WhatsApp if you prefer a direct conversation with the team.",
+        "Use the form for an organized request or WhatsApp if you prefer a direct conversation. The team reviews and confirms manually.",
       panelSteps: [
         "Do not use this form for emergencies.",
-        "Visits are subject to team confirmation.",
-        "Sensitive medical documents are not requested from this page.",
+        "Visits are subject to team confirmation or the HuliPractice workflow.",
+        "Studies are prepared for the visit; sensitive documents are not uploaded from this page.",
       ],
       assuranceTitle: "Privacy and discretion",
       assuranceBody:
-        "Data is used to respond to the request and coordinate care. The website does not provide diagnoses or replace medical evaluation.",
+        "Data is used to respond to the request, prepare a summary, and coordinate care. The website does not provide diagnoses or replace medical evaluation.",
       preparationTitle: "Arrive better prepared",
       preparationBody:
-        "If you already have studies or reports, bringing them organized helps make the visit more useful.",
+        "If you already have studies, reports, biopsies, imaging, or labs, bringing them organized helps make the visit more useful.",
     },
     secondOpinion: {
       reviewEyebrow: "Specialist medical review",

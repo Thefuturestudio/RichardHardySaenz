@@ -48,6 +48,40 @@ export function FloatingActions() {
   }
 
   useEffect(() => {
+    if (!assistantOpen) {
+      return;
+    }
+
+    function closeFromDrawerTarget(event: MouseEvent) {
+      const target = event.target;
+
+      if (!(target instanceof HTMLElement)) {
+        return;
+      }
+
+      const clickedCloseButton = Boolean(target.closest("[data-assistant-close]"));
+      const clickedBackdrop = target.hasAttribute("data-assistant-overlay");
+
+      if (!clickedCloseButton && !clickedBackdrop) {
+        return;
+      }
+
+      event.preventDefault();
+      event.stopPropagation();
+      window.setTimeout(() => {
+        setAssistantOpen(false);
+        requestAnimationFrame(() => {
+          lastFocusedElement.current?.focus();
+        });
+      }, 0);
+    }
+
+    document.addEventListener("click", closeFromDrawerTarget, true);
+    return () =>
+      document.removeEventListener("click", closeFromDrawerTarget, true);
+  }, [assistantOpen]);
+
+  useEffect(() => {
     function handleScroll() {
       setMobileActionsVisible(window.scrollY > 560);
     }

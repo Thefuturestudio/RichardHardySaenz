@@ -79,48 +79,68 @@ function getCopy(type: "privacy" | "terms", language: "es" | "en") {
       ? {
           title: "Privacidad",
           intro:
-            "Información general sobre cómo se utiliza la información enviada por formularios y canales digitales.",
+            "Información sobre cómo se usa la información enviada por formularios, WhatsApp, asistente digital y futuros canales de voz.",
           notice:
-            "Esta página resume el uso general de la información enviada por canales digitales. La versión final debe ser revisada y aprobada antes de publicación.",
+            "Esta página resume el manejo operativo de información para coordinar citas. No sustituye una política legal revisada por la práctica antes de publicación final.",
           sections: [
             {
               title: "Datos de contacto",
               body:
-                "Los formularios y enlaces de WhatsApp pueden solicitar nombre, teléfono, email, motivo general de consulta y preferencia de horario para coordinar una cita.",
+                "Los formularios, WhatsApp y el asistente pueden solicitar nombre, teléfono, email, motivo general de consulta, preferencia de horario, si es primera visita y si existen estudios disponibles. No se solicitan documentos médicos ni valores de laboratorio desde esta página.",
             },
             {
               title: "Uso de la información",
               body:
-                "La información se utiliza para responder solicitudes, coordinar disponibilidad y preparar orientación inicial. Este sitio no solicita documentos médicos ni valores de laboratorio.",
+                "La información se utiliza para responder solicitudes, preparar un resumen de coordinación, revisar disponibilidad y confirmar manualmente próximos pasos. Las citas no se reservan automáticamente y HuliPractice o el equipo pueden seguir siendo el flujo operativo de confirmación.",
+            },
+            {
+              title: "WhatsApp, asistente y llamadas de voz",
+              body:
+                "Si el paciente usa WhatsApp, el asistente digital o un futuro asistente de voz, la información puede convertirse en un resumen para el equipo. Estos canales se usan para orientar la coordinación, identificar señales de alarma y facilitar el seguimiento administrativo; no reemplazan la consulta médica.",
+            },
+            {
+              title: "Transcripciones, resúmenes y retención",
+              body:
+                "Las llamadas de voz o conversaciones digitales pueden generar transcripciones o resúmenes operativos si el servicio se activa. La retención, revisión y eliminación de esos registros debe confirmarse con la práctica antes del lanzamiento final. Hasta que exista un flujo seguro aprobado, el sitio no debe recibir documentos médicos sensibles.",
             },
             {
               title: "Seguridad médica",
               body:
-                "El sitio, formularios y asistente no realizan diagnósticos ni sustituyen una evaluación médica. En caso de emergencia, acuda a un servicio médico de urgencia.",
+                "El sitio, formularios, asistente y futuros resúmenes de voz no realizan diagnósticos, decisiones de tratamiento ni indicaciones de medicamentos. Si presenta dolor agudo, fiebre, sangrado, retención urinaria, cólico renal, escalofríos o una preocupación postoperatoria reciente, acuda a urgencias o contacte al equipo de inmediato.",
             },
           ],
         }
       : {
           title: "Privacy",
           intro:
-            "General information about how data submitted through forms and digital channels is used.",
+            "Information about how data submitted through forms, WhatsApp, the digital assistant, and future voice channels is used.",
           notice:
-            "This page summarizes the general use of information submitted through digital channels. Final copy should be reviewed and approved before publication.",
+            "This page summarizes operational data handling for visit coordination. It does not replace a legal policy reviewed by the practice before final publication.",
           sections: [
             {
               title: "Contact data",
               body:
-                "Forms and WhatsApp links may request name, phone, email, general reason for consultation, and preferred time to coordinate a visit.",
+                "Forms, WhatsApp, and the assistant may request name, phone, email, general reason for consultation, preferred time, whether this is a first visit, and whether studies are available. Medical documents and lab values are not requested from this page.",
             },
             {
               title: "Use of information",
               body:
-                "Information is used to respond to requests, coordinate availability, and prepare initial guidance. This site does not request medical documents or lab values.",
+                "Information is used to respond to requests, prepare a coordination summary, review availability, and manually confirm next steps. Visits are not booked automatically, and HuliPractice or the team may remain the operational confirmation workflow.",
+            },
+            {
+              title: "WhatsApp, assistant, and voice calls",
+              body:
+                "If the patient uses WhatsApp, the digital assistant, or a future voice assistant, the information may be turned into a staff summary. These channels support coordination, warning-sign routing, and administrative follow-up; they do not replace a medical consultation.",
+            },
+            {
+              title: "Transcripts, summaries, and retention",
+              body:
+                "Voice calls or digital conversations may generate operational transcripts or summaries if the service is activated. Retention, review, and deletion of those records should be confirmed with the practice before final launch. Until an approved secure workflow exists, the site should not receive sensitive medical documents.",
             },
             {
               title: "Medical safety",
               body:
-                "The website, forms, and assistant do not provide diagnoses and do not replace medical evaluation. In an emergency, seek urgent medical care.",
+                "The website, forms, assistant, and future voice summaries do not provide diagnoses, treatment decisions, or medication instructions. If you have acute pain, fever, bleeding, urinary retention, renal colic, chills, or a recent post-operative concern, seek urgent care or contact the team immediately.",
             },
           ],
         };
@@ -130,48 +150,58 @@ function getCopy(type: "privacy" | "terms", language: "es" | "en") {
     ? {
         title: "Términos de uso",
         intro:
-          "Condiciones generales para el uso informativo del sitio web de UroPanama.",
+          "Condiciones generales para usar el sitio de UroPanama como recurso educativo y canal de coordinación.",
         notice:
-          "Estas condiciones explican el uso informativo del sitio. La versión final debe ser revisada y aprobada antes de publicación.",
+          "Estas condiciones reflejan el flujo operativo descrito en los documentos del proyecto. La versión final debe ser revisada y aprobada antes de publicación.",
         sections: [
           {
             title: "Contenido educativo",
             body:
-              "La información del sitio tiene fines educativos y de orientación general. No constituye diagnóstico, tratamiento ni recomendación médica personalizada.",
+              "La información del sitio tiene fines educativos y de orientación general sobre urología, uro-oncología, endourología, HoLEP, cálculos renales, salud masculina y segunda opinión. No constituye diagnóstico, tratamiento ni recomendación médica personalizada.",
           },
           {
             title: "Coordinación de citas",
             body:
-              "El envío de un formulario o mensaje por WhatsApp no confirma una cita automáticamente. El equipo debe confirmar disponibilidad y próximos pasos.",
+              "El envío de un formulario, mensaje de WhatsApp, resumen del asistente o futuro resumen de voz no confirma una cita automáticamente. El equipo revisa la solicitud, confirma disponibilidad manualmente y puede orientar el flujo por HuliPractice u otro canal autorizado.",
+          },
+          {
+            title: "Canales digitales y revisión humana",
+            body:
+              "Los canales digitales pueden ayudar a organizar información inicial, pero las decisiones médicas y la confirmación de agenda requieren revisión humana. El paciente no debe enviar documentos sensibles, imágenes diagnósticas completas ni datos clínicos extensos hasta que la práctica indique un canal seguro.",
           },
           {
             title: "Emergencias",
             body:
-              "Este sitio no debe utilizarse para emergencias médicas. Si presenta síntomas graves, acuda a un servicio médico de urgencia.",
+              "Este sitio no debe utilizarse para emergencias médicas. Dolor agudo, fiebre, escalofríos, sangrado, retención urinaria, cólico renal, vómitos persistentes o preocupación postoperatoria reciente requieren atención médica urgente.",
           },
         ],
       }
     : {
         title: "Terms of use",
         intro:
-          "General conditions for using the UroPanama website as an informational resource.",
+          "General conditions for using the UroPanama website as an educational resource and coordination channel.",
         notice:
-          "These terms explain informational use of the website. Final copy should be reviewed and approved before publication.",
+          "These terms reflect the operational flow described in the project documents. Final copy should be reviewed and approved before publication.",
         sections: [
           {
             title: "Educational content",
             body:
-              "Website information is for education and general guidance. It is not a diagnosis, treatment, or personalized medical recommendation.",
+              "Website information is for education and general guidance about urology, uro-oncology, endourology, HoLEP, kidney stones, men's health, and second opinions. It is not a diagnosis, treatment, or personalized medical recommendation.",
           },
           {
             title: "Appointment coordination",
             body:
-              "Submitting a form or WhatsApp message does not automatically confirm a visit. The team must confirm availability and next steps.",
+              "Submitting a form, WhatsApp message, assistant summary, or future voice summary does not automatically confirm a visit. The team reviews the request, manually confirms availability, and may guide the workflow through HuliPractice or another authorized channel.",
+          },
+          {
+            title: "Digital channels and human review",
+            body:
+              "Digital channels can help organize initial information, but medical decisions and schedule confirmation require human review. Patients should not send sensitive documents, complete diagnostic images, or extensive clinical data until the practice indicates a secure channel.",
           },
           {
             title: "Emergencies",
             body:
-              "This site should not be used for medical emergencies. If you have severe symptoms, seek urgent medical care.",
+              "This site should not be used for medical emergencies. Acute pain, fever, chills, bleeding, urinary retention, renal colic, persistent vomiting, or recent post-operative concern requires urgent medical care.",
           },
         ],
       };

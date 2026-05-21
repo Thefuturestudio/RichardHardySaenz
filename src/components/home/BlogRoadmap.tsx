@@ -1,41 +1,47 @@
 import { ArrowRight, BookOpenText, CalendarDays, ChevronLeft, ChevronRight } from "lucide-react";
 import { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import { CTAButton } from "../shared/CTAButton";
 import { useLanguage } from "../../i18n/LanguageContext";
 
 const copy = {
   es: {
-    eyebrow: "Educacion medica",
+    eyebrow: "Educación médica",
     title: "Temas que el paciente suele necesitar antes de decidir.",
     body:
-      "La biblioteca educativa puede iniciar con los temas SEO definidos en el onboarding, conectando sintomas comunes con procedimientos avanzados sin reemplazar la consulta.",
-    cta: "Solicitar orientacion",
-    open: "Leer mas",
+      "La biblioteca educativa puede iniciar con los temas SEO definidos en el onboarding, conectando síntomas comunes con procedimientos avanzados sin reemplazar la consulta.",
+    cta: "Solicitar orientación",
+    open: "Leer más",
     topics: [
       [
-        "Uro-oncologia",
-        "Cancer urogenital, sospechas, estudios alterados y segunda opinion.",
-        "Contenido pensado para explicar rutas de evaluacion, estudios frecuentes y preguntas utiles cuando existe sospecha o diagnostico urologico oncologico.",
+        "Uro-oncología",
+        "Cáncer urológico, estudios alterados y segunda opinión.",
+        "Guía para preparar reportes, imágenes, biopsias y preguntas antes de revisar una recomendación importante.",
+        "/educacion/segunda-opinion-uro-oncologia",
       ],
       [
-        "Terapia focal",
-        "Opciones de conversacion para cancer de prostata en casos seleccionados.",
-        "Guia educativa para entender que informacion se revisa antes de conversar alternativas focales y por que no todos los casos son candidatos.",
-      ],
-      [
-        "Cirugia robotica",
-        "Cuando se conversa un abordaje robotico o laparoscopico.",
-        "Resumen de criterios generales, beneficios esperados de minima invasion y preguntas para comparar opciones quirurgicas con claridad.",
-      ],
-      [
-        "Enucleacion de prostata",
-        "HPB, crecimiento prostatico benigno, HoLEP y sintomas urinarios.",
-        "Explicacion para pacientes con flujo debil, urgencia, retencion o prostata grande que desean entender opciones laser.",
+        "Enucleación de próstata",
+        "HPB, crecimiento prostático benigno, HoLEP y sintomas urinarios.",
+        "Explicacion para pacientes con flujo débil, urgencia, retención o prostata grande que desean entender opciones láser.",
+        "/educacion/holep-crecimiento-prostatico",
       ],
       [
         "Endourologia",
-        "Litiasis renal, ureteroscopia, laser, litotricia y prevencion.",
-        "Ruta de contenidos para entender calculos, estudios de imagen, procedimientos endoscopicos y prevencion de nuevos episodios.",
+        "Litiasis renal, ureteroscopia, láser, litotricia y prevención.",
+        "Ruta de contenidos para entender cálculos, estudios de imagen, procedimientos endoscopicos y prevención de nuevos episodios.",
+        "/educacion/calculos-renales-endourologia",
+      ],
+      [
+        "PSA y biopsia de próstata",
+        "PSA elevado, resonancia, biopsia y evaluacion de riesgo.",
+        "Explicacion clara para entender por que el PSA puede subir y que informacion ayuda antes de decidir una biopsia.",
+        "/educacion/psa-biopsia-prostata",
+      ],
+      [
+        "Vasectomía y salud masculina",
+        "Anticoncepción masculina permanente, preparación y seguimiento.",
+        "Guía para conversar la decision, entender el seguimiento y resolver dudas frecuentes sin promesas ni presion.",
+        "/educacion/vasectomia-salud-masculina",
       ],
     ],
   },
@@ -49,28 +55,33 @@ const copy = {
     topics: [
       [
         "Uro-oncology",
-        "Urogenital cancer, suspected findings, abnormal studies, and second opinion.",
-        "Content designed to explain evaluation pathways, common studies, and useful questions when a urologic cancer concern exists.",
-      ],
-      [
-        "Focal therapy",
-        "Conversation pathways for selected prostate cancer cases.",
-        "Educational guidance on what information is reviewed before focal options are discussed and why not every case is eligible.",
-      ],
-      [
-        "Robotic surgery",
-        "When a robotic or laparoscopic approach may be discussed.",
-        "A clear overview of general criteria, minimally invasive expectations, and questions to compare surgical options responsibly.",
+        "Urologic cancer, abnormal studies, and second opinion.",
+        "Guidance for preparing reports, imaging, biopsies, and questions before reviewing an important recommendation.",
+        "/educacion/segunda-opinion-uro-oncologia",
       ],
       [
         "Prostate enucleation",
         "BPH, benign prostate enlargement, HoLEP, and urinary symptoms.",
         "A patient-friendly explanation for weak stream, urgency, retention, or enlarged prostate concerns involving laser options.",
+        "/educacion/holep-crecimiento-prostatico",
       ],
       [
         "Endourology",
         "Kidney stones, ureteroscopy, laser, lithotripsy, and prevention.",
         "A content pathway for understanding stones, imaging, endoscopic procedures, and prevention of future episodes.",
+        "/educacion/calculos-renales-endourologia",
+      ],
+      [
+        "PSA and prostate biopsy",
+        "Elevated PSA, MRI, biopsy, and risk evaluation.",
+        "A clear explanation of why PSA can rise and what information helps before deciding on biopsy.",
+        "/educacion/psa-biopsia-prostata",
+      ],
+      [
+        "Vasectomy and men's health",
+        "Permanent male contraception, preparation, and follow-up.",
+        "A guide for discussing the decision, understanding follow-up, and answering common questions without pressure.",
+        "/educacion/vasectomia-salud-masculina",
       ],
     ],
   },
@@ -147,7 +158,10 @@ export function BlogRoadmap() {
         className="relative z-10 mx-auto mt-5 grid max-w-7xl gap-5 bg-transparent md:grid-cols-3"
         aria-label={t.title}
       >
-        {visibleTopics.map(({ item: [title, body, more], index }) => (
+        {visibleTopics.map(({ item, index }) => {
+          const [title, body, more, href] = item;
+
+          return (
           <details
             key={title}
             className="brugiati-card education-topic-card group min-h-[300px] p-7"
@@ -173,8 +187,18 @@ export function BlogRoadmap() {
             <p className="mt-5 border-t border-borderblue pt-5 text-sm leading-7 text-muted">
               {more}
             </p>
+            {href && (
+              <Link
+                to={href}
+                className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-medical transition hover:text-navy focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan"
+              >
+                {language === "es" ? "Leer guía completa" : "Read full guide"}
+                <ArrowRight aria-hidden="true" className="h-4 w-4" />
+              </Link>
+            )}
           </details>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

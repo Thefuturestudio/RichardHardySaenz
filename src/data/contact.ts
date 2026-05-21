@@ -10,5 +10,5 @@ export const contact = {
   location: "Ciudad de Panamá, Panamá",
 };
 
-// TODO: Replace with verified clinic address, real WhatsApp routing, CRM, email API,
-// calendar booking, secure patient document upload, and analytics before publication.
+// Source-backed public contact from the local CV/onboarding handoff. Keep staff-only
+// notification routes, clinic address, hours, and private credentials out of public code.

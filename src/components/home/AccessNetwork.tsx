@@ -93,7 +93,7 @@ const copy = {
       "El equipo orienta la coordinacion de citas, procedimientos y validacion de cobertura segun la aseguradora y la sede correspondiente.",
     insuranceTitle: "Seguros aceptados",
     insurancePrompt:
-      "Seleccione una categoria para ver aseguradoras aceptadas. La cobertura y los requisitos se confirman antes de la cita.",
+      "Seleccione una categoría para ver aseguradoras aceptadas. La cobertura y los requisitos se confirman antes de la cita.",
     national: "Nacionales",
     international: "Internacionales",
     viewList: "Ver lista",
@@ -270,7 +270,7 @@ function InsuranceGroup({
             {icon}
           </span>
           <span className="min-w-0">
-            <span className="block text-sm font-bold uppercase tracking-[0.14em] text-medical">
+            <span className="block break-words text-[13px] font-bold uppercase leading-4 tracking-[0.08em] text-medical sm:text-sm sm:tracking-[0.14em]">
               {title}
             </span>
             <span className="mt-1 block text-xs font-semibold text-muted">

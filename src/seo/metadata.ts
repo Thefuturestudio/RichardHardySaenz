@@ -11,6 +11,8 @@ export type SeoPageKey =
   | "saludMasculina"
   | "segundaOpinion"
   | "booking"
+  | "education"
+  | "articleHolepProstata"
   | "laserCalculos"
   | "biopsiaProstata"
   | "nefrolitotomiaPercutanea"
@@ -106,6 +108,18 @@ export const seoMetadata: Record<SeoPageKey, SeoMetadata> = {
     title: "Agendar cita con urólogo en Panamá | Dr. Carlos Brugiati",
     description:
       "Coordine una evaluación urológica especializada con el Dr. Carlos A. Brugiati en Ciudad de Panamá.",
+  },
+  education: {
+    path: "/educacion",
+    title: "Educación urológica para pacientes | UroPanama",
+    description:
+      "Guías educativas en español sobre próstata, HoLEP, cálculos renales, endourología, uro-oncología y segunda opinión urológica.",
+  },
+  articleHolepProstata: {
+    path: "/educacion/holep-crecimiento-prostatico",
+    title: "HoLEP y próstata agrandada | Guía para pacientes",
+    description:
+      "Guía educativa sobre HoLEP, crecimiento prostático benigno, síntomas urinarios, estudios que se revisan y preguntas para la consulta.",
   },
   laserCalculos: {
     path: "/laser-calculos-renales",

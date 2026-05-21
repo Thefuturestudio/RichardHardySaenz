@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Procedure Structure Boards</title>
+    <style>
+      :root {
+        --navy: #0d2b45;
+        --ink: #14324b;
+        --blue: #0f6da3;
+        --line: #cfe5f2;
+        --mist: #eef7fc;
+        --muted: #4a6579;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background:
+          radial-gradient(circle at 15% 18%, rgba(91, 158, 201, 0.16), transparent 30rem),
+          radial-gradient(circle at 86% 22%, rgba(150, 213, 242, 0.14), transparent 34rem),
+          linear-gradient(135deg, #f8fcff 0%, #ffffff 52%, #edf7fc 130%);
+        color: var(--ink);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      .board {
+        display: none;
+        min-height: 100vh;
+        padding: 34px 40px 44px;
+      }
+
+      .board:target {
+        display: block;
+      }
+
+      body:not(:has(.board:target)) #set-1 {
+        display: block;
+      }
+
+      .board-header {
+        width: min(1360px, 100%);
+        margin: 0 auto 22px;
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .eyebrow {
+        margin: 0 0 8px;
+        color: var(--blue);
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        color: var(--navy);
+        font-family: Georgia, "Times New Roman", serif;
+        letter-spacing: -0.01em;
+      }
+
+      h1 {
+        font-size: 38px;
+        line-height: 1;
+      }
+
+      h2 {
+        font-size: 20px;
+        line-height: 1.05;
+      }
+
+      h3 {
+        font-size: 15px;
+        line-height: 1.1;
+      }
+
+      p {
+        margin: 8px 0 0;
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.55;
+      }
+
+      .note {
+        max-width: 470px;
+        text-align: right;
+        font-size: 13px;
+      }
+
+      .grid {
+        width: min(1360px, 100%);
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .mock {
+        min-height: 762px;
+        overflow: hidden;
+        border: 1px solid rgba(207, 229, 242, 0.95);
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.86);
+        box-shadow: 0 24px 70px rgba(13, 43, 69, 0.12);
+      }
+
+      .mock-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        min-height: 58px;
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--line);
+        background: rgba(247, 252, 255, 0.92);
+      }
+
+      .pill {
+        flex: 0 0 auto;
+        border-radius: 999px;
+        background: var(--navy);
+        color: white;
+        padding: 7px 10px;
+        font-size: 10px;
+        font-weight: 900;
+        letter-spacing: 0.14em;
+      }
+
+      .mini-hero {
+        position: relative;
+        min-height: 172px;
+        overflow: hidden;
+      }
+
+      .mini-hero img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+      }
+
+      .mini-hero::after {
+        position: absolute;
+        inset: 0;
+        content: "";
+        background:
+          linear-gradient(90deg, rgba(255, 255, 255, 0.99), rgba(255, 255, 255, 0.9) 44%, rgba(255, 255, 255, 0.32) 100%),
+          linear-gradient(0deg, rgba(255, 255, 255, 0.92), transparent 40%);
+      }
+
+      .hero-copy {
+        position: relative;
+        z-index: 2;
+        width: 58%;
+        padding: 22px 16px;
+      }
+
+      .hero-copy h2 {
+        font-size: 25px;
+        line-height: 0.96;
+      }
+
+      .button-row {
+        display: flex;
+        gap: 7px;
+        margin-top: 13px;
+      }
+
+      .button {
+        height: 24px;
+        border-radius: 999px;
+        padding: 0 11px;
+        display: inline-flex;
+        align-items: center;
+        font-size: 9px;
+        font-weight: 900;
+      }
+
+      .button.primary {
+        background: var(--navy);
+        color: white;
+      }
+
+      .button.secondary {
+        border: 1px solid var(--line);
+        background: white;
+      }
+
+      .body {
+        padding: 14px;
+        display: grid;
+        gap: 12px;
+      }
+
+      .card {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background:
+          radial-gradient(circle at 100% 0%, rgba(156, 214, 242, 0.2), transparent 10rem),
+          rgba(255, 255, 255, 0.86);
+        box-shadow: 0 14px 42px rgba(13, 43, 69, 0.08);
+      }
+
+      .pad {
+        padding: 16px;
+      }
+
+      .image {
+        min-height: 118px;
+      }
+
+      .image img {
+        width: 100%;
+        height: 100%;
+        min-height: inherit;
+        object-fit: cover;
+        display: block;
+      }
+
+      .two {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .three {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+
+      .dark {
+        border-radius: 18px;
+        background:
+          radial-gradient(circle at 12% 20%, rgba(101, 184, 230, 0.22), transparent 14rem),
+          linear-gradient(135deg, #0d2b45, #0b1f30);
+        padding: 16px;
+      }
+
+      .dark h3,
+      .dark p,
+      .dark .eyebrow {
+        color: white;
+      }
+
+      .dark p {
+        opacity: 0.76;
+      }
+
+      .small-card {
+        min-height: 88px;
+        padding: 12px;
+      }
+
+      .timeline {
+        display: grid;
+        gap: 8px;
+      }
+
+      .timeline-row {
+        display: grid;
+        grid-template-columns: 36px 1fr;
+        gap: 10px;
+        align-items: start;
+      }
+
+      .num {
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 999px;
+        background: #e6f5fc;
+        color: var(--blue);
+        font-size: 11px;
+        font-weight: 900;
+      }
+
+      .spine {
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 10px;
+      }
+
+      .stack {
+        display: grid;
+        gap: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="board" id="set-1">
+      <header class="board-header">
+        <div>
+          <p class="eyebrow">Procedure page structures</p>
+          <h1>Set 1: closest to the Specialties page</h1>
+        </div>
+        <p class="note">All five keep the hero stable. The difference is how the first content area balances image, explanation, and decision-support cards.</p>
+      </header>
+
+      <main class="grid">
+        <article class="mock">
+          <div class="mock-title"><h3>Split overview + dark steps</h3><span class="pill">01</span></div>
+          <div class="mini-hero"><img src="/images/bluegati/bluegati-prostate-hero-v2.webp?v=20260515" /><div class="hero-copy"><p class="eyebrow">Procedure guide</p><h2>HoLEP laser prostate surgery</h2><p>A clear page for procedural options.</p><div class="button-row"><span class="button primary">Guidance</span><span class="button secondary">Assistant</span></div></div></div>
+          <div class="body">
+            <div class="two"><div class="card image"><img src="/images/prostate-visual.webp" /></div><div class="card pad"><p class="eyebrow">Overview</p><h2>Understand the indication first.</h2><p>Closest to Specialties: image left, calm explanatory card right.</p></div></div>
+            <div class="dark"><div class="three"><div><p class="eyebrow">01</p><h3>Review</h3><p>Symptoms and studies.</p></div><div><p class="eyebrow">02</p><h3>Compare</h3><p>Options and timing.</p></div><div><p class="eyebrow">03</p><h3>Confirm</h3><p>Next step.</p></div></div></div>
+          </div>
+        </article>
+
+        <article class="mock">
+          <div class="mock-title"><h3>Large explainer + support rail</h3><span class="pill">02</span></div>
+          <div class="mini-hero"><img src="/images/bluegati/bluegati-prostate-hero-v2.webp?v=20260515" /><div class="hero-copy"><p class="eyebrow">Procedure guide</p><h2>HoLEP laser prostate surgery</h2><p>A clear page for procedural options.</p><div class="button-row"><span class="button primary">Guidance</span><span class="button secondary">Assistant</span></div></div></div>
+          <div class="body">
+            <div class="card pad"><p class="eyebrow">Main explanation</p><h2>What this page helps a patient decide.</h2><p>A stronger text anchor avoids the page feeling like image tiles.</p></div>
+            <div class="two"><div class="card image"><img src="/images/prostate-visual.webp" /></div><div class="stack"><div class="card small-card"><h3>When discussed</h3><p>Symptoms, prostate size, history.</p></div><div class="card small-card"><h3>What reviewed</h3><p>PSA, imaging, flow, recovery.</p></div></div></div>
+          </div>
+        </article>
+
+        <article class="mock">
+          <div class="mock-title"><h3>Text / image / text balance</h3><span class="pill">03</span></div>
+          <div class="mini-hero"><img src="/images/bluegati/bluegati-prostate-hero-v2.webp?v=20260515" /><div class="hero-copy"><p class="eyebrow">Procedure guide</p><h2>HoLEP laser prostate surgery</h2><p>A clear page for procedural options.</p><div class="button-row"><span class="button primary">Guidance</span><span class="button secondary">Assistant</span></div></div></div>
+          <div class="body">
+            <div class="three"><div class="card small-card"><p class="eyebrow">01</p><h3>Why considered</h3><p>Symptoms suggest obstruction.</p></div><div class="card image"><img src="/images/prostate-visual.webp" /></div><div class="card small-card"><p class="eyebrow">02</p><h3>What clarified</h3><p>Options and recovery.</p></div></div>
+            <div class="card pad"><h2>Patient questions before deciding</h2><p>A compact lower card holds common questions without splitting the page too much.</p></div>
+          </div>
+        </article>
+
+        <article class="mock">
+          <div class="mock-title"><h3>Centered pathway + two images</h3><span class="pill">04</span></div>
+          <div class="mini-hero"><img src="/images/bluegati/bluegati-prostate-hero-v2.webp?v=20260515" /><div class="hero-copy"><p class="eyebrow">Procedure guide</p><h2>HoLEP laser prostate surgery</h2><p>A clear page for procedural options.</p><div class="button-row"><span class="button primary">Guidance</span><span class="button secondary">Assistant</span></div></div></div>
+          <div class="body">
+            <div class="card pad"><p class="eyebrow">Procedure pathway</p><h2>A calmer reset after the hero.</h2><p>Single full-width card first, then visual support below.</p></div>
+            <div class="two"><div class="card image"><img src="/images/prostate-visual.webp" /></div><div class="card image"><img src="/images/precision-surgery-abstract.webp" /></div></div>
+            <div class="three"><div class="card small-card"><h3>Before</h3></div><div class="card small-card"><h3>During</h3></div><div class="card small-card"><h3>After</h3></div></div>
+          </div>
+        </article>
+
+        <article class="mock">
+          <div class="mock-title"><h3>Overview + decision band</h3><span class="pill">05</span></div>
+          <div class="mini-hero"><img src="/images/bluegati/bluegati-prostate-hero-v2.webp?v=20260515" /><div class="hero-copy"><p class="eyebrow">Procedure guide</p><h2>HoLEP laser prostate surgery</h2><p>A clear page for procedural options.</p><div class="button-row"><span class="button primary">Guidance</span><span class="button secondary">Assistant</span></div></div></div>
+          <div class="body">
+            <div class="two"><div class="card pad"><p class="eyebrow">Overview</p><h2>What the specialist evaluates first.</h2><p>Symptoms, prostate size, PSA, imaging, goals.</p></div><div class="card image"><img src="/images/prostate-visual.webp" /></div></div>
+            <div class="dark"><h3>Decision support</h3><p>Not just what the procedure is, but when it makes sense.</p></div>
+          </div>
+        </article>
+      </main>
+    </section>
+
+    <section class="board" id="set-2">
+      <header class="board-header">
+        <div>
+          <p class="eyebrow">Procedure page structures</p>
+          <h1>Set 2: slightly different, still balanced</h1>
+        </div>
+        <p class="note">These are more structural variations. They keep the premium card language, avoid hero changes, and add one or two controlled images in the content.</p>
+      </header>
+
+      <main class="grid">
+        <article class="mock">
+          <div class="mock-title"><h3>Alternating timeline</h3><span class="pill">06</span></div>
+          <div class="mini-hero"><img src="/images/bluegati/bluegati-prostate-hero-v2.webp?v=20260515" /><div class="hero-copy"><p class="eyebrow">Procedure guide</p><h2>HoLEP laser prostate surgery</h2><p>A clear page for procedural options.</p><div class="button-row"><span class="button primary">Guidance</span><span class="button secondary">Assistant</span></div></div></div>
+          <div class="body">
+            <div class="card image"><img src="/images/prostate-visual.webp" /></div>
+            <div class="card pad timeline">
+              <div class="timeline-row"><span class="num">1</span><div><h3>Evaluate</h3><p>Studies and symptoms.</p></div></div>
+              <div class="timeline-row"><span class="num">2</span><div><h3>Plan</h3><p>Procedure suitability.</p></div></div>
+              <div class="timeline-row"><span class="num">3</span><div><h3>Recover</h3><p>Follow-up rhythm.</p></div></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="mock">
+          <div class="mock-title"><h3>Image spine + side cards</h3><span class="pill">07</span></div>
+          <div class="mini-hero"><img src="/images/bluegati/bluegati-prostate-hero-v2.webp?v=20260515" /><div class="hero-copy"><p class="eyebrow">Procedure guide</p><h2>HoLEP laser prostate surgery</h2><p>A clear page for procedural options.</p><div class="button-row"><span class="button primary">Guidance</span><span class="button secondary">Assistant</span></div></div></div>
+          <div class="body">
+            <div class="spine"><div class="card image" style="min-height:268px"><img src="/images/prostate-visual.webp" /></div><div class="stack"><div class="card small-card"><p class="eyebrow">Clinical fit</p><h3>Why it may apply</h3></div><div class="card small-card"><p class="eyebrow">Preparation</p><h3>What is needed first</h3></div><div class="card small-card"><p class="eyebrow">Follow-up</p><h3>How recovery is watched</h3></div></div></div>
+            <div class="dark"><h3>Strongest if the page needs scanning.</h3><p>The visual spine gives order without making a heavy grid.</p></div>
+          </div>
+        </article>
+
+        <article class="mock">
+          <div class="mock-title"><h3>Clinical dossier</h3><span class="pill">08</span></div>
+          <div class="mini-hero"><img src="/images/bluegati/bluegati-prostate-hero-v2.webp?v=20260515" /><div class="hero-copy"><p class="eyebrow">Procedure guide</p><h2>HoLEP laser prostate surgery</h2><p>A clear page for procedural options.</p><div class="button-row"><span class="button primary">Guidance</span><span class="button secondary">Assistant</span></div></div></div>
+          <div class="body">
+            <div class="card pad"><p class="eyebrow">Clinical dossier</p><h2>What gets reviewed before recommendation.</h2><p>Feels more medical and organized without becoming dense.</p></div>
+            <div class="two"><div class="card small-card"><h3>Symptoms</h3><p>Severity and timeline.</p></div><div class="card small-card"><h3>Studies</h3><p>PSA, imaging, flow.</p></div></div>
+            <div class="card image"><img src="/images/second-opinion-visual.webp" /></div>
+          </div>
+        </article>
+
+        <article class="mock">
+          <div class="mock-title"><h3>Calm feature band</h3><span class="pill">09</span></div>
+          <div class="mini-hero"><img src="/images/bluegati/bluegati-prostate-hero-v2.webp?v=20260515" /><div class="hero-copy"><p class="eyebrow">Procedure guide</p><h2>HoLEP laser prostate surgery</h2><p>A clear page for procedural options.</p><div class="button-row"><span class="button primary">Guidance</span><span class="button secondary">Assistant</span></div></div></div>
+          <div class="body">
+            <div class="dark"><p class="eyebrow">Specialist-led pathway</p><h2 style="color:white;font-size:24px">A structured conversation before any procedure.</h2><p>Dark blue breaks the page immediately after the hero.</p></div>
+            <div class="two"><div class="card image"><img src="/images/precision-surgery-abstract.webp" /></div><div class="card pad"><h3>Less visual clutter</h3><p>One strong band, one image, one practical explanation.</p></div></div>
+          </div>
+        </article>
+
+        <article class="mock">
+          <div class="mock-title"><h3>Question-led layout</h3><span class="pill">10</span></div>
+          <div class="mini-hero"><img src="/images/bluegati/bluegati-prostate-hero-v2.webp?v=20260515" /><div class="hero-copy"><p class="eyebrow">Procedure guide</p><h2>HoLEP laser prostate surgery</h2><p>A clear page for procedural options.</p><div class="button-row"><span class="button primary">Guidance</span><span class="button secondary">Assistant</span></div></div></div>
+          <div class="body">
+            <div class="card pad"><p class="eyebrow">Patient questions</p><h2>Three questions decide the structure.</h2><p>Am I a candidate? What are the alternatives? What happens after?</p></div>
+            <div class="three"><div class="card small-card"><h3>Candidate?</h3></div><div class="card small-card"><h3>Options?</h3></div><div class="card small-card"><h3>Recovery?</h3></div></div>
+            <div class="card image"><img src="/images/patient-journey-diagram.webp" /></div>
+          </div>
+        </article>
+      </main>
+    </section>
+
+    <script>
+      function showSelectedBoard() {
+        const selected = window.location.hash.replace("#", "") || "set-1";
+        document.querySelectorAll(".board").forEach((section) => {
+          section.style.display = section.id === selected ? "block" : "none";
+        });
+        window.scrollTo(0, 0);
+      }
+
+      window.addEventListener("DOMContentLoaded", showSelectedBoard);
+      window.addEventListener("hashchange", showSelectedBoard);
+    </script>
+  </body>
+</html>

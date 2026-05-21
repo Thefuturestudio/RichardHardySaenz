@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Procedure Page Layout Ideas</title>
+    <style>
+      :root {
+        --navy: #0d2b45;
+        --ink: #102f49;
+        --blue: #0f6da3;
+        --cyan: #65b8e6;
+        --mist: #eaf5fb;
+        --line: #cfe6f5;
+        --muted: #3f5d73;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: #eef5fa;
+        color: var(--ink);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      .mockup {
+        display: none;
+        min-height: 920px;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 18% 18%, rgba(91, 158, 201, 0.16), transparent 34rem),
+          radial-gradient(circle at 82% 24%, rgba(170, 220, 245, 0.16), transparent 30rem),
+          linear-gradient(135deg, #fbfdff 0%, #ffffff 52%, #eaf5fb 135%);
+      }
+
+      .mockup:target {
+        display: block;
+      }
+
+      body:not(:has(.mockup:target)) #option-1 {
+        display: block;
+      }
+
+      .mockup.dark {
+        background:
+          radial-gradient(circle at 12% 10%, rgba(101, 184, 230, 0.2), transparent 34rem),
+          linear-gradient(135deg, #0d2b45 0%, #0d1f2d 100%);
+        color: white;
+      }
+
+      .inner {
+        width: min(1180px, calc(100% - 72px));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        height: 76px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid rgba(13, 43, 69, 0.08);
+      }
+
+      .brand {
+        font-family: Georgia, serif;
+        font-size: 22px;
+        color: var(--navy);
+      }
+
+      .dark .brand,
+      .dark .nav {
+        color: white;
+      }
+
+      .nav {
+        display: flex;
+        gap: 30px;
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--ink);
+      }
+
+      .hero {
+        position: relative;
+        min-height: 440px;
+        display: grid;
+        align-items: center;
+        padding: 70px 0 56px;
+      }
+
+      .hero.image-right {
+        grid-template-columns: 0.92fr 1.08fr;
+        gap: 44px;
+      }
+
+      .hero.full {
+        min-height: 500px;
+      }
+
+      .hero-media {
+        min-height: 360px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 30px;
+        box-shadow: 0 28px 80px rgba(13, 43, 69, 0.16);
+      }
+
+      .hero-media img,
+      .content-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+      }
+
+      .hero-bg img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        opacity: 0.92;
+      }
+
+      .hero-bg::after {
+        position: absolute;
+        inset: 0;
+        content: "";
+        background: linear-gradient(90deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.92) 38%, rgba(255,255,255,0.44) 58%, rgba(255,255,255,0) 100%);
+      }
+
+      .hero > *:not(.hero-bg) {
+        position: relative;
+        z-index: 1;
+      }
+
+      .eyebrow {
+        margin: 0 0 18px;
+        color: var(--blue);
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+      }
+
+      .dark .eyebrow {
+        color: var(--cyan);
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        color: var(--navy);
+        letter-spacing: -0.01em;
+      }
+
+      .dark h1,
+      .dark h2,
+      .dark h3 {
+        color: white;
+      }
+
+      h1 {
+        max-width: 720px;
+        font-size: 72px;
+        line-height: 0.96;
+      }
+
+      .lead {
+        max-width: 650px;
+        margin: 26px 0 0;
+        color: var(--muted);
+        font-size: 20px;
+        line-height: 1.7;
+      }
+
+      .dark .lead,
+      .dark p {
+        color: rgba(255,255,255,0.78);
+      }
+
+      .actions {
+        display: flex;
+        gap: 14px;
+        margin-top: 34px;
+      }
+
+      .btn {
+        display: inline-flex;
+        min-height: 48px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        padding: 0 24px;
+        font-size: 14px;
+        font-weight: 900;
+        text-decoration: none;
+      }
+
+      .btn.primary {
+        background: var(--navy);
+        color: white;
+      }
+
+      .btn.secondary {
+        border: 1px solid var(--line);
+        background: white;
+        color: var(--navy);
+      }
+
+      .main {
+        padding: 42px 0 80px;
+      }
+
+      .grid {
+        display: grid;
+        gap: 22px;
+      }
+
+      .cols-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .cols-2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .split {
+        grid-template-columns: 0.9fr 1.1fr;
+        align-items: stretch;
+      }
+
+      .card {
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        background: rgba(255,255,255,0.82);
+        box-shadow: 0 24px 70px rgba(13, 43, 69, 0.1);
+        backdrop-filter: blur(20px);
+      }
+
+      .dark-card {
+        border: 1px solid rgba(255,255,255,0.14);
+        background: rgba(255,255,255,0.08);
+        box-shadow: none;
+      }
+
+      .card.pad {
+        padding: 30px;
+      }
+
+      .card h2 {
+        font-size: 42px;
+        line-height: 1;
+      }
+
+      .card h3 {
+        font-size: 30px;
+      }
+
+      .card p {
+        margin: 16px 0 0;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.8;
+      }
+
+      .content-img {
+        min-height: 260px;
+        overflow: hidden;
+        border-radius: 24px;
+        border: 1px solid var(--line);
+        box-shadow: 0 24px 70px rgba(13, 43, 69, 0.12);
+      }
+
+      .band {
+        margin-top: 28px;
+        padding: 42px;
+        border-radius: 30px;
+        background: linear-gradient(135deg, #0d2b45, #0d1f2d);
+        color: white;
+      }
+
+      .band h2,
+      .band h3 {
+        color: white;
+      }
+
+      .band p {
+        color: rgba(255,255,255,0.78);
+      }
+
+      .timeline {
+        display: grid;
+        gap: 18px;
+      }
+
+      .step {
+        display: grid;
+        grid-template-columns: 62px 1fr;
+        gap: 18px;
+        align-items: start;
+      }
+
+      .num {
+        display: grid;
+        width: 54px;
+        height: 54px;
+        place-items: center;
+        border-radius: 18px;
+        background: #e2f3fb;
+        color: var(--blue);
+        font-weight: 900;
+      }
+
+      .dashboard {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 22px;
+      }
+
+      .sticky-panel {
+        align-self: start;
+      }
+
+      .mini-list {
+        display: grid;
+        gap: 12px;
+        margin-top: 20px;
+      }
+
+      .mini {
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: rgba(255,255,255,0.72);
+        padding: 16px 18px;
+        font-weight: 800;
+      }
+
+      .option-label {
+        position: absolute;
+        top: 96px;
+        right: 36px;
+        z-index: 8;
+        border-radius: 999px;
+        background: rgba(13, 43, 69, 0.9);
+        color: white;
+        padding: 10px 16px;
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="mockup" id="option-1">
+      <div class="option-label">Option 1</div>
+      <div class="inner topbar">
+        <div class="brand">Dr. Carlos A. Brugiati UroPanama</div>
+        <div class="nav"><span>Specialties</span><span>Procedures</span><span>Book visit</span></div>
+      </div>
+      <div class="inner hero image-right">
+        <div>
+          <p class="eyebrow">Procedure guide</p>
+          <h1>HoLEP laser prostate surgery</h1>
+          <p class="lead">A structured explanation of when HoLEP may be discussed, what studies are reviewed, and what patients should understand before deciding.</p>
+          <div class="actions"><a class="btn primary">Request guidance</a><a class="btn secondary">Ask the assistant</a></div>
+        </div>
+        <div class="hero-media"><img src="/images/bluegati/bluegati-prostate-hero-v2.webp?v=20260515" /></div>
+      </div>
+      <main class="inner main">
+        <div class="grid cols-3">
+          <article class="card pad"><h3>When it is discussed</h3><p>Urinary obstruction, enlarged prostate, prior studies, symptoms, and medical history define whether this path is relevant.</p></article>
+          <article class="card pad"><h3>What is reviewed</h3><p>PSA, prostate size, flow symptoms, medication history, imaging, and surgical risk are organized before recommendations.</p></article>
+          <article class="card pad"><h3>Next step</h3><p>The goal is a clear specialist conversation, not a fixed decision before evaluation.</p></article>
+        </div>
+        <div class="band grid split">
+          <div><h2>Clear patient pathway</h2><p>Use a dark blue middle section to break the page and make the clinical sequence feel more deliberate.</p></div>
+          <div class="content-img"><img src="/images/prostate-visual.webp" /></div>
+        </div>
+      </main>
+    </section>
+
+    <section class="mockup" id="option-2">
+      <div class="option-label">Option 2</div>
+      <div class="inner topbar">
+        <div class="brand">Dr. Carlos A. Brugiati UroPanama</div>
+        <div class="nav"><span>Specialties</span><span>Procedures</span><span>Book visit</span></div>
+      </div>
+      <div class="hero full">
+        <div class="hero-bg"><img src="/images/bluegati/bluegati-procedures-hero-v2.webp?v=20260515" /></div>
+        <div class="inner">
+          <p class="eyebrow">Procedure guide</p>
+          <h1>HoLEP laser prostate surgery</h1>
+          <p class="lead">A full-width cinematic hero keeps the procedure page premium while leaving a clean left area for the title and CTA.</p>
+          <div class="actions"><a class="btn primary">Request guidance</a><a class="btn secondary">Ask the assistant</a></div>
+        </div>
+      </div>
+      <main class="inner main">
+        <div class="dashboard">
+          <div class="card pad">
+            <h2>Procedure overview</h2>
+            <p>This layout makes the first content block feel editorial: a clear overview on the left with two supporting clinical images below.</p>
+            <div class="grid cols-2" style="margin-top: 24px;">
+              <div class="content-img"><img src="/images/prostate-visual.webp" /></div>
+              <div class="content-img"><img src="/images/precision-surgery-abstract.webp" /></div>
+            </div>
+          </div>
+          <aside class="card pad sticky-panel">
+            <p class="eyebrow">Before deciding</p>
+            <div class="mini-list">
+              <div class="mini">Symptoms and duration</div>
+              <div class="mini">Prostate size and studies</div>
+              <div class="mini">Medication history</div>
+              <div class="mini">Recovery expectations</div>
+            </div>
+          </aside>
+        </div>
+      </main>
+    </section>
+
+    <section class="mockup dark" id="option-3">
+      <div class="option-label">Option 3</div>
+      <div class="inner topbar">
+        <div class="brand">Dr. Carlos A. Brugiati UroPanama</div>
+        <div class="nav"><span>Specialties</span><span>Procedures</span><span>Book visit</span></div>
+      </div>
+      <div class="inner hero image-right">
+        <div>
+          <p class="eyebrow">Specialist pathway</p>
+          <h1>HoLEP laser prostate surgery</h1>
+          <p class="lead">A darker, specialist-led version for procedure pages where the page should feel more technical and decisive.</p>
+          <div class="actions"><a class="btn secondary">Ask the assistant</a><a class="btn primary">Book visit</a></div>
+        </div>
+        <div class="hero-media"><img src="/images/bluegati/bluegati-endourology-hero-v2.webp?v=20260515" /></div>
+      </div>
+      <main class="inner main">
+        <div class="grid split">
+          <div class="card dark-card pad">
+            <h2>How the evaluation is organized</h2>
+            <p>The dark page style can carry a step-by-step timeline with high contrast and less visual noise.</p>
+            <div class="timeline" style="margin-top: 26px;">
+              <div class="step"><div class="num">01</div><div><h3>Confirm indication</h3><p>Symptoms, tests, and prostate size are reviewed.</p></div></div>
+              <div class="step"><div class="num">02</div><div><h3>Discuss options</h3><p>Medical, procedural, and follow-up options are explained.</p></div></div>
+              <div class="step"><div class="num">03</div><div><h3>Plan safely</h3><p>Preparation and recovery expectations are individualized.</p></div></div>
+            </div>
+          </div>
+          <div class="content-img" style="min-height: 430px;"><img src="/images/endourology-visual.webp" /></div>
+        </div>
+      </main>
+    </section>
+
+    <section class="mockup" id="option-4">
+      <div class="option-label">Option 4</div>
+      <div class="inner topbar">
+        <div class="brand">Dr. Carlos A. Brugiati UroPanama</div>
+        <div class="nav"><span>Specialties</span><span>Procedures</span><span>Book visit</span></div>
+      </div>
+      <div class="inner hero image-right" style="grid-template-columns: 1.08fr 0.92fr;">
+        <div>
+          <p class="eyebrow">Procedure planning</p>
+          <h1>HoLEP laser prostate surgery</h1>
+          <p class="lead">This version treats the page like a decision dashboard: strong hero, then comparison cards and one educational image.</p>
+          <div class="actions"><a class="btn primary">Request evaluation</a><a class="btn secondary">WhatsApp</a></div>
+        </div>
+        <div class="hero-media"><img src="/images/bluegati/bluegati-laparoscopy-hero-v2.webp?v=20260515" /></div>
+      </div>
+      <main class="inner main">
+        <div class="grid cols-2">
+          <article class="card pad"><h2>What HoLEP may solve</h2><p>Designed for obstruction from benign prostate enlargement in selected patients after complete evaluation.</p></article>
+          <article class="card pad"><h2>What it does not replace</h2><p>It does not replace diagnosis, cancer assessment, or individualized medical decision making.</p></article>
+        </div>
+        <div class="grid split" style="margin-top: 24px;">
+          <div class="content-img"><img src="/images/prostate-biopsy-diagram.webp" /></div>
+          <article class="card pad"><h2>Questions before proceeding</h2><p>What are the alternatives? What recovery is expected? What findings would change the plan?</p></article>
+        </div>
+      </main>
+    </section>
+
+    <section class="mockup" id="option-5">
+      <div class="option-label">Option 5</div>
+      <div class="inner topbar">
+        <div class="brand">Dr. Carlos A. Brugiati UroPanama</div>
+        <div class="nav"><span>Specialties</span><span>Procedures</span><span>Book visit</span></div>
+      </div>
+      <div class="inner hero image-right">
+        <div>
+          <p class="eyebrow">Patient education</p>
+          <h1>HoLEP laser prostate surgery</h1>
+          <p class="lead">A softer education-first layout for patients who need orientation before they are ready to request a procedure-focused visit.</p>
+          <div class="actions"><a class="btn primary">Request guidance</a><a class="btn secondary">Ask a question</a></div>
+        </div>
+        <div class="hero-media"><img src="/images/bluegati/bluegati-booking-hero-v2.webp?v=20260515" /></div>
+      </div>
+      <main class="inner main">
+        <div class="grid split">
+          <div>
+            <article class="card pad"><h2>Plain-language summary</h2><p>HoLEP is introduced in patient language first, then the page moves into criteria, preparation, and recovery.</p></article>
+            <div class="grid cols-2" style="margin-top: 22px;">
+              <article class="card pad"><h3>Good for</h3><p>Patients comparing options after symptoms or studies.</p></article>
+              <article class="card pad"><h3>Bring to visit</h3><p>Prior images, medication list, PSA, and symptom history.</p></article>
+            </div>
+          </div>
+          <div class="grid">
+            <div class="content-img"><img src="/images/patient-journey-diagram.webp" /></div>
+            <div class="content-img"><img src="/images/booking-interface-visual.webp" /></div>
+          </div>
+        </div>
+      </main>
+    </section>
+    <script>
+      function showSelectedOption() {
+        const selected = window.location.hash.replace("#", "") || "option-1";
+        document.querySelectorAll(".mockup").forEach((section) => {
+          section.style.display = section.id === selected ? "block" : "none";
+        });
+        window.scrollTo(0, 0);
+      }
+
+      window.addEventListener("DOMContentLoaded", showSelectedOption);
+      window.addEventListener("hashchange", showSelectedOption);
+    </script>
+  </body>
+</html>

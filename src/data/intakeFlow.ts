@@ -73,8 +73,8 @@ export const intakeFlow: Record<Language, IntakeFlowCopy> = {
     assistantTitle: "Asistente IA UroPanama",
     diagnosticDisclaimer: "No realiza diagnósticos.",
     openingMessage:
-      "Hola, soy el asistente IA de UroPanama. Puedo ayudarle a ordenar sintomas, estudios y preguntas antes de hablar con el equipo. No realizo diagnosticos medicos.",
-    responsePrompt: "Seleccione el motivo principal y comparta datos basicos para recibir orientacion inicial.",
+      "Hola, soy el asistente IA de UroPanama. Puedo ayudarle a ordenar síntomas, estudios disponibles y preguntas antes de hablar con el equipo. No realizo diagnósticos médicos ni confirmo citas automáticamente.",
+    responsePrompt: "Seleccione el motivo principal y comparta datos básicos para preparar una solicitud que el equipo revisará manualmente.",
     urgentGuidance: urgentGuidance.es,
     quickActions: [
       { concern: "general", label: "Agendar cita" },
@@ -94,7 +94,7 @@ export const intakeFlow: Record<Language, IntakeFlowCopy> = {
       studyTypes: "Tipo de estudios disponibles",
       message: "Mensaje adicional",
       consent:
-        "Acepto que mi información sea utilizada para coordinar una cita. Este asistente no sustituye una evaluación médica.",
+        "Acepto que mi información sea utilizada para coordinar una cita y preparar un resumen para el equipo. Este asistente no sustituye una evaluación médica.",
     },
     placeholders: {
       name: "Nombre completo",
@@ -121,7 +121,7 @@ export const intakeFlow: Record<Language, IntakeFlowCopy> = {
       urgentTitle: "Síntomas que pueden requerir urgencia",
       urgentBody: urgentGuidance.es,
       nextAction:
-        "Puede solicitar la cita o enviar este resumen por WhatsApp para que el equipo confirme disponibilidad.",
+        "Puede solicitar la cita o enviar este resumen por WhatsApp. El equipo confirmará disponibilidad y próximos pasos manualmente.",
       urgentNextAction:
         "Busque atención médica urgente si presenta estos síntomas. También puede contactar al equipo, pero este canal no sustituye urgencias.",
       book: "Agendar cita",
@@ -219,8 +219,8 @@ export const intakeFlow: Record<Language, IntakeFlowCopy> = {
     assistantTitle: "UroPanama AI Assistant",
     diagnosticDisclaimer: "Does not provide diagnoses.",
     openingMessage:
-      "Hello, I am the UroPanama AI assistant. I can help organize symptoms, studies, and questions before you speak with the team. I do not provide diagnoses.",
-    responsePrompt: "Select the main reason and share basic details for initial guidance.",
+      "Hello, I am the UroPanama AI assistant. I can help organize symptoms, available studies, and questions before you speak with the team. I do not provide medical diagnoses or automatically confirm visits.",
+    responsePrompt: "Select the main reason and share basic details to prepare a request the team will review manually.",
     urgentGuidance: urgentGuidance.en,
     quickActions: [
       { concern: "general", label: "Book visit" },
@@ -240,7 +240,7 @@ export const intakeFlow: Record<Language, IntakeFlowCopy> = {
       studyTypes: "Available study types",
       message: "Additional message",
       consent:
-        "I agree that my information may be used to coordinate an appointment. This assistant does not replace a medical evaluation.",
+        "I agree that my information may be used to coordinate an appointment and prepare a summary for the team. This assistant does not replace a medical evaluation.",
     },
     placeholders: {
       name: "Full name",
@@ -267,7 +267,7 @@ export const intakeFlow: Record<Language, IntakeFlowCopy> = {
       urgentTitle: "Symptoms that may require urgent care",
       urgentBody: urgentGuidance.en,
       nextAction:
-        "You may request the visit or send this summary by WhatsApp so the team can confirm availability.",
+        "You may request the visit or send this summary by WhatsApp. The team will manually confirm availability and next steps.",
       urgentNextAction:
         "Please seek urgent medical care if you have these symptoms. You may still contact the team, but this channel does not replace emergency care.",
       book: "Book visit",

@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Balanced Procedure Structures</title>
+    <style>
+      :root {
+        --navy: #0d2b45;
+        --ink: #12324c;
+        --blue: #0f6da3;
+        --cyan: #65b8e6;
+        --line: #cfe6f5;
+        --mist: #edf7fc;
+        --muted: #3f5d73;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: #eef5fa;
+        color: var(--ink);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      .mockup {
+        display: none;
+        min-height: 980px;
+        background:
+          radial-gradient(circle at 14% 16%, rgba(91, 158, 201, 0.13), transparent 32rem),
+          radial-gradient(circle at 88% 18%, rgba(170, 220, 245, 0.13), transparent 30rem),
+          linear-gradient(135deg, #fbfdff 0%, #ffffff 52%, #eaf5fb 135%);
+      }
+
+      .mockup:target {
+        display: block;
+      }
+
+      body:not(:has(.mockup:target)) #option-a {
+        display: block;
+      }
+
+      .inner {
+        width: min(1180px, calc(100% - 72px));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        height: 76px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid rgba(13, 43, 69, 0.08);
+      }
+
+      .brand {
+        font-family: Georgia, serif;
+        font-size: 22px;
+        color: var(--navy);
+      }
+
+      .nav {
+        display: flex;
+        gap: 30px;
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .hero {
+        position: relative;
+        min-height: 460px;
+        overflow: hidden;
+        border-bottom: 1px solid rgba(13, 43, 69, 0.08);
+      }
+
+      .hero img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+      }
+
+      .hero::after {
+        position: absolute;
+        inset: 0;
+        content: "";
+        background:
+          linear-gradient(90deg, rgba(248, 251, 253, 0.99) 0%, rgba(255, 255, 255, 0.95) 36%, rgba(255, 255, 255, 0.55) 58%, rgba(255, 255, 255, 0.04) 100%),
+          linear-gradient(0deg, rgba(255,255,255,0.92), transparent 34%);
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        padding: 88px 0 66px;
+      }
+
+      .eyebrow {
+        margin: 0 0 16px;
+        color: var(--blue);
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        color: var(--navy);
+        font-family: Georgia, "Times New Roman", serif;
+        letter-spacing: -0.01em;
+      }
+
+      h1 {
+        max-width: 700px;
+        font-size: 74px;
+        line-height: 0.95;
+      }
+
+      h2 {
+        font-size: 44px;
+        line-height: 1;
+      }
+
+      h3 {
+        font-size: 29px;
+        line-height: 1.04;
+      }
+
+      p {
+        margin: 16px 0 0;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.8;
+      }
+
+      .lead {
+        max-width: 610px;
+        margin-top: 26px;
+        font-size: 19px;
+        line-height: 1.65;
+      }
+
+      .actions {
+        display: flex;
+        gap: 14px;
+        margin-top: 34px;
+      }
+
+      .btn {
+        display: inline-flex;
+        min-height: 48px;
+        align-items: center;
+        border-radius: 999px;
+        padding: 0 24px;
+        font-size: 14px;
+        font-weight: 900;
+      }
+
+      .primary {
+        background: var(--navy);
+        color: white;
+      }
+
+      .secondary {
+        border: 1px solid var(--line);
+        background: rgba(255,255,255,0.86);
+        color: var(--navy);
+      }
+
+      .main {
+        padding: 56px 0 86px;
+      }
+
+      .grid {
+        display: grid;
+        gap: 22px;
+      }
+
+      .two {
+        grid-template-columns: 0.95fr 1.05fr;
+      }
+
+      .three {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .card {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 26px;
+        background: rgba(255,255,255,0.84);
+        box-shadow: 0 24px 70px rgba(13, 43, 69, 0.1);
+        backdrop-filter: blur(18px);
+      }
+
+      .pad {
+        padding: 30px;
+      }
+
+      .image-card {
+        min-height: 310px;
+      }
+
+      .image-card img {
+        width: 100%;
+        height: 100%;
+        min-height: inherit;
+        object-fit: cover;
+        display: block;
+      }
+
+      .dark-band {
+        margin-top: 24px;
+        border-radius: 30px;
+        background:
+          radial-gradient(circle at 14% 20%, rgba(101, 184, 230, 0.22), transparent 32rem),
+          linear-gradient(135deg, #0d2b45, #0d1f2d);
+        color: white;
+      }
+
+      .dark-band h2,
+      .dark-band h3 {
+        color: white;
+      }
+
+      .dark-band p {
+        color: rgba(255,255,255,0.78);
+      }
+
+      .step-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+
+      .step {
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 22px;
+        background: rgba(255,255,255,0.08);
+        padding: 22px;
+      }
+
+      .mini {
+        border-top: 1px solid var(--line);
+        padding: 22px 30px;
+      }
+
+      .split-image {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+        margin-top: 24px;
+      }
+
+      .split-image .image-card {
+        min-height: 230px;
+      }
+
+      .option-label {
+        position: absolute;
+        top: 98px;
+        right: 38px;
+        z-index: 5;
+        border-radius: 999px;
+        background: rgba(13, 43, 69, 0.94);
+        color: white;
+        padding: 10px 16px;
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="mockup" id="option-a">
+      <div class="option-label">Option A</div>
+      <div class="inner topbar">
+        <div class="brand">Dr. Carlos A. Brugiati UroPanama</div>
+        <div class="nav"><span>Specialties</span><span>Procedures</span><span>Book visit</span></div>
+      </div>
+      <section class="hero">
+        <img src="/images/bluegati/bluegati-prostate-hero-v2.webp?v=20260515" />
+        <div class="inner hero-content">
+          <p class="eyebrow">Procedure guide</p>
+          <h1>HoLEP laser prostate surgery</h1>
+          <p class="lead">A clear educational page for patients reviewing prostate enlargement, urinary obstruction, and procedural options.</p>
+          <div class="actions"><span class="btn primary">Request guidance</span><span class="btn secondary">Ask the assistant</span></div>
+        </div>
+      </section>
+      <main class="inner main">
+        <div class="grid two">
+          <div class="card image-card"><img src="/images/prostate-visual.webp" /></div>
+          <article class="card pad">
+            <p class="eyebrow">Balanced overview</p>
+            <h2>Understand the indication before the procedure.</h2>
+            <p>This mirrors the specialties page structure: image on one side, explanatory card on the other, but the copy is procedure-specific and more practical.</p>
+          </article>
+        </div>
+        <section class="dark-band pad">
+          <div class="step-row">
+            <article class="step"><p class="eyebrow">01 Review</p><h3>Symptoms and studies</h3><p>Organize urinary symptoms, PSA, prostate size, medication history, and imaging.</p></article>
+            <article class="step"><p class="eyebrow">02 Compare</p><h3>Options and timing</h3><p>Discuss medical, procedural, and follow-up paths according to the case.</p></article>
+            <article class="step"><p class="eyebrow">03 Confirm</p><h3>Safe next step</h3><p>Clarify preparation, expected recovery, and what would change the plan.</p></article>
+          </div>
+        </section>
+      </main>
+    </section>
+
+    <section class="mockup" id="option-b">
+      <div class="option-label">Option B</div>
+      <div class="inner topbar">
+        <div class="brand">Dr. Carlos A. Brugiati UroPanama</div>
+        <div class="nav"><span>Specialties</span><span>Procedures</span><span>Book visit</span></div>
+      </div>
+      <section class="hero">
+        <img src="/images/bluegati/bluegati-prostate-hero-v2.webp?v=20260515" />
+        <div class="inner hero-content">
+          <p class="eyebrow">Procedure guide</p>
+          <h1>HoLEP laser prostate surgery</h1>
+          <p class="lead">A clear educational page for patients reviewing prostate enlargement, urinary obstruction, and procedural options.</p>
+          <div class="actions"><span class="btn primary">Request guidance</span><span class="btn secondary">Ask the assistant</span></div>
+        </div>
+      </section>
+      <main class="inner main">
+        <div class="grid two">
+          <article class="card pad">
+            <p class="eyebrow">Main explanation</p>
+            <h2>What this page should help a patient decide.</h2>
+            <p>A larger text card holds the procedure explanation, while two smaller image cards support the idea visually without making the page feel image-heavy.</p>
+            <div class="split-image">
+              <div class="card image-card"><img src="/images/prostate-visual.webp" /></div>
+              <div class="card image-card"><img src="/images/precision-surgery-abstract.webp" /></div>
+            </div>
+          </article>
+          <div class="grid">
+            <article class="card pad"><h3>When it may be discussed</h3><p>Obstruction symptoms, prostate size, prior treatment, and overall health shape the conversation.</p></article>
+            <article class="card pad"><h3>What is reviewed</h3><p>PSA, imaging, urinary flow, medication history, and expectations for recovery.</p></article>
+          </div>
+        </div>
+      </main>
+    </section>
+
+    <section class="mockup" id="option-c">
+      <div class="option-label">Option C</div>
+      <div class="inner topbar">
+        <div class="brand">Dr. Carlos A. Brugiati UroPanama</div>
+        <div class="nav"><span>Specialties</span><span>Procedures</span><span>Book visit</span></div>
+      </div>
+      <section class="hero">
+        <img src="/images/bluegati/bluegati-prostate-hero-v2.webp?v=20260515" />
+        <div class="inner hero-content">
+          <p class="eyebrow">Procedure guide</p>
+          <h1>HoLEP laser prostate surgery</h1>
+          <p class="lead">A clear educational page for patients reviewing prostate enlargement, urinary obstruction, and procedural options.</p>
+          <div class="actions"><span class="btn primary">Request guidance</span><span class="btn secondary">Ask the assistant</span></div>
+        </div>
+      </section>
+      <main class="inner main">
+        <div class="grid three">
+          <article class="card pad"><p class="eyebrow">01</p><h3>Why it is considered</h3><p>Symptoms and studies suggest whether obstruction from prostate enlargement needs a procedural discussion.</p></article>
+          <article class="card image-card"><img src="/images/prostate-visual.webp" /></article>
+          <article class="card pad"><p class="eyebrow">02</p><h3>What gets clarified</h3><p>Indication, alternatives, preparation, and recovery are reviewed before any next step.</p></article>
+        </div>
+        <div class="grid two" style="margin-top: 22px;">
+          <article class="card pad"><h2>Patient questions before deciding</h2><p>What are the alternatives? How does recovery usually work? What tests are needed first?</p></article>
+          <article class="card image-card"><img src="/images/patient-journey-diagram.webp" /></article>
+        </div>
+      </main>
+    </section>
+
+    <section class="mockup" id="option-d">
+      <div class="option-label">Option D</div>
+      <div class="inner topbar">
+        <div class="brand">Dr. Carlos A. Brugiati UroPanama</div>
+        <div class="nav"><span>Specialties</span><span>Procedures</span><span>Book visit</span></div>
+      </div>
+      <section class="hero">
+        <img src="/images/bluegati/bluegati-prostate-hero-v2.webp?v=20260515" />
+        <div class="inner hero-content">
+          <p class="eyebrow">Procedure guide</p>
+          <h1>HoLEP laser prostate surgery</h1>
+          <p class="lead">A clear educational page for patients reviewing prostate enlargement, urinary obstruction, and procedural options.</p>
+          <div class="actions"><span class="btn primary">Request guidance</span><span class="btn secondary">Ask the assistant</span></div>
+        </div>
+      </section>
+      <main class="inner main">
+        <article class="card pad">
+          <p class="eyebrow">Procedure pathway</p>
+          <h2>A calmer version of the specialties structure.</h2>
+          <p>The first section is a single, centered explanatory card. It creates a clean reset after the hero before moving into images and supporting blocks.</p>
+        </article>
+        <div class="grid two" style="margin-top: 22px;">
+          <div class="card image-card"><img src="/images/prostate-visual.webp" /></div>
+          <div class="card image-card"><img src="/images/booking-interface-visual.webp" /></div>
+        </div>
+        <div class="grid three" style="margin-top: 22px;">
+          <article class="card pad"><h3>Before</h3><p>Gather symptoms, studies, PSA, medication history, and previous treatment.</p></article>
+          <article class="card pad"><h3>During</h3><p>Review whether the procedure is appropriate and what alternatives exist.</p></article>
+          <article class="card pad"><h3>After</h3><p>Understand recovery, warning signs, follow-up, and expected timeline.</p></article>
+        </div>
+      </main>
+    </section>
+
+    <section class="mockup" id="option-e">
+      <div class="option-label">Option E</div>
+      <div class="inner topbar">
+        <div class="brand">Dr. Carlos A. Brugiati UroPanama</div>
+        <div class="nav"><span>Specialties</span><span>Procedures</span><span>Book visit</span></div>
+      </div>
+      <section class="hero">
+        <img src="/images/bluegati/bluegati-prostate-hero-v2.webp?v=20260515" />
+        <div class="inner hero-content">
+          <p class="eyebrow">Procedure guide</p>
+          <h1>HoLEP laser prostate surgery</h1>
+          <p class="lead">A clear educational page for patients reviewing prostate enlargement, urinary obstruction, and procedural options.</p>
+          <div class="actions"><span class="btn primary">Request guidance</span><span class="btn secondary">Ask the assistant</span></div>
+        </div>
+      </section>
+      <main class="inner main">
+        <div class="grid two">
+          <article class="card pad">
+            <p class="eyebrow">Overview</p>
+            <h2>What the specialist evaluates first.</h2>
+            <p>This option keeps the page very close to the specialties rhythm but makes the lower section more procedure-specific and less broad.</p>
+            <div class="mini"><strong>Key reviewed:</strong> symptoms, prostate size, PSA, imaging, medication history, recovery goals.</div>
+          </article>
+          <div class="card image-card"><img src="/images/prostate-visual.webp" /></div>
+        </div>
+        <section class="dark-band pad">
+          <div class="grid two">
+            <div>
+              <p class="eyebrow">Decision support</p>
+              <h2>Not just what the procedure is, but when it makes sense.</h2>
+              <p>The dark blue section breaks the page like the specialty pages, but the content is framed around decision criteria.</p>
+            </div>
+            <div class="card image-card"><img src="/images/precision-surgery-abstract.webp" /></div>
+          </div>
+        </section>
+      </main>
+    </section>
+
+    <script>
+      function showSelectedOption() {
+        const selected = window.location.hash.replace("#", "") || "option-a";
+        document.querySelectorAll(".mockup").forEach((section) => {
+          section.style.display = section.id === selected ? "block" : "none";
+        });
+        window.scrollTo(0, 0);
+      }
+
+      window.addEventListener("DOMContentLoaded", showSelectedOption);
+      window.addEventListener("hashchange", showSelectedOption);
+    </script>
+  </body>
+</html>

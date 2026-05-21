@@ -7,6 +7,7 @@ import { cn } from "../../lib/cn";
 type PageHeroProps = {
   eyebrow?: string;
   title: string;
+  titleAccent?: string;
   subtitle: string;
   intro?: string;
   image?: ImageAsset;
@@ -18,6 +19,7 @@ type PageHeroProps = {
 export function PageHero({
   eyebrow,
   title,
+  titleAccent,
   subtitle,
   intro,
   image,
@@ -41,38 +43,72 @@ export function PageHero({
           alt=""
           aria-hidden="true"
           className={cn(
-            "absolute -right-[62%] top-[11%] z-0 h-[108%] w-[168%] object-cover object-[76%_54%] opacity-[0.3] sm:-right-[24%] sm:top-[8%] sm:w-[128%] sm:opacity-[0.48] md:-right-[17%] md:w-[120%] lg:-right-[12%] lg:top-[7%] lg:h-[110%] lg:w-[116%] lg:opacity-[0.64] xl:-right-[13%] xl:top-[8%]",
+            "page-hero-image",
             imageClassName,
           )}
           loading="eager"
           decoding="async"
         />
       )}
-      <div className="absolute inset-0 z-10 bg-[linear-gradient(90deg,rgba(245,247,249,1)_0%,rgba(255,255,255,0.98)_48%,rgba(255,255,255,0.78)_76%,rgba(224,238,247,0.28)_100%)] sm:bg-[linear-gradient(90deg,rgba(245,247,249,0.99)_0%,rgba(255,255,255,0.94)_40%,rgba(255,255,255,0.68)_63%,rgba(224,238,247,0.2)_100%)]" />
-      <div className="relative z-20 mx-auto max-w-7xl">
+      <div className="page-hero-overlay" />
+      <div className="absolute inset-x-0 bottom-0 z-10 h-40 bg-gradient-to-t from-white/95 via-white/55 to-transparent" />
+      <div className="relative z-20 mx-auto w-full max-w-7xl min-w-0">
         <motion.div
           initial={reduceMotion ? false : { y: 18 }}
           animate={reduceMotion ? undefined : { y: 0 }}
           transition={{ duration: 0.55, ease: "easeOut" }}
-          className="min-w-0 max-w-4xl"
+          className="w-full min-w-0 max-w-4xl"
         >
           <p className="site-hero-eyebrow mb-5">
             {eyebrow ?? t.brand.platform}
           </p>
-          <h1 className="site-hero-title max-w-5xl font-heading text-navy text-balance">
-            {title}
+          <h1 className="site-hero-title max-w-full break-words font-heading text-navy text-balance">
+            <HeroTitleText title={title} accent={titleAccent} />
           </h1>
-          <p className="mt-7 max-w-2xl text-lg leading-[1.75] text-muted sm:text-xl">
+          <p className="mt-7 max-w-[20.5rem] text-lg leading-[1.75] text-muted sm:max-w-2xl sm:text-xl">
             {subtitle}
           </p>
           {intro && (
-            <p className="mt-5 max-w-2xl text-base leading-[1.75] text-muted">
+            <p className="mt-5 max-w-[20.5rem] text-base leading-[1.75] text-muted sm:max-w-2xl">
               {intro}
             </p>
           )}
-          {actions && <div className="mt-10 flex flex-wrap gap-3">{actions}</div>}
+          {actions && (
+            <div className="mt-10 flex max-w-full flex-col gap-3 sm:flex-row sm:flex-wrap">
+              {actions}
+            </div>
+          )}
         </motion.div>
       </div>
     </section>
+  );
+}
+
+type HeroTitleTextProps = {
+  title: string;
+  accent?: string;
+};
+
+export function HeroTitleText({ title, accent }: HeroTitleTextProps) {
+  if (!accent) {
+    return <>{title}</>;
+  }
+
+  const accentIndex = title.toLocaleLowerCase().indexOf(accent.toLocaleLowerCase());
+
+  if (accentIndex < 0) {
+    return <>{title}</>;
+  }
+
+  const before = title.slice(0, accentIndex);
+  const highlighted = title.slice(accentIndex, accentIndex + accent.length);
+  const after = title.slice(accentIndex + accent.length);
+
+  return (
+    <>
+      {before}
+      <span className="text-medical">{highlighted}</span>
+      {after}
+    </>
   );
 }

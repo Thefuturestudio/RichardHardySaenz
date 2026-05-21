@@ -3,6 +3,8 @@ export type AnalyticsEventName =
   | "whatsapp_click"
   | "assistant_open"
   | "assistant_concern_selected"
+  | "assistant_chat_submit"
+  | "assistant_intake_submit"
   | "booking_form_submit"
   | "language_toggle"
   | "specialty_page_cta_click"

@@ -1,0 +1,295 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Specialties Hero Mockups</title>
+    <style>
+      @font-face {
+        font-family: "Newsreader";
+        src: url("/fonts/newsreader-latin.woff2") format("woff2");
+        font-weight: 300 800;
+      }
+
+      @font-face {
+        font-family: "Inter";
+        src: url("/fonts/inter-latin.woff2") format("woff2");
+        font-weight: 300 900;
+      }
+
+      :root {
+        --navy: #0d2b45;
+        --navy-2: #0d1f2d;
+        --medical: #1b6b9a;
+        --cyan: #5b9ec9;
+        --ice: #e0eef7;
+        --muted: #2c4a5e;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: #eef5f9;
+        color: var(--navy);
+        font-family: Inter, system-ui, sans-serif;
+      }
+
+      .sheet {
+        display: grid;
+        gap: 28px;
+        padding: 32px;
+      }
+
+      .mockup {
+        overflow: hidden;
+        border: 1px solid rgba(224, 238, 247, 0.96);
+        border-radius: 28px;
+        background: #fff;
+        box-shadow: 0 24px 80px rgba(6, 27, 51, 0.13);
+      }
+
+      .label {
+        padding: 16px 22px;
+        border-bottom: 1px solid rgba(224, 238, 247, 0.92);
+        background: rgba(255, 255, 255, 0.86);
+        color: var(--medical);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .hero {
+        position: relative;
+        min-height: 520px;
+        padding: 78px 84px;
+      }
+
+      .hero h1 {
+        margin: 0;
+        max-width: 720px;
+        font-family: Newsreader, Georgia, serif;
+        font-size: 78px;
+        font-weight: 620;
+        letter-spacing: -0.03em;
+        line-height: 0.96;
+      }
+
+      .eyebrow {
+        margin: 0 0 18px;
+        color: var(--medical);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+
+      .subtitle {
+        margin: 28px 0 0;
+        max-width: 580px;
+        color: var(--muted);
+        font-size: 21px;
+        line-height: 1.55;
+      }
+
+      .intro {
+        margin: 20px 0 0;
+        max-width: 610px;
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.75;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        margin-top: 34px;
+        padding: 0 22px;
+        border-radius: 999px;
+        background: var(--navy);
+        color: #fff;
+        font-size: 14px;
+        font-weight: 800;
+      }
+
+      .light-button {
+        background: #fff;
+        color: var(--navy);
+      }
+
+      .image {
+        position: absolute;
+        inset-block: 0;
+        right: 0;
+        width: 54%;
+        object-fit: cover;
+      }
+
+      .fade {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, #fff 0%, rgba(255, 255, 255, 0.96) 40%, rgba(255, 255, 255, 0.42) 66%, rgba(255, 255, 255, 0.14) 100%);
+      }
+
+      .content {
+        position: relative;
+        z-index: 2;
+      }
+
+      .mock-1 .image {
+        width: 58%;
+        object-position: 56% 38%;
+        opacity: 0.72;
+      }
+
+      .mock-2 .hero {
+        background:
+          radial-gradient(circle at 18% 18%, rgba(91, 158, 201, 0.25), transparent 30rem),
+          linear-gradient(135deg, var(--navy), var(--navy-2));
+        color: #fff;
+      }
+
+      .mock-2 .portrait-card {
+        position: absolute;
+        top: 54px;
+        right: 72px;
+        bottom: 54px;
+        width: 38%;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        border-radius: 26px;
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.26);
+      }
+
+      .mock-2 .portrait-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 58% 36%;
+      }
+
+      .mock-2 .eyebrow {
+        color: var(--cyan);
+      }
+
+      .mock-2 .subtitle,
+      .mock-2 .intro {
+        color: rgba(255, 255, 255, 0.78);
+      }
+
+      .mock-3 .hero {
+        display: grid;
+        grid-template-columns: 0.94fr 1.06fr;
+        gap: 42px;
+        align-items: center;
+        background:
+          radial-gradient(circle at 14% 18%, rgba(91, 158, 201, 0.13), transparent 30rem),
+          linear-gradient(180deg, #fff, #f7fbfd);
+      }
+
+      .mock-3 .photo-panel {
+        min-height: 380px;
+        overflow: hidden;
+        border-radius: 26px;
+        box-shadow: 0 24px 70px rgba(6, 27, 51, 0.12);
+      }
+
+      .mock-3 .photo-panel img {
+        width: 100%;
+        height: 100%;
+        min-height: 380px;
+        object-fit: cover;
+        object-position: 62% 45%;
+      }
+
+      .mock-4 .hero {
+        display: grid;
+        place-items: center;
+        text-align: center;
+        background:
+          linear-gradient(rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.82)),
+          url("/images/bluegati/bluegati-uro-oncology-hero.webp") center/cover;
+      }
+
+      .mock-4 .content {
+        max-width: 860px;
+      }
+
+      .mock-4 h1,
+      .mock-4 .subtitle,
+      .mock-4 .intro {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="sheet">
+      <section class="mockup mock-1">
+        <div class="label">Option 1 - improved portrait crop</div>
+        <div class="hero">
+          <img class="image" src="/images/bluegati/bluegati-specialties-hero.webp" alt="" />
+          <div class="fade"></div>
+          <div class="content">
+            <p class="eyebrow">UroPanama</p>
+            <h1>Urology specialties</h1>
+            <p class="subtitle">Specialized care for prostate, kidney, urinary tract, and men's health conditions.</p>
+            <p class="intro">A clearer crop with the doctor fully present would make the current direction feel intentional and less accidental.</p>
+            <span class="button">Request evaluation</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="mockup mock-2">
+        <div class="label">Option 2 - dark specialist hero</div>
+        <div class="hero">
+          <div class="content">
+            <p class="eyebrow">UroPanama</p>
+            <h1>Specialized urology care, organized by concern.</h1>
+            <p class="subtitle">A calm route for patients choosing the right evaluation before booking a visit.</p>
+            <p class="intro">This is stronger and more premium, but it changes the page mood more dramatically.</p>
+            <span class="button light-button">Request evaluation</span>
+          </div>
+          <div class="portrait-card">
+            <img src="/images/bluegati/bluegati-specialties-hero.webp" alt="" />
+          </div>
+        </div>
+      </section>
+
+      <section class="mockup mock-3">
+        <div class="label">Option 3 - consultation image hero</div>
+        <div class="hero">
+          <div class="content">
+            <p class="eyebrow">UroPanama</p>
+            <h1>Urology specialties</h1>
+            <p class="subtitle">Choose the area of care that best matches your symptoms, studies, and next step.</p>
+            <p class="intro">This aligns best with the page purpose because the image shows review and guidance, not just a generic portrait.</p>
+            <span class="button">Request evaluation</span>
+          </div>
+          <div class="photo-panel">
+            <img src="/images/bluegati/bluegati-consultation-hero.webp" alt="" />
+          </div>
+        </div>
+      </section>
+
+      <section class="mockup mock-4">
+        <div class="label">Option 4 - abstract centered hero</div>
+        <div class="hero">
+          <div class="content">
+            <p class="eyebrow">UroPanama</p>
+            <h1>Urology specialties</h1>
+            <p class="subtitle">Specialized care for prostate, kidney, urinary tract, and men's health conditions.</p>
+            <p class="intro">This removes the portrait problem entirely and makes the page feel more educational and clinical.</p>
+            <span class="button">Request evaluation</span>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
+

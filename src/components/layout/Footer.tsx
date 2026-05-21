@@ -66,11 +66,11 @@ export function Footer() {
   return (
     <footer className="navy-panel px-4 pb-24 pt-14 text-white sm:px-6 md:pb-8 lg:px-8">
       <div className="mx-auto grid max-w-7xl gap-9 lg:grid-cols-[1.15fr_0.72fr_0.85fr_0.95fr]">
-        <div>
+        <div className="min-w-0">
           <img
             src={optionalImages.doctorLogo.src}
             alt={optionalImages.doctorLogo.alt}
-            className="h-28 max-w-[460px] object-contain brightness-0 invert sm:h-32"
+            className="h-24 w-full max-w-[18rem] object-contain object-left brightness-0 invert sm:h-32 sm:max-w-[28.75rem]"
             loading="lazy"
             decoding="async"
           />
@@ -78,7 +78,7 @@ export function Footer() {
           <p className="mt-5 text-xs text-blue-200">{t.footer.credit}</p>
         </div>
 
-        <div>
+        <div className="min-w-0">
           <p className="mb-5 text-xs font-bold uppercase tracking-[0.18em] text-cyan">
             {t.footer.navigation}
           </p>
@@ -95,25 +95,30 @@ export function Footer() {
           </nav>
         </div>
 
-        <div>
+        <div className="min-w-0">
           <p className="mb-5 text-xs font-bold uppercase tracking-[0.18em] text-cyan">
             {t.footer.contact}
           </p>
-          <div className="grid gap-3">
+          <div className="grid gap-3.5">
             {contactItems.map((item, index) => {
               const Icon = item.icon;
               return (
                 <a
                   key={item.key}
                   href={item.href}
-                  className="flex gap-3 rounded-2xl border border-white/10 bg-white/5 p-3 text-sm text-blue-100 transition hover:bg-white/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan"
+                  className="group flex items-start gap-3 text-sm text-blue-100 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan"
                 >
-                  <Icon aria-hidden="true" className="h-5 w-5 flex-none text-cyan" />
-                  <span>
-                    <span className="block text-xs text-blue-200">
+                  <Icon
+                    aria-hidden="true"
+                    className="mt-0.5 h-5 w-5 flex-none text-cyan transition group-hover:text-white"
+                  />
+                  <span className="min-w-0">
+                    <span className="block text-xs leading-5 text-blue-200">
                       {labels[index]}
                     </span>
-                    {item.value}
+                    <span className="break-words font-medium leading-6">
+                      {item.value}
+                    </span>
                   </span>
                 </a>
               );
@@ -121,7 +126,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div>
+        <div className="min-w-0">
           <p className="mb-5 text-xs font-bold uppercase tracking-[0.18em] text-cyan">
             {t.header.specialtiesLabel}
           </p>

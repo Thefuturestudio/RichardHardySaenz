@@ -62,6 +62,7 @@ const es = {
       specialties: { label: "Especialidades", href: "/especialidades" },
       procedures: { label: "Procedimientos", href: "/procedimientos" },
       secondOpinion: { label: "Segunda opinión", href: "/segunda-opinion" },
+      blog: { label: "Blog", href: "/educacion" },
       contact: { label: "Contacto", href: "/agendar-cita" },
       booking: { label: "Agendar", href: "/agendar-cita" },
     },
@@ -165,7 +166,7 @@ const es = {
       body:
         "Una experiencia digital diseñada para orientar al paciente desde el primer contacto, preparar la consulta y facilitar el acceso a atención urológica especializada en Ciudad de Panamá.",
       stats: [
-        ["153", "opiniones públicas", "dato a verificar antes de publicación"],
+        ["5.0", "perfil público HuliHealth", "sin publicar texto testimonial no autorizado"],
         ["Especialista", "atención urológica", "próstata, riñón y vías urinarias"],
         ["Acceso digital", "orientación y solicitud de cita", "disponibilidad sujeta a confirmación"],
       ],
@@ -660,6 +661,7 @@ const en = {
       specialties: { label: "Specialties", href: "/especialidades" },
       procedures: { label: "Procedures", href: "/procedimientos" },
       secondOpinion: { label: "Second opinion", href: "/segunda-opinion" },
+      blog: { label: "Blog", href: "/educacion" },
       contact: { label: "Contact", href: "/agendar-cita" },
       booking: { label: "Book visit", href: "/agendar-cita" },
     },
@@ -755,7 +757,7 @@ const en = {
       body:
         "A digital experience designed to guide patients from first contact, prepare the consultation, and make access to specialized urology care in Panama City easier.",
       stats: [
-        ["153", "public opinions", "data to verify before publication"],
+        ["5.0", "public HuliHealth profile", "no unauthorized testimonial text shown"],
         ["Specialist", "urology care", "prostate, kidney, urinary tract"],
         ["Digital access", "guidance and visit request", "availability subject to confirmation"],
       ],

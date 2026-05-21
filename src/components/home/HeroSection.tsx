@@ -3,11 +3,14 @@ import { CalendarDays, MessageCircle } from "lucide-react";
 import { imageAssets } from "../../data/images";
 import { useLanguage } from "../../i18n/LanguageContext";
 import { CTAButton } from "../shared/CTAButton";
+import { HeroTitleText } from "../shared/PageHero";
 
 export function HeroSection() {
   const reduceMotion = useReducedMotion();
   const { language, t } = useLanguage();
   const [doctorName, platformName] = t.home.hero.eyebrow.split("·").map((part) => part.trim());
+  const titleAccent =
+    language === "en" ? "minimally invasive surgery" : "cirugía mínimamente invasiva";
   const proofPoints =
     language === "en"
       ? [
@@ -32,7 +35,7 @@ export function HeroSection() {
         alt=""
         aria-hidden="true"
         decoding="async"
-        className="absolute -right-[62%] top-0 -z-30 h-[121%] w-[168%] object-cover object-[76%_24%] opacity-[0.46] saturate-[1.02] contrast-[1.04] sm:-right-[24%] sm:w-[128%] sm:opacity-[0.66] md:-right-[17%] md:w-[120%] lg:-right-[12%] lg:h-[124%] lg:w-[116%] lg:opacity-[0.78] xl:-right-[13%]"
+        className="absolute -right-[62%] top-0 -z-30 h-[121%] w-[168%] object-cover object-[76%_24%] opacity-100 saturate-[1.02] contrast-[1.04] sm:-right-[24%] sm:w-[128%] md:-right-[17%] md:w-[120%] lg:-right-[12%] lg:h-[124%] lg:w-[116%] xl:-right-[13%]"
       />
       <div className="absolute inset-0 -z-10 bg-[url('/images/medical-background-texture.webp')] bg-cover bg-center opacity-[0.055]" />
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(245,247,249,0.995)_0%,rgba(255,255,255,0.96)_46%,rgba(255,255,255,0.68)_74%,rgba(224,238,247,0.16)_100%)] sm:bg-[linear-gradient(90deg,rgba(245,247,249,0.98)_0%,rgba(255,255,255,0.9)_38%,rgba(255,255,255,0.44)_62%,rgba(224,238,247,0.08)_100%)]" />
@@ -51,7 +54,7 @@ export function HeroSection() {
             <span>{platformName}</span>
           </p>
           <h1 className="site-hero-title mt-9 max-w-[920px] font-heading text-navy text-balance">
-            {t.home.hero.title}
+            <HeroTitleText title={t.home.hero.title} accent={titleAccent} />
           </h1>
           <p className="mt-8 max-w-[48rem] text-[17px] leading-[1.78] text-slate-600 sm:mt-9 sm:text-xl">
             {t.home.hero.subtitle}

@@ -44,6 +44,8 @@ export function HomePage() {
         eyebrow={t.home.concerns.eyebrow}
         title={t.home.concerns.title}
         subtitle={t.home.concerns.subtitle}
+        className="navy-panel"
+        dark
       >
         <ConcernSelector />
       </SectionContainer>

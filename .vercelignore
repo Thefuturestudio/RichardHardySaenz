@@ -1,0 +1,23 @@
+node_modules/
+dist/
+.git/
+.tools/
+.vercel/
+.netlify/
+.devserver/
+screenshots/
+qa-screenshots/
+current-page-screenshots/
+output/
+.preview-*.png
+.tmp-chrome-profile/
+Bluegati Images/
+BrugiatiImages/
+design-handoff/
+font-previews/
+*.tsbuildinfo
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*

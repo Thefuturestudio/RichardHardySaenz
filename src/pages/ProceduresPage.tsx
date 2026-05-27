@@ -189,7 +189,7 @@ export function ProceduresPage() {
   return (
     <>
       <SEO
-        title="Procedimientos urologicos | Dr. Carlos Brugiati"
+        title="Procedimientos urológicos | Dr. Carlos Brugiati"
         description={t.subtitle}
         canonicalPath="/procedimientos"
       />

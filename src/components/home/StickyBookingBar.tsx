@@ -10,6 +10,7 @@ export function StickyBookingBar() {
   const { language, t } = useLanguage();
   const location = useLocation();
   const copy = refinementCopy[language].concierge;
+  const isBookingPage = location.pathname === "/agendar-cita";
   const [isVisible, setIsVisible] = useState(false);
   const [isDismissed, setIsDismissed] = useState(false);
 
@@ -23,7 +24,7 @@ export function StickyBookingBar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  if (!isVisible || isDismissed) {
+  if (isBookingPage || !isVisible || isDismissed) {
     return null;
   }
 

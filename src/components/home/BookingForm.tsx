@@ -1,6 +1,6 @@
 import { useMemo, useState, type FormEvent, type ReactNode } from "react";
 import { useLocation } from "react-router-dom";
-import { CalendarDays, CheckCircle2, Lock, MessageCircle, Send } from "lucide-react";
+import { CheckCircle2, Lock, MessageCircle, Send } from "lucide-react";
 import { concernFromPath, intakeFlow } from "../../data/intakeFlow";
 import { useLanguage } from "../../i18n/LanguageContext";
 import { refinementCopy } from "../../i18n/refinementCopy";
@@ -27,7 +27,6 @@ type FormValues = {
 };
 
 const requiredFields: Array<keyof FormValues> = ["name", "phone", "reason"];
-const calendarDays = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 14, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
 
 export function BookingForm({
   compact = false,
@@ -209,7 +208,7 @@ export function BookingForm({
             isDark ? "bg-white/10 text-white" : "bg-softblue text-navy",
           )}
         >
-          <CalendarDays aria-hidden="true" className="h-5 w-5" />
+          <MessageCircle aria-hidden="true" className="h-5 w-5" />
         </div>
       </div>
 
@@ -248,29 +247,6 @@ export function BookingForm({
               aria-describedby={errors.phone ? "phone-error" : undefined}
             />
           </Field>
-          <Field label={t.forms.fields.email} error={errors.email} id="email">
-            <input
-              id="email"
-              name="email"
-              value={values.email}
-              onChange={(event) => updateField("email", event.target.value)}
-              className={cn(fieldClass, errors.email && "border-red-300")}
-              type="email"
-              autoComplete="email"
-              aria-invalid={Boolean(errors.email)}
-              aria-describedby={errors.email ? "email-error" : undefined}
-            />
-          </Field>
-          <Field label={t.forms.fields.schedule} id="schedule">
-            <input
-              id="schedule"
-              name="preferredTime"
-              value={values.schedule}
-              onChange={(event) => updateField("schedule", event.target.value)}
-              className={fieldClass}
-              placeholder={t.forms.fields.schedulePlaceholder}
-            />
-          </Field>
           <Field label={t.forms.fields.reason} required error={errors.reason} id="reason">
             <select
               id="reason"
@@ -286,6 +262,29 @@ export function BookingForm({
                 <option key={reason}>{reason}</option>
               ))}
             </select>
+          </Field>
+          <Field label={t.forms.fields.schedule} id="schedule">
+            <input
+              id="schedule"
+              name="preferredTime"
+              value={values.schedule}
+              onChange={(event) => updateField("schedule", event.target.value)}
+              className={fieldClass}
+              placeholder={t.forms.fields.schedulePlaceholder}
+            />
+          </Field>
+          <Field label={t.forms.fields.email} error={errors.email} id="email">
+            <input
+              id="email"
+              name="email"
+              value={values.email}
+              onChange={(event) => updateField("email", event.target.value)}
+              className={cn(fieldClass, errors.email && "border-red-300")}
+              type="email"
+              autoComplete="email"
+              aria-invalid={Boolean(errors.email)}
+              aria-describedby={errors.email ? "email-error" : undefined}
+            />
           </Field>
           <Field label={t.forms.fields.firstVisit} id="firstVisit">
             <select
@@ -364,66 +363,10 @@ export function BookingForm({
               : "bg-navy text-white hover:bg-navy-2",
           )}
         >
-          {isSubmitting ? (language === "es" ? "Enviando..." : "Sending...") : t.cta.send}
+          {isSubmitting ? (language === "es" ? "Enviando..." : "Sending...") : t.forms.submit}
           <Send aria-hidden="true" className="h-4 w-4" />
         </button>
       </form>
-    </div>
-  );
-}
-
-export function AppointmentCalendarCard() {
-  const { t } = useLanguage();
-
-  return (
-    <div className="frosted-panel rounded-[1.35rem] p-5 text-navy">
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <p className="font-heading text-3xl leading-none">{t.forms.title}</p>
-          <p className="mt-2 text-sm text-muted">{t.forms.calendar.label}</p>
-        </div>
-        <button className="rounded-xl border border-borderblue bg-white/80 px-3 py-2 text-xs font-semibold text-navy">
-          {t.forms.calendar.month}
-        </button>
-      </div>
-
-      <div className="mt-6 grid grid-cols-7 gap-2 text-center text-[11px] font-bold text-muted">
-        {t.forms.calendar.days.map((day) => (
-          <span key={day}>{day}</span>
-        ))}
-      </div>
-      <div className="mt-3 grid grid-cols-7 gap-2 text-center text-xs font-semibold">
-        {calendarDays.map((day, index) => (
-          <span
-            key={`${day}-${index}`}
-            className={cn(
-              "grid h-8 place-items-center rounded-full",
-              day === 18 && "bg-navy text-white",
-              day === 17 && "bg-softblue text-medical",
-            )}
-          >
-            {day}
-          </span>
-        ))}
-      </div>
-
-      <div className="mt-6 border-t border-borderblue pt-4">
-        <p className="text-xs font-bold text-muted">{t.forms.calendar.time}</p>
-        <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3">
-          {t.forms.calendar.times.map((time, index) => (
-            <button
-              key={time}
-              type="button"
-              className={cn(
-                "rounded-xl border border-borderblue bg-white/80 px-3 py-2 text-xs font-semibold transition",
-                index === 2 && "border-navy bg-navy text-white",
-              )}
-            >
-              {time}
-            </button>
-          ))}
-        </div>
-      </div>
     </div>
   );
 }

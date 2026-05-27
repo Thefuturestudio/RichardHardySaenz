@@ -4,7 +4,6 @@ import { contact } from "../../data/contact";
 import { optionalImages } from "../../data/images";
 import { specialtyRouteByKey, type SpecialtyKey } from "../../i18n/translations";
 import { useLanguage } from "../../i18n/LanguageContext";
-import { MedicalDisclaimer } from "../shared/MedicalDisclaimer";
 
 const footerSpecialtyKeys: SpecialtyKey[] = [
   "prostata",
@@ -142,10 +141,6 @@ export function Footer() {
             ))}
           </nav>
         </div>
-      </div>
-
-      <div className="mx-auto mt-9 max-w-7xl">
-        <MedicalDisclaimer className="border-white/10 bg-white/10 text-xs leading-6 text-blue-100" />
       </div>
     </footer>
   );

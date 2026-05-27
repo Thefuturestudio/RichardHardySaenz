@@ -395,6 +395,28 @@ textarea {
         rgba(255, 255, 255, 0.96) 100%
       );
   }
+
+  .site-hero:has(.page-hero-image--v2) .page-hero-image {
+    object-position: 76% top;
+    opacity: 0.86;
+  }
+
+  .site-hero:has(.page-hero-image--v2) .page-hero-overlay {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(245, 247, 249, 0.995) 0%,
+        rgba(255, 255, 255, 0.985) 48%,
+        rgba(255, 255, 255, 0.86) 76%,
+        rgba(255, 255, 255, 0.66) 100%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(245, 247, 249, 0.94) 0%,
+        rgba(255, 255, 255, 0.56) 52%,
+        rgba(255, 255, 255, 0.96) 100%
+      );
+  }
 }
 
 .site-hero-title {

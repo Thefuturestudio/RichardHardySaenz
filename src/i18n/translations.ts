@@ -346,18 +346,19 @@ const es = {
   },
   forms: {
     title: "Solicitud de cita",
-    subtitle: "Nuestro equipo confirmará disponibilidad y le brindará una atención personalizada.",
+    subtitle: "Complete solo lo esencial. El equipo confirmará por WhatsApp; la cita no queda agendada automáticamente.",
+    submit: "Enviar solicitud de cita",
     successTitle: "Gracias. Su solicitud fue registrada.",
     successBody: "El equipo se pondrá en contacto para confirmar disponibilidad.",
     required: "Este campo es requerido.",
     fields: {
       name: "Nombre completo",
       phone: "Teléfono / WhatsApp",
-      email: "Email",
+      email: "Email (opcional)",
       schedule: "Preferencia de horario",
       reason: "Motivo de consulta",
-      firstVisit: "¿Es primera consulta?",
-      message: "Mensaje adicional",
+      firstVisit: "¿Es primera consulta? (opcional)",
+      message: "Mensaje adicional (opcional)",
       schedulePlaceholder: "Mañana, tarde o fecha tentativa",
       reasonPlaceholder: "Seleccione una opción",
       messagePlaceholder:
@@ -377,20 +378,13 @@ const es = {
       "Otro motivo",
     ],
     firstVisitOptions: ["Sí", "No", "No estoy seguro"],
-    calendar: {
-      month: "Junio 2025",
-      label: "Seleccione fecha y hora",
-      time: "Seleccione hora disponible",
-      days: ["DOM", "LUN", "MAR", "MIÉ", "JUE", "VIE", "SÁB"],
-      times: ["09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM"],
-    },
   },
   bookingPage: {
     title: "Agendar cita",
     subtitle:
-      "Coordine una evaluación urológica especializada con el Dr. Carlos A. Brugiati.",
+      "Escríbanos por WhatsApp para coordinar más rápido o envíe una solicitud si prefiere dejar los datos ordenados.",
     intro:
-      "Complete el formulario o utilice los canales de contacto disponibles. El equipo o asistente digital puede ayudarle a coordinar una cita y organizar la información inicial antes de la consulta.",
+      "El equipo revisa disponibilidad y confirma manualmente antes de reservar la cita.",
     bringTitle: "Para su primera consulta",
     bringIntro: "Si los tiene disponibles, puede traer:",
     bring: [
@@ -930,18 +924,19 @@ const en = {
   },
   forms: {
     title: "Appointment request",
-    subtitle: "Our team will confirm availability and provide personalized support.",
+    subtitle: "Complete only the essentials. The team confirms by WhatsApp; the visit is not booked automatically.",
+    submit: "Send appointment request",
     successTitle: "Thank you. Your request was registered.",
     successBody: "The team will contact you to confirm availability.",
     required: "This field is required.",
     fields: {
       name: "Full name",
       phone: "Phone / WhatsApp",
-      email: "Email",
+      email: "Email (optional)",
       schedule: "Preferred time",
       reason: "Reason for consultation",
-      firstVisit: "Is this your first visit?",
-      message: "Additional message",
+      firstVisit: "Is this your first visit? (optional)",
+      message: "Additional message (optional)",
       schedulePlaceholder: "Morning, afternoon, or preferred date",
       reasonPlaceholder: "Select an option",
       messagePlaceholder:
@@ -961,20 +956,13 @@ const en = {
       "Other",
     ],
     firstVisitOptions: ["Yes", "No", "Not sure"],
-    calendar: {
-      month: "June 2025",
-      label: "Select date and time",
-      time: "Select available time",
-      days: ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"],
-      times: ["09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "01:00 PM", "02:00 PM"],
-    },
   },
   bookingPage: {
     title: "Book visit",
     subtitle:
-      "Coordinate a specialized urology evaluation with Dr. Carlos A. Brugiati.",
+      "Message us on WhatsApp for the fastest coordination, or send a request if you prefer to leave the details organized.",
     intro:
-      "Complete the form or use the available contact channels. The team or digital assistant can help coordinate a visit and organize initial information before consultation.",
+      "The team reviews availability and manually confirms before reserving the visit.",
     bringTitle: "For your first visit",
     bringIntro: "If available, you may bring:",
     bring: ["Imaging studies", "Lab results", "Current medications", "Previous medical reports", "Main reason for consultation", "Questions you want to resolve"],

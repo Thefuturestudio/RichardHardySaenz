@@ -131,23 +131,22 @@ export const refinementCopy: Record<Language, RefinementCopy> = {
     },
     booking: {
       heroBody:
-        "Complete el formulario o escriba por WhatsApp. El equipo revisa la solicitud, valida disponibilidad y confirma manualmente la cita.",
+        "Escríbanos por WhatsApp o envíe una solicitud. El equipo confirmará la disponibilidad antes de agendar la cita.",
       privacyTitle: "Privacidad desde el primer contacto",
       privacyBody:
-        "La información compartida se utiliza únicamente para coordinar la solicitud, preparar un resumen inicial y orientar la confirmación manual. No sustituye una evaluación médica.",
+        "La información se utiliza solo para responder la solicitud y coordinar la atención. No sustituye una evaluación médica.",
       consent:
         "Acepto que mi información sea utilizada para coordinar una cita y preparar un resumen para el equipo. Este formulario no sustituye una evaluación médica.",
       consentRequired: "Debe aceptar el uso de la información para coordinar la cita.",
       conciergeTitle: "Canales de coordinación",
       conciergeBody:
-        "Puede solicitar disponibilidad por formulario, WhatsApp, llamada o email. El equipo confirmará los detalles antes de la consulta; las citas no quedan reservadas automáticamente y pueden coordinarse por HuliPractice o el canal indicado por la práctica.",
+        "WhatsApp es la vía más directa. El formulario sirve para dejar una solicitud ordenada; el equipo confirma disponibilidad antes de reservar.",
       international: "Apoyo para pacientes nacionales e internacionales.",
       nextTitle: "Qué ocurre después",
       next: [
-        ["Envía su solicitud", "Comparta sus datos, motivo principal y preferencia de horario."],
-        ["Revisión del equipo", "La solicitud se revisa manualmente y el equipo confirma los detalles."],
-        ["Duración estimada", "Primera consulta: 45 minutos. Seguimiento: 30 minutos."],
-        ["Confirmación", "El equipo confirma disponibilidad y próximos pasos por el canal indicado."],
+        ["Envía su solicitud", "Comparta nombre, WhatsApp, motivo principal y preferencia de horario."],
+        ["Revisión del equipo", "El equipo revisa disponibilidad y la información inicial."],
+        ["Confirmación", "Recibirá próximos pasos por WhatsApp, llamada o el canal indicado."],
       ],
       assistantTitle: "Asistente de orientación",
       assistantBody:
@@ -355,23 +354,22 @@ export const refinementCopy: Record<Language, RefinementCopy> = {
     },
     booking: {
       heroBody:
-        "Complete the form or message us on WhatsApp. The team reviews the request, checks availability, and manually confirms the visit.",
+        "Message us on WhatsApp or send a request. The team confirms availability before booking the visit.",
       privacyTitle: "Privacy from the first contact",
       privacyBody:
-        "Information shared here is used only to coordinate the request, prepare an initial summary, and support manual confirmation. It does not replace medical evaluation.",
+        "Information is used only to respond to the request and coordinate care. It does not replace medical evaluation.",
       consent:
         "I agree that my information may be used to coordinate a visit and prepare a summary for the team. This form does not replace medical evaluation.",
       consentRequired: "Please accept information use to coordinate the visit.",
       conciergeTitle: "Coordination channels",
       conciergeBody:
-        "You may request availability by form, WhatsApp, phone, or email. The team confirms details before the visit; appointments are not booked automatically and may be coordinated through HuliPractice or the channel indicated by the practice.",
+        "WhatsApp is the most direct route. The form is for an organized request; the team confirms availability before booking.",
       international: "Support for local and international patients.",
       nextTitle: "What happens next",
       next: [
-        ["Send your request", "Share contact details, main reason, and preferred time."],
-        ["Team review", "The request is reviewed manually and the team confirms the details."],
-        ["Estimated duration", "New visit: 45 minutes. Follow-up: 30 minutes."],
-        ["Confirmation", "The team confirms availability and next steps through the selected channel."],
+        ["Send your request", "Share your name, WhatsApp, main reason, and preferred time."],
+        ["Team review", "The team reviews availability and the initial information."],
+        ["Confirmation", "You receive next steps by WhatsApp, phone, or the selected channel."],
       ],
       assistantTitle: "Guidance assistant",
       assistantBody:

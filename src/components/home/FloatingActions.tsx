@@ -14,6 +14,7 @@ const AssistantDrawer = lazy(() =>
 export function FloatingActions() {
   const { language, t } = useLanguage();
   const location = useLocation();
+  const isBookingPage = location.pathname === "/agendar-cita";
   const [assistantOpen, setAssistantOpen] = useState(false);
   const [mobileActionsVisible, setMobileActionsVisible] = useState(false);
   const lastFocusedElement = useRef<HTMLElement | null>(null);
@@ -95,17 +96,19 @@ export function FloatingActions() {
     <>
       {mobileActionsVisible && (
         <>
-          <button
-            type="button"
-            onClick={(event) => openAssistant("floating_mobile", event.currentTarget)}
-            className="fixed bottom-4 left-4 z-40 flex h-12 items-center gap-2 rounded-full border border-borderblue bg-white p-1.5 pr-4 text-navy shadow-[0_18px_54px_rgba(6,27,51,0.14)] transition hover:-translate-y-0.5 hover:border-navy/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan md:hidden"
-            aria-label={t.home.floating.assistantLabel}
-          >
-            <span className="grid h-9 w-9 place-items-center rounded-full bg-navy text-white">
-              <Bot aria-hidden="true" className="h-4 w-4" />
-            </span>
-            <span className="text-xs font-semibold">{t.home.floating.assistantLabel}</span>
-          </button>
+          {!isBookingPage && (
+            <button
+              type="button"
+              onClick={(event) => openAssistant("floating_mobile", event.currentTarget)}
+              className="fixed bottom-4 left-4 z-40 flex h-12 items-center gap-2 rounded-full border border-borderblue bg-white p-1.5 pr-4 text-navy shadow-[0_18px_54px_rgba(6,27,51,0.14)] transition hover:-translate-y-0.5 hover:border-navy/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan md:hidden"
+              aria-label={t.home.floating.assistantLabel}
+            >
+              <span className="grid h-9 w-9 place-items-center rounded-full bg-navy text-white">
+                <Bot aria-hidden="true" className="h-4 w-4" />
+              </span>
+              <span className="text-xs font-semibold">{t.home.floating.assistantLabel}</span>
+            </button>
+          )}
 
           <a
             href={whatsappHref}
@@ -121,21 +124,23 @@ export function FloatingActions() {
         </>
       )}
 
-      <div className="fixed bottom-5 left-5 z-40 hidden md:block">
-        <button
-          type="button"
-          onClick={(event) => openAssistant("floating_desktop", event.currentTarget)}
-          className="group flex h-14 items-center gap-2 rounded-full border border-borderblue bg-white p-2 pr-5 text-navy shadow-[0_18px_54px_rgba(6,27,51,0.12)] transition hover:-translate-y-0.5 hover:border-navy/30 hover:shadow-[0_24px_70px_rgba(6,27,51,0.16)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan"
-          aria-label={t.home.floating.assistantLabel}
-        >
-          <span className="grid h-10 w-10 place-items-center rounded-full bg-navy text-white">
-            <Bot aria-hidden="true" className="h-5 w-5" />
-          </span>
-          <span className="whitespace-nowrap text-sm font-semibold">
-            {t.home.floating.assistantLabel}
-          </span>
-        </button>
-      </div>
+      {!isBookingPage && (
+        <div className="fixed bottom-5 left-5 z-40 hidden md:block">
+          <button
+            type="button"
+            onClick={(event) => openAssistant("floating_desktop", event.currentTarget)}
+            className="group flex h-14 items-center gap-2 rounded-full border border-borderblue bg-white p-2 pr-5 text-navy shadow-[0_18px_54px_rgba(6,27,51,0.12)] transition hover:-translate-y-0.5 hover:border-navy/30 hover:shadow-[0_24px_70px_rgba(6,27,51,0.16)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan"
+            aria-label={t.home.floating.assistantLabel}
+          >
+            <span className="grid h-10 w-10 place-items-center rounded-full bg-navy text-white">
+              <Bot aria-hidden="true" className="h-5 w-5" />
+            </span>
+            <span className="whitespace-nowrap text-sm font-semibold">
+              {t.home.floating.assistantLabel}
+            </span>
+          </button>
+        </div>
+      )}
 
       <div className="fixed bottom-5 right-5 z-40 hidden md:block">
         <a

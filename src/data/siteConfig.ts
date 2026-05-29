@@ -29,9 +29,8 @@ export const siteConfig = {
   verifiedNote: "Datos clínicos y operativos sujetos a revisión final antes de publicación.",
 };
 
-// Keep schema limited to source-backed public facts. Do not add review/rating,
-// address, hours, insurance, or affiliation claims until the source pack marks
-// them as final for publication.
+// Keep schema limited to source-backed public facts. Do not add review/rating
+// claims or private verification/admin details to public schema.
 export const physicianJsonLd = {
   "@context": "https://schema.org",
   "@type": ["Physician", "MedicalBusiness"],
@@ -50,14 +49,32 @@ export const physicianJsonLd = {
   email: contact.email,
   address: {
     "@type": "PostalAddress",
+    streetAddress: "The Panama Clinic, Torre B, piso 21, consultorio 10-11",
     addressLocality: "Ciudad de Panamá",
     addressCountry: "PA",
   },
+  openingHoursSpecification: [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+  ].map((dayOfWeek) => ({
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek,
+    opens: "12:00",
+    closes: "18:00",
+  })).concat({
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: "Saturday",
+    opens: "08:00",
+    closes: "12:00",
+  }),
   additionalProperty: [
     {
       "@type": "PropertyValue",
       name: "Publication status",
-      value: "Public CV and onboarding-source schema. Address, hours, reviews, insurance, and affiliations require final publication approval.",
+      value: "Public CV and onboarding-source schema. Reviews, insurance coverage, and affiliations require final publication approval.",
     },
   ],
 };

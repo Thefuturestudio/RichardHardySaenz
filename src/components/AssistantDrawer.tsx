@@ -1,5 +1,4 @@
 ﻿import {
-  Bot,
   CalendarDays,
   CheckCircle2,
   Mic,
@@ -31,6 +30,7 @@ import { generateLeadSummary } from "../utils/leadSummary";
 import { hasUrgentLanguage } from "../utils/medicalSafety";
 import { trackEvent } from "../utils/analytics";
 import { createWhatsAppLink } from "../utils/whatsapp";
+import { KidneyIcon } from "./shared/KidneyIcon";
 import {
   submitIntakeLead,
   type IntakeSubmissionResult,
@@ -486,7 +486,7 @@ export function AssistantDrawer({ open, onClose }: AssistantDrawerProps) {
           <div className="flex items-start justify-between gap-4">
             <div className="flex items-center gap-3">
               <span className="grid h-11 w-11 place-items-center rounded-2xl bg-white/12 text-cyan">
-                <Bot aria-hidden="true" className="h-5 w-5" />
+                <KidneyIcon aria-hidden="true" className="h-5 w-5" />
               </span>
               <div>
                 <h2 id="assistant-title" className="text-base font-semibold">

@@ -2,6 +2,7 @@ import { Suspense, lazy } from "react";
 import { specialtyVisuals } from "../data/pageVisuals";
 import { specialtyRouteByKey, type SpecialtyKey } from "../i18n/translations";
 import { useLanguage } from "../i18n/LanguageContext";
+import { homeFaqs } from "../i18n/faqPlacement";
 import { ConcernSelector } from "../components/home/ConcernSelector";
 import { HeroSection } from "../components/home/HeroSection";
 import { AccessNetwork } from "../components/home/AccessNetwork";
@@ -9,6 +10,7 @@ import { BlogRoadmap } from "../components/home/BlogRoadmap";
 import { PatientJourney } from "../components/home/PatientJourney";
 import { SpecialtyCard } from "../components/home/SpecialtyCard";
 import { TrustReputation } from "../components/home/TrustReputation";
+import { FAQAccordion } from "../components/shared/FAQAccordion";
 import { SEO } from "../components/shared/SEO";
 import { SectionContainer } from "../components/shared/SectionContainer";
 import { seoMetadata } from "../seo/metadata";
@@ -29,7 +31,11 @@ const homeSpecialtyKeys: SpecialtyKey[] = [
 ];
 
 export function HomePage() {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
+  const homeFaqItems = homeFaqs[language].map(([question, answer]) => ({
+    question,
+    answer,
+  }));
 
   return (
     <>
@@ -90,6 +96,25 @@ export function HomePage() {
       <Suspense fallback={<div className="bg-navy py-24" aria-hidden="true" />}>
         <AnatomyExplorer />
       </Suspense>
+
+      <SectionContainer
+        eyebrow={language === "es" ? "Preguntas frecuentes" : "Frequently asked questions"}
+        title={
+          language === "es"
+            ? "Respuestas rápidas antes de consultar."
+            : "Quick answers before booking."
+        }
+        subtitle={
+          language === "es"
+            ? "Una selección breve de las dudas más comunes para orientar el siguiente paso sin saturar la página."
+            : "A brief selection of common questions to guide the next step without overwhelming the page."
+        }
+        className="soft-white-section bg-white"
+      >
+        <div className="mx-auto max-w-4xl">
+          <FAQAccordion items={homeFaqItems} />
+        </div>
+      </SectionContainer>
 
       <SectionContainer className="bg-white">
         <BlogRoadmap />

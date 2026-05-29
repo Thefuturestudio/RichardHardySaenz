@@ -24,6 +24,7 @@ import {
   type ProcedureKey,
 } from "../i18n/procedurePages";
 import { useLanguage } from "../i18n/LanguageContext";
+import { procedureFaqOverrides } from "../i18n/faqPlacement";
 import { getWhatsAppHref } from "../lib/whatsapp";
 import { procedureBreadcrumbs } from "../seo/breadcrumbs";
 import { seoMetadata, type SeoPageKey } from "../seo/metadata";
@@ -219,7 +220,8 @@ export function ProcedureDetailPage({ procedureKey }: ProcedureDetailPageProps) 
   const path = procedureRoutes[procedureKey];
   const seo = seoMetadata[procedureSeoKey[procedureKey]];
   const breadcrumbs = procedureBreadcrumbs(language, page.title, path);
-  const faqItems = page.faq.map(([question, answer]) => ({
+  const pageFaq = procedureFaqOverrides[language][procedureKey] ?? page.faq;
+  const faqItems = pageFaq.map(([question, answer]) => ({
     question,
     answer: completeProcedureFaq(answer, language),
   }));

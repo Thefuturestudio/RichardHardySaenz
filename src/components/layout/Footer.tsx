@@ -43,7 +43,7 @@ const contactItems = [
   {
     key: "Location",
     value: contact.location,
-    href: "/agendar-cita",
+    href: contact.mapsHref,
     icon: MapPin,
   },
 ];

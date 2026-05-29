@@ -30,7 +30,7 @@ export function StickyBookingBar() {
 
   return (
     <div
-      className="fixed inset-x-3 bottom-3 z-50 rounded-[1.25rem] border border-navy/10 bg-white/70 px-3 py-2.5 text-navy shadow-[0_20px_70px_rgba(6,27,51,0.13)] backdrop-blur-2xl sm:left-1/2 sm:right-auto sm:w-[min(61rem,calc(100vw-2rem))] sm:-translate-x-1/2 sm:rounded-full sm:px-5"
+      className="fixed inset-x-3 bottom-3 z-50 hidden rounded-[1.25rem] border border-navy/10 bg-white/70 px-3 py-2.5 text-navy shadow-[0_20px_70px_rgba(6,27,51,0.13)] backdrop-blur-2xl xl:left-1/2 xl:right-auto xl:block xl:w-[min(61rem,calc(100vw-2rem))] xl:-translate-x-1/2 xl:rounded-full xl:px-5"
       style={{ bottom: "max(0.75rem, env(safe-area-inset-bottom))" }}
     >
       <div className="flex items-center justify-between gap-2 sm:gap-4">

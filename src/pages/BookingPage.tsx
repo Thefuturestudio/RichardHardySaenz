@@ -10,12 +10,14 @@ import { useLocation } from "react-router-dom";
 import { contact } from "../data/contact";
 import { imageAssets } from "../data/images";
 import { useLanguage } from "../i18n/LanguageContext";
+import { bookingFaqs } from "../i18n/faqPlacement";
 import { pageUxImprovements } from "../i18n/pageUxImprovements";
 import { refinementCopy } from "../i18n/refinementCopy";
 import { getWhatsAppHref } from "../lib/whatsapp";
 import { BookingForm } from "../components/home/BookingForm";
 import { Breadcrumbs } from "../components/shared/Breadcrumbs";
 import { CTAButton } from "../components/shared/CTAButton";
+import { FAQAccordion } from "../components/shared/FAQAccordion";
 import { PageHero } from "../components/shared/PageHero";
 import { SEO } from "../components/shared/SEO";
 import { SectionContainer } from "../components/shared/SectionContainer";
@@ -28,6 +30,10 @@ export function BookingPage() {
   const location = useLocation();
   const bookingCopy = refinementCopy[language].booking;
   const bookingUx = pageUxImprovements[language].booking;
+  const bookingFaqItems = bookingFaqs[language].map(([question, answer]) => ({
+    question,
+    answer,
+  }));
   const breadcrumbs = simpleBreadcrumbs(
     language,
     "booking",
@@ -59,7 +65,7 @@ export function BookingPage() {
     {
       label: contactLabels[3],
       value: contact.location,
-      href: "#contacto",
+      href: contact.mapsHref,
       icon: MapPin,
     },
   ];
@@ -231,6 +237,23 @@ export function BookingPage() {
                 </p>
               </div>
 
+              <div className="mt-4 rounded-[1.15rem] border border-borderblue bg-white/74 p-4">
+                <p className="text-xs font-bold uppercase tracking-[0.12em] text-muted">
+                  {language === "es" ? "Horario" : "Hours"}
+                </p>
+                <div className="mt-3 grid gap-2">
+                  {contact.hours.map((item) => (
+                    <div
+                      key={item.day}
+                      className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 text-sm"
+                    >
+                      <span className="font-semibold text-navy">{item.day}</span>
+                      <span className="text-right text-muted">{item.time}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
               <div className="mt-4 grid gap-2 rounded-[1.15rem] border border-borderblue bg-white/74 p-4">
                 {appointmentFacts.map(([label, value]) => (
                   <div
@@ -317,6 +340,21 @@ export function BookingPage() {
               ))}
             </div>
           </div>
+        </div>
+      </SectionContainer>
+
+      <SectionContainer
+        eyebrow={language === "es" ? "Preguntas frecuentes" : "Frequently asked questions"}
+        title={language === "es" ? "Antes de agendar" : "Before booking"}
+        subtitle={
+          language === "es"
+            ? "Información práctica sobre horarios, sede, seguros y preparación para la primera consulta."
+            : "Practical information about hours, location, insurance, and preparation for the first visit."
+        }
+        className="bg-white"
+      >
+        <div className="mx-auto max-w-4xl">
+          <FAQAccordion items={bookingFaqItems} />
         </div>
       </SectionContainer>
     </>

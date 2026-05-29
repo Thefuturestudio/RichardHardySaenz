@@ -38,6 +38,36 @@ const entries: KnowledgeEntry[] = [
     },
   },
   {
+    id: "contact-hours-location",
+    keywords: [
+      "direccion",
+      "ubicacion",
+      "telefono",
+      "whatsapp",
+      "horario",
+      "sabado",
+      "sede",
+      "location",
+      "address",
+      "hours",
+      "phone",
+    ],
+    es: {
+      title: "Contacto, horario y sedes",
+      guidance:
+        "El canal oficial de WhatsApp y teléfono para pacientes es +507 6314-5514. La sede principal indicada es The Panama Clinic, Torre B, piso 21, consultorio 10-11. También se atiende en Hospiten Paitilla, Hospital Pacífica Salud Costa del Este y Clínica Hospital San Fernando.",
+      bring:
+        "Horario habitual: lunes a viernes de 12:00 p.m. a 6:00 p.m. y sábados de 8:00 a.m. a 12:00 p.m., sujeto a disponibilidad y confirmación manual del equipo.",
+    },
+    en: {
+      title: "Contact, hours, and locations",
+      guidance:
+        "The official patient WhatsApp and phone number is +507 6314-5514. The main listed location is The Panama Clinic, Tower B, floor 21, office 10-11. Care is also coordinated at Hospiten Paitilla, Hospital Pacifica Salud Costa del Este, and Clinica Hospital San Fernando.",
+      bring:
+        "Usual hours: Monday to Friday from 12:00 p.m. to 6:00 p.m. and Saturdays from 8:00 a.m. to 12:00 p.m., subject to availability and manual team confirmation.",
+    },
+  },
+  {
     id: "holep-bph",
     keywords: ["holep", "prostata agrandada", "hiperplasia", "bph", "laser prostata"],
     es: {

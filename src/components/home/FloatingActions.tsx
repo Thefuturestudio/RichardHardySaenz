@@ -1,9 +1,10 @@
 import { Suspense, lazy, useEffect, useMemo, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { Bot, MessageCircle } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { useLanguage } from "../../i18n/LanguageContext";
 import { getWhatsAppHref } from "../../lib/whatsapp";
 import { trackEvent } from "../../utils/analytics";
+import { KidneyIcon } from "../shared/KidneyIcon";
 
 const AssistantDrawer = lazy(() =>
   import("../AssistantDrawer").then((module) => ({
@@ -104,7 +105,7 @@ export function FloatingActions() {
               aria-label={t.home.floating.assistantLabel}
             >
               <span className="grid h-9 w-9 place-items-center rounded-full bg-navy text-white">
-                <Bot aria-hidden="true" className="h-4 w-4" />
+                <KidneyIcon aria-hidden="true" className="h-[18px] w-[18px]" />
               </span>
               <span className="text-xs font-semibold">{t.home.floating.assistantLabel}</span>
             </button>
@@ -125,15 +126,16 @@ export function FloatingActions() {
       )}
 
       {!isBookingPage && (
-        <div className="fixed bottom-5 left-5 z-40 hidden md:block">
+        <div className="fixed bottom-5 left-5 z-40 hidden xl:block">
           <button
             type="button"
             onClick={(event) => openAssistant("floating_desktop", event.currentTarget)}
             className="group flex h-14 items-center gap-2 rounded-full border border-borderblue bg-white p-2 pr-5 text-navy shadow-[0_18px_54px_rgba(6,27,51,0.12)] transition hover:-translate-y-0.5 hover:border-navy/30 hover:shadow-[0_24px_70px_rgba(6,27,51,0.16)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan"
             aria-label={t.home.floating.assistantLabel}
+            title={t.home.floating.assistantLabel}
           >
             <span className="grid h-10 w-10 place-items-center rounded-full bg-navy text-white">
-              <Bot aria-hidden="true" className="h-5 w-5" />
+              <KidneyIcon aria-hidden="true" className="h-5 w-5" />
             </span>
             <span className="whitespace-nowrap text-sm font-semibold">
               {t.home.floating.assistantLabel}
@@ -142,11 +144,12 @@ export function FloatingActions() {
         </div>
       )}
 
-      <div className="fixed bottom-5 right-5 z-40 hidden md:block">
+      <div className="fixed bottom-5 right-5 z-40 hidden xl:block">
         <a
           href={whatsappHref}
           className="group flex h-14 items-center gap-2 rounded-full border border-borderblue bg-white p-2 pr-5 text-navy shadow-[0_18px_54px_rgba(6,27,51,0.12)] transition hover:-translate-y-0.5 hover:border-navy/30 hover:shadow-[0_24px_70px_rgba(6,27,51,0.16)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan"
           aria-label={t.home.floating.whatsappLabel}
+          title={t.home.floating.whatsappLabel}
           onClick={() => trackEvent("whatsapp_click", { path: location.pathname, source: "floating_desktop" })}
         >
           <span className="grid h-10 w-10 place-items-center rounded-full bg-medical text-white">

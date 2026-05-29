@@ -197,11 +197,11 @@ export const assistantFaqs = [
   },
   {
     "question": "¿Dónde está ubicada la clínica o consultorio?",
-    "answer": "Contamos con atención en distintas sedes y consultorios en Panamá. Con gusto le compartiremos la ubicación más conveniente para usted."
+    "answer": "Contamos con atención en distintas sedes en Panamá: Hospiten Paitilla, Hospital Pacífica Salud Costa del Este, Clínica Hospital San Fernando y Hospital The Panama Clinic. La sede principal indicada es The Panama Clinic, Torre B, piso 21, consultorio 10-11."
   },
   {
     "question": "¿Cuál es la dirección exacta?",
-    "answer": "La dirección exacta y ubicación por GPS se envían al momento de confirmar su cita."
+    "answer": "La dirección principal es The Panama Clinic, Torre B, piso 21, consultorio 10-11. La ubicación por GPS puede compartirse al confirmar la cita: https://maps.apple/p/fQXGieI4Es2Yjr."
   },
   {
     "question": "¿Tienen estacionamientos disponibles?",
@@ -209,19 +209,19 @@ export const assistantFaqs = [
   },
   {
     "question": "¿Qué días atiende el doctor?",
-    "answer": "El doctor atiende en horarios programados durante la semana, de lunes a viernes. Y algunos sábados según disponibilidad."
+    "answer": "El doctor atiende en horarios programados de lunes a viernes de 12:00 p.m. a 6:00 p.m. y algunos sábados de 8:00 a.m. a 12:00 p.m., sujeto a disponibilidad y sede."
   },
   {
     "question": "¿Cuál es el horario de atención?",
-    "answer": "El horario puede variar según la sede y agenda médica. Nuestro equipo le indicará las opciones disponibles."
+    "answer": "El horario habitual es lunes a viernes de 12:00 p.m. a 6:00 p.m. y sábados de 8:00 a.m. a 12:00 p.m. La disponibilidad final se confirma manualmente al coordinar la cita."
   },
   {
     "question": "¿Atienden los sábados?",
-    "answer": "Sí. Disponemos de atención algunos sábados previa coordinación de cita."
+    "answer": "Sí. Hay atención algunos sábados de 8:00 a.m. a 12:00 p.m., previa coordinación y según disponibilidad."
   },
   {
     "question": "¿Cómo puedo agendar una cita?",
-    "answer": "Puede agendar escribiéndonos por WhatsApp, llamada telefónica o mediante nuestros canales digitales de atención."
+    "answer": "Puede agendar escribiendo por WhatsApp o llamando al +507 6314-5514, o mediante los canales digitales de UroPanama. El equipo confirma disponibilidad manualmente antes de dejar la cita reservada."
   },
   {
     "question": "¿Cuánto cuesta la primera consulta?",
@@ -233,7 +233,7 @@ export const assistantFaqs = [
   },
   {
     "question": "¿Trabajan con seguros privados?",
-    "answer": "Sí. Trabajamos con múltiples seguros privados y también ofrecemos atención particular."
+    "answer": "Sí. Trabajamos con múltiples seguros nacionales e internacionales. Entre los seguros nacionales están Aseguradora Ancón, ASSA, Redbridge, GeoBlue, BlueCross BlueShield, Bupa, MAPFRE, Mercantil Seguros, La Regional de Seguros, Pan American Life Insurance de Panamá, Sagicor, SURA, UniVIVIR Seguros y WorldWide Medical. También se aceptan múltiples seguros internacionales; la cobertura se confirma con el equipo antes de la cita."
   },
   {
     "question": "¿La consulta tiene copago?",
@@ -265,7 +265,7 @@ export const assistantFaqs = [
   },
   {
     "question": "¿Cómo puedo comunicarme con la clínica en caso de dudas?",
-    "answer": "Puede escribirnos directamente por WhatsApp o llamar a nuestros números de atención. Nuestro equipo estará disponible para orientarle."
+    "answer": "Puede escribir directamente por WhatsApp o llamar al +507 6314-5514. Para formularios y resúmenes del asistente, el correo de recepción configurado es dr.carlosbrugiati@gmail.com."
   },
   {
     "question": "¿La orina con espuma es normal?",

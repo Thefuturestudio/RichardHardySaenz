@@ -76,6 +76,9 @@ Recommended simple default while waiting for client confirmation:
 - Use `STAFF_NOTIFICATION_EMAIL=dr.carlosbrugiati@gmail.com`.
 - Leave `URGENT_NOTIFICATION_EMAIL` empty so urgent and routine leads go to the same inbox with a stronger urgent subject line.
 - Use Resend for email delivery unless the client prefers another provider.
+- Use `+507 6314-5514` as the public patient WhatsApp/phone number.
+- Public patient-facing hours are Monday-Friday 12:00 p.m.-6:00 p.m. and Saturday 8:00 a.m.-12:00 p.m., subject to manual availability confirmation.
+- Main patient-facing address is The Panama Clinic, Torre B, piso 21, consultorio 10-11. Do not add RUC, Meta verification documents, domain admin access, or provider credentials to public assistant answers.
 
 Ask the client before final activation:
 

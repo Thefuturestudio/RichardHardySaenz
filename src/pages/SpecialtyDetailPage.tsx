@@ -17,6 +17,7 @@ import {
   type SpecialtyKey,
 } from "../i18n/translations";
 import { useLanguage } from "../i18n/LanguageContext";
+import { specialtyFaqOverrides } from "../i18n/faqPlacement";
 import { internalPages } from "../i18n/internalPages";
 import { pageUxImprovements } from "../i18n/pageUxImprovements";
 import { specialtyBoxFillers } from "../i18n/specialtyBoxFillers";
@@ -115,7 +116,8 @@ export function SpecialtyDetailPage({ pageKey }: SpecialtyDetailPageProps) {
           { label: page.title, href: seo.path },
         ]
       : specialtyBreadcrumbs(language, page.title, seo.path);
-  const faqItems = page.faq.map(([question, answer]) => ({
+  const pageFaq = specialtyFaqOverrides[language][pageKey] ?? page.faq;
+  const faqItems = pageFaq.map(([question, answer]) => ({
     question,
     answer: completeFaqAnswer(answer, language),
   }));

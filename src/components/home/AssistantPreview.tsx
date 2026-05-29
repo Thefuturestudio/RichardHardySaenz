@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { Bot, CalendarDays, MessageCircle } from "lucide-react";
+import { CalendarDays, MessageCircle } from "lucide-react";
 import { contact } from "../../data/contact";
 import { imageAssets } from "../../data/images";
 import { useLanguage } from "../../i18n/LanguageContext";
 import { CTAButton } from "../shared/CTAButton";
+import { KidneyIcon } from "../shared/KidneyIcon";
 import { MedicalDisclaimer } from "../shared/MedicalDisclaimer";
 
 type AssistantPreviewProps = {
@@ -21,7 +22,7 @@ export function AssistantPreview({ compact = false }: AssistantPreviewProps) {
       <div className="premium-card rounded-[1.5rem] p-6 sm:p-8">
         <div className="mb-6 flex items-center gap-4">
           <div className="grid h-14 w-14 place-items-center rounded-2xl bg-navy text-white">
-            <Bot aria-hidden="true" className="h-6 w-6" />
+            <KidneyIcon aria-hidden="true" className="h-6 w-6" />
           </div>
           <div>
             <p className="font-heading text-3xl leading-none text-navy">

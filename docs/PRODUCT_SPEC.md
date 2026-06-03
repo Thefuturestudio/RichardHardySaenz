@@ -10,7 +10,7 @@
 
 One SaaS platform supports both motions. Every business is a tenant. Shared platform logic reads tenant settings and connected channel bindings at runtime.
 
-## Step 1 Scope
+## Implemented Scope
 
 - Email/password signup and login.
 - Protected dashboard routes.
@@ -18,7 +18,11 @@ One SaaS platform supports both motions. Every business is a tenant. Shared plat
 - Tenant settings management.
 - Provider-agnostic channel binding schema for future providers.
 - Clean dashboard shell with future modules marked as coming soon.
+- Tenant-scoped catalog categories and product/service items.
+- Tenant-scoped conversation and message storage.
+- Channel binding management UI for future WhatsApp and voice lanes.
+- WhatsApp beta lane foundation for Unipile setup records, readiness checks, and pending connection status.
 
-## Non-Goals For Step 1
+## Non-Goals For Current Build
 
-Do not build WhatsApp, Unipile, 360dialog, Vapi, AI chat, OpenAI calls, Stripe, payment links, n8n workflows, Cal.com, catalog/products, orders, automations, or official API onboarding.
+Do not build live WhatsApp messaging, real Unipile QR/pairing/API calls, 360dialog onboarding, Vapi calls, AI chat, OpenAI calls, Stripe, payment links, n8n workflows, Cal.com, orders, automations, or official API onboarding.

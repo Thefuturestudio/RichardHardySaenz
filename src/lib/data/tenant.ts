@@ -1,4 +1,6 @@
 import { redirect } from "next/navigation";
+import { getDevPreviewTenantContext, getDevPreviewUser } from "@/lib/dev-preview";
+import { hasDevPreviewSession } from "@/lib/dev-preview-session";
 import { createClient } from "@/lib/supabase/server";
 import type { TenantContext } from "@/types";
 import type { Tenant, TenantRole, TenantSettings } from "@/types/database";
@@ -36,6 +38,10 @@ function normalizeTenantContext(row: MembershipTenantRow | null): TenantContext 
 }
 
 export async function getUser() {
+  if (await hasDevPreviewSession()) {
+    return getDevPreviewUser();
+  }
+
   const supabase = await createClient();
   const {
     data: { user },
@@ -50,6 +56,10 @@ export async function requireUser() {
 }
 
 export async function getTenantContext(): Promise<TenantContext | null> {
+  if (await hasDevPreviewSession()) {
+    return getDevPreviewTenantContext();
+  }
+
   const supabase = await createClient();
   const {
     data: { user },

@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Viva Head Font Specimen</title>
+    <link rel="stylesheet" href="./viva-head.css" />
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #090b10;
+        --muted: #5d6678;
+        --line: #d7dce6;
+        --brand: #0a80ff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: #f7f9fc;
+        color: var(--ink);
+        font: 16px/1.5 Inter, ui-sans-serif, system-ui, sans-serif;
+      }
+
+      main {
+        width: min(1120px, calc(100vw - 48px));
+        margin: 0 auto;
+        padding: 64px 0 80px;
+      }
+
+      .brand {
+        align-items: center;
+        display: flex;
+        gap: 16px;
+        margin-bottom: 52px;
+      }
+
+      .dot {
+        background: linear-gradient(135deg, #13d9c8, #0d5bff);
+        border-radius: 999px;
+        display: block;
+        height: 34px;
+        width: 34px;
+      }
+
+      h1,
+      .sample,
+      .glyphs {
+        font-family: "Viva Head", system-ui, sans-serif;
+        font-weight: 400;
+      }
+
+      h1 {
+        font-size: clamp(40px, 7vw, 96px);
+        letter-spacing: 0.08em;
+        line-height: 1;
+        margin: 0;
+        text-transform: uppercase;
+      }
+
+      .sample {
+        border-bottom: 1px solid var(--line);
+        border-top: 1px solid var(--line);
+        font-size: clamp(34px, 6vw, 76px);
+        letter-spacing: 0.11em;
+        line-height: 1.1;
+        margin: 0 0 48px;
+        padding: 36px 0;
+        text-transform: uppercase;
+      }
+
+      section {
+        margin-top: 36px;
+      }
+
+      h2 {
+        color: var(--brand);
+        font-size: 13px;
+        letter-spacing: 0.18em;
+        margin: 0 0 16px;
+        text-transform: uppercase;
+      }
+
+      .glyphs {
+        color: #05070b;
+        display: grid;
+        font-size: clamp(30px, 5vw, 58px);
+        gap: 20px 28px;
+        grid-template-columns: repeat(auto-fit, minmax(42px, 1fr));
+        letter-spacing: 0.04em;
+        line-height: 1;
+      }
+
+      p {
+        color: var(--muted);
+        max-width: 760px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="brand">
+        <span class="dot"></span>
+        <h1>Viva Head</h1>
+      </div>
+      <p class="sample">Attention That Converts</p>
+      <section>
+        <h2>Uppercase</h2>
+        <div class="glyphs">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</div>
+      </section>
+      <section>
+        <h2>Lowercase</h2>
+        <div class="glyphs">a b c d e f g h i j k l m n o p q r s t u v w x y z</div>
+      </section>
+      <section>
+        <h2>Numerals</h2>
+        <div class="glyphs">0 1 2 3 4 5 6 7 8 9</div>
+      </section>
+      <section>
+        <h2>Punctuation</h2>
+        <div class="glyphs">! ? . , : ; ' " / \ - _ ( ) [ ] { } @ # $ % & * + = &lt; &gt; | ~ ^</div>
+      </section>
+      <p>
+        Use this as a display face for Viva headings, labels, and branded moments. For long paragraphs,
+        pair it with the app's normal UI sans-serif.
+      </p>
+    </main>
+  </body>
+</html>

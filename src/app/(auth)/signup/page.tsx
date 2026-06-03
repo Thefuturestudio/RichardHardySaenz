@@ -9,8 +9,8 @@ export default async function SignupPage() {
 
   return (
     <AuthShell
-      title="Create your Viva account"
-      subtitle="Start with the SaaS foundation. Live WhatsApp, voice, payments, and bookings come later."
+      title="Create account"
+      subtitle="Start your Viva dashboard and set up your business operations workspace."
     >
       <AuthForm mode="signup" />
     </AuthShell>

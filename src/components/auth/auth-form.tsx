@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { ArrowRight, Eye, EyeOff, LockKeyhole, Mail, User } from "lucide-react";
 import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 
@@ -15,6 +16,7 @@ export function AuthForm({ mode }: AuthFormProps) {
   const [error, setError] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const isSignup = mode === "signup";
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -64,50 +66,71 @@ export function AuthForm({ mode }: AuthFormProps) {
     <form onSubmit={onSubmit} className="space-y-5">
       {isSignup ? (
         <label className="block">
-          <span className="text-sm font-medium text-viva-ink">Full name</span>
-          <input
-            name="full_name"
-            type="text"
-            autoComplete="name"
-            className="mt-2 w-full rounded-lg border-viva-line bg-white px-4 py-3 text-viva-ink shadow-sm outline-none transition focus:border-viva-green focus:ring-viva-green"
-            placeholder="Richard Hardy"
-          />
+          <span className="text-xs font-bold text-viva-ink">Full name</span>
+          <span className="viva-field-shell relative mt-2 block">
+            <User className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-viva-subtle" />
+            <input
+              name="full_name"
+              type="text"
+              autoComplete="name"
+              className="viva-field py-3 pl-10 pr-4"
+              placeholder="Richard Hardy"
+            />
+          </span>
         </label>
       ) : null}
 
       <label className="block">
-        <span className="text-sm font-medium text-viva-ink">Email</span>
-        <input
-          name="email"
-          type="email"
-          required
-          autoComplete="email"
-          className="mt-2 w-full rounded-lg border-viva-line bg-white px-4 py-3 text-viva-ink shadow-sm outline-none transition focus:border-viva-green focus:ring-viva-green"
-          placeholder="you@business.com"
-        />
+        <span className="text-xs font-bold text-viva-ink">Email</span>
+        <span className="viva-field-shell relative mt-2 block">
+          <Mail className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-viva-subtle" />
+          <input
+            name="email"
+            type="email"
+            required
+            autoComplete="email"
+            className="viva-field py-3 pl-10 pr-4"
+            placeholder="you@business.com"
+          />
+        </span>
       </label>
 
       <label className="block">
-        <span className="text-sm font-medium text-viva-ink">Password</span>
-        <input
-          name="password"
-          type="password"
-          required
-          minLength={6}
-          autoComplete={isSignup ? "new-password" : "current-password"}
-          className="mt-2 w-full rounded-lg border-viva-line bg-white px-4 py-3 text-viva-ink shadow-sm outline-none transition focus:border-viva-green focus:ring-viva-green"
-          placeholder="At least 6 characters"
-        />
+        <span className="text-xs font-bold text-viva-ink">Password</span>
+        <span className="viva-field-shell relative mt-2 block">
+          <LockKeyhole className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-viva-subtle" />
+          <input
+            name="password"
+            type={showPassword ? "text" : "password"}
+            required
+            minLength={6}
+            autoComplete={isSignup ? "new-password" : "current-password"}
+            className="viva-field py-3 pl-10 pr-10"
+            placeholder="At least 6 characters"
+          />
+          <button
+            type="button"
+            onClick={() => setShowPassword((current) => !current)}
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-viva-subtle transition hover:text-viva-blue"
+            aria-label={showPassword ? "Hide password" : "Show password"}
+          >
+            {showPassword ? (
+              <EyeOff className="h-4 w-4" />
+            ) : (
+              <Eye className="h-4 w-4" />
+            )}
+          </button>
+        </span>
       </label>
 
       {error ? (
-        <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+        <div className="rounded-xl border border-viva-error/30 bg-viva-error/10 px-4 py-3 text-sm text-viva-error">
           {error}
         </div>
       ) : null}
 
       {notice ? (
-        <div className="rounded-lg border border-teal-200 bg-teal-50 px-4 py-3 text-sm text-teal-800">
+        <div className="rounded-xl border border-viva-success/30 bg-viva-success/10 px-4 py-3 text-sm text-viva-success">
           {notice}
         </div>
       ) : null}
@@ -115,16 +138,17 @@ export function AuthForm({ mode }: AuthFormProps) {
       <button
         type="submit"
         disabled={isLoading}
-        className="w-full rounded-lg bg-viva-green px-4 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-teal-800 disabled:cursor-not-allowed disabled:opacity-60"
+        className="viva-button-primary mt-2 h-12 w-full px-4 text-sm font-bold"
       >
         {isLoading ? "Working..." : isSignup ? "Create account" : "Log in"}
+        <ArrowRight className="h-4 w-4" />
       </button>
 
       <p className="text-center text-sm text-viva-muted">
         {isSignup ? "Already have an account?" : "New to Viva?"}{" "}
         <Link
           href={isSignup ? "/login" : "/signup"}
-          className="font-semibold text-viva-green hover:text-teal-800"
+          className="font-semibold text-viva-primary hover:text-viva-blue"
         >
           {isSignup ? "Log in" : "Create an account"}
         </Link>

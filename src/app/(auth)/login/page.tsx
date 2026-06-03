@@ -9,8 +9,8 @@ export default async function LoginPage() {
 
   return (
     <AuthShell
-      title="Log in to Viva"
-      subtitle="Manage tenants, setup progress, and business settings for Reserva Viva and Venta Viva."
+      title="Welcome back"
+      subtitle="Log in to access your Viva dashboard and manage your business operations."
     >
       <AuthForm mode="login" />
     </AuthShell>

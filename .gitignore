@@ -5,6 +5,7 @@ node_modules
 
 # next
 .next
+.next-dev
 out
 
 # production
@@ -19,6 +20,8 @@ build
 
 # logs
 *.log
+.tmp-*.log
+.tmp-*.json
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -32,3 +35,21 @@ tsconfig.tsbuildinfo
 
 # vercel
 .vercel
+
+# supabase local link/cache
+supabase/.temp
+
+# local screenshots from failed/debug test runs
+test-failure.png
+test-signup-debug.png
+
+# local QA screenshots
+app-smoke-dashboard.png
+control-pages-check.png
+conversation-filters-check.png
+conversation-page-check.png
+e2e-five-step-check.png
+e2e-launch-ops-check.png
+live-preview-conversations.png
+live-production-qa.png
+operator-polish-check.png

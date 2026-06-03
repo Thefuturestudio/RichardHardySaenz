@@ -1,9 +1,27 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
+import { DEV_PREVIEW_COOKIE, isDevPreviewEnabled } from "@/lib/dev-preview";
 import { getSupabasePublishableKey, getSupabaseUrl } from "@/lib/supabase/env";
 import type { Database } from "@/types/database";
 
 export async function updateSession(request: NextRequest) {
+  const pathname = request.nextUrl.pathname;
+  const isProtected =
+    pathname.startsWith("/dashboard") || pathname.startsWith("/onboarding");
+  const isAuth = pathname === "/login" || pathname === "/signup";
+  const hasPreviewSession =
+    isDevPreviewEnabled() && request.cookies.get(DEV_PREVIEW_COOKIE)?.value === "1";
+
+  if (hasPreviewSession) {
+    if (isAuth) {
+      const url = request.nextUrl.clone();
+      url.pathname = "/dashboard";
+      return NextResponse.redirect(url);
+    }
+
+    return NextResponse.next({ request });
+  }
+
   let supabaseResponse = NextResponse.next({
     request,
   });
@@ -23,14 +41,16 @@ export async function updateSession(request: NextRequest) {
     },
   });
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  let user = null;
 
-  const pathname = request.nextUrl.pathname;
-  const isProtected =
-    pathname.startsWith("/dashboard") || pathname.startsWith("/onboarding");
-  const isAuth = pathname === "/login" || pathname === "/signup";
+  try {
+    const {
+      data: { user: currentUser },
+    } = await supabase.auth.getUser();
+    user = currentUser;
+  } catch {
+    user = null;
+  }
 
   if (!user && isProtected) {
     const url = request.nextUrl.clone();

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Sparkles } from "lucide-react";
 import { PageHeader } from "@/components/dashboard/page-header";
 
 type ComingSoonPageProps = {
@@ -16,12 +16,14 @@ export function ComingSoonPage({ title, description }: ComingSoonPageProps) {
         description={description}
       />
 
-      <section className="rounded-2xl border border-dashed border-viva-line bg-white p-8 text-center">
+      <section className="viva-auth-card rounded-[2rem] p-8 text-center">
         <div className="mx-auto max-w-xl">
-          <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-viva-mint text-viva-green">
-            <ArrowLeft className="h-5 w-5" />
+          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-viva-gradient text-white shadow-glow">
+            <Sparkles className="h-6 w-6" />
           </div>
-          <h2 className="text-lg font-semibold text-viva-ink">Coming soon</h2>
+          <h2 className="font-display text-3xl font-black text-viva-ink">
+            Coming soon
+          </h2>
           <p className="mt-2 text-sm leading-6 text-viva-muted">
             This section is intentionally disabled in Step 1. The tenant
             foundation is ready, but provider workflows and business modules are
@@ -29,8 +31,9 @@ export function ComingSoonPage({ title, description }: ComingSoonPageProps) {
           </p>
           <Link
             href="/dashboard"
-            className="mt-6 inline-flex rounded-lg border border-viva-line px-4 py-2 text-sm font-semibold text-viva-ink transition hover:bg-viva-surface"
+            className="viva-button-ghost mt-6 h-10 px-4 text-sm font-semibold"
           >
+            <ArrowLeft className="h-4 w-4" />
             Back to overview
           </Link>
         </div>

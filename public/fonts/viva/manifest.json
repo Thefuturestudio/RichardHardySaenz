@@ -1,0 +1,11 @@
+{
+  "family": "Viva Head",
+  "style": "Regular",
+  "version": "1.0.0",
+  "formats": [
+    "woff2",
+    "ttf"
+  ],
+  "coverage": "ASCII letters, numerals, punctuation, and symbols",
+  "recommendedUsage": "Display headings, labels, navigation highlights, and branded UI moments"
+}

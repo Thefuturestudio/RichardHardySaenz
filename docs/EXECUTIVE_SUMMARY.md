@@ -9,9 +9,9 @@ The platform must stay one codebase, one tenant model, one dashboard, and one ev
 
 ## Current Build Order
 
-Step 1 is the SaaS foundation only: auth, tenants, onboarding, dashboard, settings, migrations, RLS, docs.
+Steps 1-5 are the foundation now: auth, tenants, onboarding, dashboard, settings, catalog, conversation/message storage, provider-agnostic channel bindings, WhatsApp beta setup records, migrations, RLS, and docs.
 
-Future phases are **NOT YET IMPLEMENTED**: catalog, conversations, channel bindings, WhatsApp, Vapi, AI tools, orders, n8n, Stripe, Cal.com, official WhatsApp, monitoring/admin.
+Future phases are **NOT YET IMPLEMENTED**: live WhatsApp beta QR/API calls, Vapi voice, AI tools, orders, payment links, n8n, Stripe billing, Cal.com booking sync, official WhatsApp, monitoring/admin.
 
 ## Brand Structure
 

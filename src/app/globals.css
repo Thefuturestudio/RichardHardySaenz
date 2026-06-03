@@ -4,7 +4,50 @@
 
 :root {
   color-scheme: light;
-  background: #f8fafc;
+  --viva-bg: 255 255 255;
+  --viva-surface: 250 252 255;
+  --viva-card: 255 255 255;
+  --viva-elevated: 248 250 252;
+  --viva-ink: 11 15 26;
+  --viva-muted: 82 94 127;
+  --viva-subtle: 100 116 139;
+  --viva-line: 222 229 240;
+  --viva-primary: 61 70 255;
+  --viva-primary-soft: 232 236 255;
+  --viva-blue: 20 111 255;
+  --viva-teal: 20 215 228;
+  --viva-pink: 225 45 236;
+  --viva-success: 34 197 94;
+  --viva-warning: 245 158 11;
+  --viva-error: 239 68 68;
+  --viva-action-gradient: linear-gradient(
+    110deg,
+    rgb(var(--viva-teal)) 0%,
+    rgb(var(--viva-blue)) 36%,
+    rgb(var(--viva-primary)) 68%,
+    rgb(var(--viva-pink)) 100%
+  );
+  --shadow-soft: 0 18px 60px rgba(31, 38, 71, 0.08);
+  --shadow-card: 0 16px 42px rgba(31, 38, 71, 0.07), 0 1px 0 rgba(255, 255, 255, 0.86) inset;
+  --shadow-glow: 0 16px 42px rgba(106, 70, 255, 0.22), 0 0 30px rgba(48, 150, 255, 0.16);
+  --shadow-glass: 0 22px 70px rgba(31, 38, 71, 0.12), 0 1px 0 rgba(255, 255, 255, 0.88) inset;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --viva-bg: 5 9 18;
+  --viva-surface: 7 13 28;
+  --viva-card: 10 17 34;
+  --viva-elevated: 16 24 45;
+  --viva-ink: 241 245 249;
+  --viva-muted: 203 213 225;
+  --viva-subtle: 148 163 184;
+  --viva-line: 45 57 85;
+  --viva-primary-soft: 44 28 98;
+  --shadow-soft: 0 22px 80px rgba(0, 0, 0, 0.34);
+  --shadow-card: 0 18px 48px rgba(0, 0, 0, 0.28), 0 1px 0 rgba(255, 255, 255, 0.06) inset;
+  --shadow-glow: 0 18px 46px rgba(106, 70, 255, 0.30), 0 0 34px rgba(48, 150, 255, 0.18);
+  --shadow-glass: 0 24px 84px rgba(0, 0, 0, 0.38), 0 1px 0 rgba(255, 255, 255, 0.08) inset;
 }
 
 * {
@@ -14,9 +57,11 @@
 body {
   margin: 0;
   background:
-    linear-gradient(180deg, rgba(232, 247, 243, 0.72), rgba(248, 250, 252, 0) 360px),
-    #f8fafc;
-  color: #111827;
+    radial-gradient(circle at 8% -8%, rgb(var(--viva-teal) / 0.10), transparent 28rem),
+    radial-gradient(circle at 92% 0%, rgb(var(--viva-primary) / 0.09), transparent 32rem),
+    linear-gradient(180deg, rgb(var(--viva-bg)), rgb(var(--viva-surface)) 420px, rgb(var(--viva-bg)));
+  color: rgb(var(--viva-ink));
+  font-family: var(--font-dm-sans), sans-serif;
 }
 
 a {
@@ -32,6 +77,801 @@ textarea {
 }
 
 ::selection {
-  background: #0f766e;
+  background: rgb(var(--viva-primary));
   color: #ffffff;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-viva-display), var(--font-intra), sans-serif;
+    letter-spacing: 0;
+  }
+}
+
+@layer components {
+  .viva-glass {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border: 1px solid transparent;
+    background:
+      linear-gradient(135deg, rgb(var(--viva-card) / 0.84), rgb(var(--viva-card) / 0.66)) padding-box,
+      linear-gradient(135deg, rgb(var(--viva-teal) / 0.48), rgb(var(--viva-blue) / 0.24), rgb(var(--viva-pink) / 0.42)) border-box;
+    box-shadow: var(--shadow-card);
+    backdrop-filter: blur(22px);
+    transition:
+      transform 180ms ease,
+      box-shadow 180ms ease,
+      background-position 420ms ease,
+      border-color 180ms ease;
+  }
+
+  .viva-glass::after,
+  .viva-glow-card::after,
+  .viva-auth-card::after {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 1px;
+    border-radius: inherit;
+    background:
+      linear-gradient(135deg, rgb(255 255 255 / 0.48), transparent 34%),
+      linear-gradient(315deg, rgb(255 255 255 / 0.18), transparent 42%);
+    opacity: 0.58;
+    transition: opacity 180ms ease;
+  }
+
+  html[data-theme="dark"] .viva-glass::after,
+  html[data-theme="dark"] .viva-glow-card::after,
+  html[data-theme="dark"] .viva-auth-card::after {
+    background:
+      linear-gradient(135deg, rgb(255 255 255 / 0.11), transparent 35%),
+      linear-gradient(315deg, rgb(255 255 255 / 0.06), transparent 42%);
+    opacity: 0.52;
+  }
+
+  .viva-glass:hover,
+  .viva-glow-card:hover,
+  .viva-auth-card:hover {
+    background:
+      radial-gradient(circle at 12% 8%, rgb(var(--viva-teal) / 0.13), transparent 15rem) padding-box,
+      radial-gradient(circle at 86% 14%, rgb(var(--viva-blue) / 0.10), transparent 17rem) padding-box,
+      linear-gradient(135deg, rgb(255 255 255 / 0.88), rgb(var(--viva-primary-soft) / 0.62)) padding-box,
+      linear-gradient(135deg, rgb(var(--viva-teal) / 0.88), rgb(var(--viva-blue) / 0.52), rgb(var(--viva-pink) / 0.40)) border-box;
+    transform: translateY(-2px);
+    box-shadow:
+      var(--shadow-glass),
+      0 0 34px rgb(var(--viva-teal) / 0.18),
+      0 0 48px rgb(var(--viva-blue) / 0.16);
+  }
+
+  .viva-glass:hover::after,
+  .viva-glow-card:hover::after,
+  .viva-auth-card:hover::after {
+    opacity: 0.86;
+  }
+
+  .viva-glow-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border: 1px solid transparent;
+    background:
+      radial-gradient(circle at 10% 0%, rgb(var(--viva-teal) / 0.10), transparent 18rem) padding-box,
+      radial-gradient(circle at 100% 20%, rgb(var(--viva-primary) / 0.10), transparent 20rem) padding-box,
+      linear-gradient(135deg, rgb(var(--viva-card) / 0.88), rgb(var(--viva-card) / 0.70)) padding-box,
+      linear-gradient(135deg, rgb(var(--viva-teal) / 0.58), rgb(var(--viva-primary) / 0.24), rgb(var(--viva-pink) / 0.50)) border-box;
+    box-shadow: var(--shadow-glass);
+    backdrop-filter: blur(24px);
+    transition:
+      transform 180ms ease,
+      box-shadow 180ms ease,
+      background-position 420ms ease;
+  }
+
+  .viva-gradient-border {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .viva-gradient-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgb(var(--viva-teal)), rgb(var(--viva-primary)), rgb(var(--viva-pink)));
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    opacity: 0.76;
+  }
+
+  .viva-logo-plate {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+    filter: drop-shadow(0 14px 22px rgb(var(--viva-primary) / 0.10));
+  }
+
+  html[data-theme="dark"] .viva-wordmark-image {
+    filter: invert(1);
+  }
+
+  html[data-theme="dark"] .viva-logo-light {
+    display: none;
+  }
+
+  html[data-theme="dark"] .viva-logo-dark {
+    display: block;
+  }
+
+  .viva-button-primary {
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    overflow: hidden;
+    min-height: 2.75rem;
+    white-space: nowrap;
+    border-radius: 0.95rem;
+    border: 1px solid transparent;
+    background: var(--viva-action-gradient);
+    background-size: 220% 100%;
+    color: #ffffff;
+    box-shadow:
+      0 18px 44px rgb(var(--viva-primary) / 0.24),
+      0 0 30px rgb(var(--viva-teal) / 0.16),
+      0 1px 0 rgb(255 255 255 / 0.22) inset;
+    transition:
+      background-position 420ms ease,
+      transform 180ms ease,
+      box-shadow 180ms ease,
+      opacity 180ms ease;
+  }
+
+  .viva-button-ghost::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgb(var(--viva-teal)), rgb(var(--viva-primary)), rgb(var(--viva-pink)));
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    opacity: 0.95;
+  }
+
+  .viva-button-primary::after {
+    content: none;
+  }
+
+  .viva-button-primary:hover {
+    background-position: 100% 50%;
+    transform: translateY(-2px);
+    box-shadow:
+      0 24px 56px rgb(var(--viva-primary) / 0.30),
+      0 0 40px rgb(var(--viva-pink) / 0.22),
+      0 1px 0 rgb(255 255 255 / 0.30) inset;
+  }
+
+  .viva-button-primary:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    transform: none;
+  }
+
+  .viva-button-ghost {
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    overflow: hidden;
+    min-height: 2.5rem;
+    white-space: nowrap;
+    border-radius: 0.95rem;
+    border: 1px solid transparent;
+    background: linear-gradient(135deg, rgb(var(--viva-card) / 0.76), rgb(var(--viva-elevated) / 0.48));
+    color: rgb(var(--viva-ink));
+    box-shadow:
+      0 10px 28px rgba(31, 38, 71, 0.08),
+      0 1px 0 rgb(255 255 255 / 0.16) inset;
+    backdrop-filter: blur(18px);
+    transition:
+      border-color 180ms ease,
+      background-color 180ms ease,
+      transform 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  .viva-button-ghost::before {
+    opacity: 0.52;
+  }
+
+  .viva-button-ghost:hover {
+    background:
+      radial-gradient(circle at 16% 20%, rgb(var(--viva-teal) / 0.16), transparent 8rem),
+      linear-gradient(135deg, rgb(var(--viva-card) / 0.90), rgb(var(--viva-primary-soft) / 0.68));
+    transform: translateY(-2px);
+    box-shadow:
+      0 16px 34px rgba(31, 38, 71, 0.12),
+      0 0 26px rgb(var(--viva-teal) / 0.18),
+      0 0 34px rgb(var(--viva-blue) / 0.12),
+      0 1px 0 rgb(255 255 255 / 0.22) inset;
+  }
+
+  .viva-sidebar-link {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border: 1px solid transparent;
+    background:
+      linear-gradient(135deg, rgb(var(--viva-card) / 0), rgb(var(--viva-card) / 0)) padding-box,
+      linear-gradient(135deg, transparent, transparent) border-box;
+    transition:
+      color 180ms ease,
+      transform 180ms ease,
+      box-shadow 180ms ease,
+      background 180ms ease;
+  }
+
+  .viva-sidebar-link::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background:
+      radial-gradient(circle at 18% 50%, rgb(var(--viva-teal) / 0.18), transparent 7rem),
+      linear-gradient(135deg, rgb(var(--viva-card) / 0.62), rgb(var(--viva-primary-soft) / 0.50));
+    opacity: 0;
+    transition: opacity 180ms ease;
+  }
+
+  .viva-sidebar-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgb(var(--viva-teal) / 0.78), rgb(var(--viva-blue) / 0.48), rgb(var(--viva-pink) / 0.28));
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 180ms ease;
+  }
+
+  .viva-sidebar-link:hover {
+    transform: translateX(2px);
+    box-shadow:
+      0 12px 26px rgb(31 38 71 / 0.08),
+      0 0 24px rgb(var(--viva-teal) / 0.12),
+      0 0 32px rgb(var(--viva-blue) / 0.08);
+  }
+
+  .viva-sidebar-link:hover::before,
+  .viva-sidebar-link:hover::after {
+    opacity: 1;
+  }
+
+  html[data-theme="dark"] .viva-sidebar-link::before {
+    background:
+      radial-gradient(circle at 18% 50%, rgb(var(--viva-teal) / 0.18), transparent 7rem),
+      linear-gradient(135deg, rgb(var(--viva-card) / 0.72), rgb(var(--viva-elevated) / 0.58));
+  }
+
+  html[data-theme="dark"] .viva-sidebar-link:hover {
+    box-shadow:
+      0 12px 28px rgb(0 0 0 / 0.22),
+      0 0 26px rgb(var(--viva-teal) / 0.14),
+      0 0 34px rgb(var(--viva-blue) / 0.12);
+  }
+
+  .viva-button-ghost:hover::before {
+    opacity: 0.86;
+  }
+
+  .viva-field {
+    width: 100%;
+    min-height: 2.75rem;
+    border-radius: 0.8rem;
+    border: 1px solid transparent;
+    background:
+      linear-gradient(rgb(var(--viva-card) / 0.82), rgb(var(--viva-card) / 0.82)) padding-box,
+      linear-gradient(rgb(var(--viva-line)), rgb(var(--viva-line))) border-box;
+    background-size: 100% 100%, 220% 100%;
+    color: rgb(var(--viva-ink));
+    box-shadow: 0 1px 0 rgb(255 255 255 / 0.05) inset;
+    outline: none;
+    transition:
+      background-position 240ms ease,
+      box-shadow 160ms ease,
+      background-color 160ms ease,
+      transform 160ms ease;
+  }
+
+  .viva-field::placeholder {
+    color: rgb(var(--viva-subtle) / 0.78);
+  }
+
+  .viva-field:focus {
+    background:
+      linear-gradient(rgb(var(--viva-card) / 0.90), rgb(var(--viva-card) / 0.90)) padding-box,
+      var(--viva-action-gradient) border-box;
+    background-size: 100% 100%, 220% 100%;
+    background-position: 0 0, 100% 50%;
+    box-shadow:
+      0 0 0 3px rgb(var(--viva-blue) / 0.14),
+      0 0 22px rgb(var(--viva-pink) / 0.10);
+  }
+
+  .viva-field:hover {
+    background:
+      radial-gradient(circle at 10% 40%, rgb(var(--viva-teal) / 0.10), transparent 8rem) padding-box,
+      linear-gradient(rgb(var(--viva-card) / 0.90), rgb(var(--viva-card) / 0.82)) padding-box,
+      linear-gradient(135deg, rgb(var(--viva-teal) / 0.66), rgb(var(--viva-blue) / 0.42), rgb(var(--viva-pink) / 0.28)) border-box;
+    box-shadow:
+      0 8px 22px rgb(31 38 71 / 0.06),
+      0 0 18px rgb(var(--viva-teal) / 0.12),
+      0 0 24px rgb(var(--viva-blue) / 0.08);
+  }
+
+  label > span,
+  fieldset legend,
+  .viva-form-label {
+    display: inline-flex;
+    min-height: 1.25rem;
+    align-items: center;
+  }
+
+  .viva-field-shell svg {
+    transition: color 160ms ease, filter 160ms ease;
+  }
+
+  .viva-field-shell:focus-within svg {
+    color: rgb(var(--viva-blue));
+    filter: drop-shadow(0 0 10px rgb(var(--viva-blue) / 0.24));
+  }
+
+  .viva-signal-field {
+    background:
+      repeating-linear-gradient(
+        90deg,
+        transparent 0 34px,
+        rgb(var(--viva-blue) / 0.22) 34px 35px,
+        transparent 35px 64px
+      ),
+      radial-gradient(circle at 20% 62%, rgb(var(--viva-teal) / 0.22), transparent 9rem),
+      radial-gradient(circle at 80% 48%, rgb(var(--viva-pink) / 0.20), transparent 10rem);
+    mask-image: linear-gradient(to top, #000, transparent);
+  }
+
+  .viva-auth-page {
+    background:
+      radial-gradient(circle at 12% 8%, rgb(var(--viva-teal) / 0.11), transparent 24rem),
+      radial-gradient(circle at 84% 94%, rgb(var(--viva-pink) / 0.16), transparent 24rem),
+      radial-gradient(circle at 94% 8%, rgb(var(--viva-blue) / 0.11), transparent 28rem),
+      linear-gradient(135deg, rgb(var(--viva-bg)), rgb(var(--viva-surface)));
+  }
+
+  html[data-theme="dark"] .viva-auth-page {
+    background:
+      radial-gradient(circle at 88% 0%, rgb(var(--viva-blue) / 0.36), transparent 23rem),
+      radial-gradient(circle at 86% 94%, rgb(var(--viva-pink) / 0.42), transparent 21rem),
+      radial-gradient(circle at 78% 22%, rgb(var(--viva-blue) / 0.34), transparent 11rem),
+      radial-gradient(circle at 11% 36%, rgb(var(--viva-teal) / 0.25), transparent 15rem),
+      linear-gradient(135deg, rgb(var(--viva-bg)), rgb(2 7 17));
+  }
+
+  .viva-dashboard-page {
+    background:
+      radial-gradient(circle at 8% 6%, rgb(var(--viva-teal) / 0.048), transparent 25rem),
+      radial-gradient(circle at 92% 4%, rgb(var(--viva-blue) / 0.052), transparent 30rem),
+      radial-gradient(circle at 88% 96%, rgb(var(--viva-pink) / 0.046), transparent 30rem),
+      linear-gradient(135deg, rgb(255 255 255), rgb(250 252 255));
+  }
+
+  html[data-theme="dark"] .viva-dashboard-page {
+    background:
+      radial-gradient(circle at 88% 0%, rgb(var(--viva-blue) / 0.36), transparent 23rem),
+      radial-gradient(circle at 86% 94%, rgb(var(--viva-pink) / 0.42), transparent 21rem),
+      radial-gradient(circle at 78% 22%, rgb(var(--viva-blue) / 0.34), transparent 11rem),
+      radial-gradient(circle at 11% 36%, rgb(var(--viva-teal) / 0.25), transparent 15rem),
+      linear-gradient(135deg, rgb(var(--viva-bg)), rgb(2 7 17));
+  }
+
+  .viva-auth-grid {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgb(var(--viva-line) / 0.34) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(var(--viva-line) / 0.34) 1px, transparent 1px);
+    background-position: center;
+    background-size: 64px 64px;
+    mask-image:
+      linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent),
+      linear-gradient(to right, transparent, #000 14%, #000 96%);
+    opacity: 0.22;
+  }
+
+  html[data-theme="dark"] .viva-auth-grid {
+    opacity: 0.24;
+  }
+
+  .viva-mesh-gradient {
+    z-index: 1;
+    background:
+      radial-gradient(circle at 16% 18%, rgb(var(--viva-teal) / 0.42), transparent 24rem),
+      radial-gradient(circle at 72% 16%, rgb(var(--viva-blue) / 0.36), transparent 28rem),
+      radial-gradient(circle at 55% 58%, rgb(var(--viva-primary) / 0.26), transparent 25rem),
+      radial-gradient(circle at 88% 86%, rgb(var(--viva-pink) / 0.42), transparent 30rem);
+    mix-blend-mode: multiply;
+    opacity: 0.34;
+  }
+
+  html[data-theme="dark"] .viva-mesh-gradient {
+    mix-blend-mode: screen;
+    opacity: 0.88;
+  }
+
+  html[data-theme="dark"] .viva-dashboard-mesh,
+  html[data-theme="dark"] .viva-mesh-gradient.viva-dashboard-mesh {
+    opacity: 0.86;
+  }
+
+  .viva-dashboard-mesh,
+  .viva-mesh-gradient.viva-dashboard-mesh {
+    opacity: 0.085;
+  }
+
+  .viva-auth-aurora,
+  .viva-auth-arc {
+    pointer-events: none;
+    position: absolute;
+    z-index: 2;
+  }
+
+  .viva-auth-aurora-one {
+    left: -8rem;
+    top: -7rem;
+    height: 25rem;
+    width: 25rem;
+    border-radius: 9999px;
+    background: rgb(var(--viva-teal) / 0.13);
+    filter: blur(34px);
+    transform: translate3d(var(--viva-cyan-x, 0px), var(--viva-cyan-y, 0px), 0);
+    transition: transform 120ms ease-out;
+  }
+
+  .viva-auth-aurora-two {
+    bottom: -10rem;
+    right: 1%;
+    height: 24rem;
+    width: 24rem;
+    border-radius: 9999px;
+    background: rgb(var(--viva-pink) / 0.18);
+    filter: blur(16px);
+    transform: translate3d(var(--viva-pink-x, 0px), var(--viva-pink-y, 0px), 0);
+    transition: transform 120ms ease-out;
+  }
+
+  .viva-auth-aurora-three {
+    right: -8rem;
+    top: -8rem;
+    height: 30rem;
+    width: 30rem;
+    border-radius: 9999px;
+    background: rgb(var(--viva-blue) / 0.12);
+    filter: blur(38px);
+    transform: translate3d(var(--viva-blue-x, 0px), var(--viva-blue-y, 0px), 0);
+    transition: transform 120ms ease-out;
+  }
+
+  .viva-auth-arc {
+    border: 1px solid rgb(var(--viva-line) / 0.55);
+    opacity: 0.55;
+  }
+
+  .viva-auth-arc-one {
+    right: -7rem;
+    top: -5rem;
+    height: 18rem;
+    width: 18rem;
+    border-radius: 9999px;
+  }
+
+  .viva-auth-arc-two {
+    bottom: -11rem;
+    right: 18%;
+    height: 22rem;
+    width: 22rem;
+    border-radius: 9999px;
+  }
+
+  html[data-theme="dark"] .viva-auth-aurora-one {
+    background: rgb(var(--viva-teal) / 0.18);
+  }
+
+  html[data-theme="dark"] .viva-auth-aurora-two {
+    right: -3rem;
+    background: rgb(var(--viva-pink) / 0.38);
+  }
+
+  html[data-theme="dark"] .viva-auth-aurora-three {
+    background: rgb(var(--viva-blue) / 0.34);
+  }
+
+  .viva-auth-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border: 1px solid transparent;
+    background:
+      radial-gradient(circle at 16% 4%, rgb(var(--viva-teal) / 0.08), transparent 14rem) padding-box,
+      linear-gradient(145deg, rgb(var(--viva-card) / 0.86), rgb(var(--viva-card) / 0.68)) padding-box,
+      linear-gradient(135deg, rgb(var(--viva-teal) / 0.50), rgb(var(--viva-blue) / 0.18), rgb(var(--viva-pink) / 0.42)) border-box;
+    box-shadow:
+      0 24px 80px rgb(18 28 55 / 0.12),
+      0 1px 0 rgb(255 255 255 / 0.72) inset;
+    backdrop-filter: blur(24px);
+    transition:
+      transform 180ms ease,
+      box-shadow 180ms ease,
+      background-position 420ms ease;
+  }
+
+  .viva-dashboard-page .viva-auth-grid {
+    opacity: 0.095;
+  }
+
+  .viva-dashboard-page .viva-auth-aurora-one {
+    background: rgb(var(--viva-teal) / 0.055);
+  }
+
+  .viva-dashboard-page .viva-auth-aurora-two {
+    background: rgb(var(--viva-pink) / 0.060);
+  }
+
+  .viva-dashboard-page .viva-auth-aurora-three {
+    background: rgb(var(--viva-blue) / 0.060);
+  }
+
+  html[data-theme="dark"] .viva-dashboard-page .viva-auth-grid {
+    opacity: 0.24;
+  }
+
+  html[data-theme="dark"] .viva-dashboard-page .viva-auth-aurora-one {
+    background: rgb(var(--viva-teal) / 0.18);
+  }
+
+  html[data-theme="dark"] .viva-dashboard-page .viva-auth-aurora-two {
+    background: rgb(var(--viva-pink) / 0.38);
+  }
+
+  html[data-theme="dark"] .viva-dashboard-page .viva-auth-aurora-three {
+    background: rgb(var(--viva-blue) / 0.34);
+  }
+
+  .viva-dashboard-page .viva-glow-card {
+    background:
+      radial-gradient(circle at 10% 0%, rgb(var(--viva-teal) / 0.038), transparent 18rem) padding-box,
+      radial-gradient(circle at 78% 12%, rgb(var(--viva-blue) / 0.026), transparent 18rem) padding-box,
+      radial-gradient(circle at 100% 22%, rgb(var(--viva-pink) / 0.026), transparent 20rem) padding-box,
+      linear-gradient(135deg, rgb(255 255 255 / 0.92), rgb(255 255 255 / 0.78)) padding-box,
+      linear-gradient(135deg, rgb(var(--viva-teal) / 0.62), rgb(var(--viva-blue) / 0.22), rgb(var(--viva-pink) / 0.56)) border-box;
+  }
+
+  .viva-dashboard-page .viva-auth-card,
+  .viva-dashboard-page .viva-glass {
+    background:
+      radial-gradient(circle at 14% 4%, rgb(var(--viva-teal) / 0.034), transparent 14rem) padding-box,
+      radial-gradient(circle at 86% 2%, rgb(var(--viva-blue) / 0.022), transparent 16rem) padding-box,
+      linear-gradient(145deg, rgb(255 255 255 / 0.92), rgb(255 255 255 / 0.76)) padding-box,
+      linear-gradient(135deg, rgb(var(--viva-teal) / 0.54), rgb(var(--viva-blue) / 0.18), rgb(var(--viva-pink) / 0.48)) border-box;
+  }
+
+  html[data-theme="dark"] .viva-dashboard-page .viva-glow-card,
+  html[data-theme="dark"] .viva-dashboard-page .viva-auth-card,
+  html[data-theme="dark"] .viva-dashboard-page .viva-glass {
+    background:
+      radial-gradient(circle at 4% 8%, rgb(var(--viva-teal) / 0.16), transparent 16rem) padding-box,
+      radial-gradient(circle at 100% 100%, rgb(var(--viva-pink) / 0.09), transparent 16rem) padding-box,
+      linear-gradient(145deg, rgb(var(--viva-card) / 0.82), rgb(4 10 23 / 0.76)) padding-box,
+      linear-gradient(135deg, rgb(var(--viva-teal) / 0.58), rgb(var(--viva-primary) / 0.34), rgb(var(--viva-pink) / 0.58)) border-box;
+  }
+
+  .viva-dashboard-page .viva-glow-card:hover,
+  .viva-dashboard-page .viva-auth-card:hover,
+  .viva-dashboard-page .viva-glass:hover {
+    background:
+      radial-gradient(circle at 12% 8%, rgb(var(--viva-teal) / 0.13), transparent 15rem) padding-box,
+      radial-gradient(circle at 82% 14%, rgb(var(--viva-blue) / 0.12), transparent 17rem) padding-box,
+      linear-gradient(135deg, rgb(255 255 255 / 0.90), rgb(var(--viva-primary-soft) / 0.64)) padding-box,
+      linear-gradient(135deg, rgb(var(--viva-teal) / 0.88), rgb(var(--viva-blue) / 0.52), rgb(var(--viva-pink) / 0.40)) border-box;
+  }
+
+  html[data-theme="dark"] .viva-dashboard-page .viva-glow-card:hover,
+  html[data-theme="dark"] .viva-dashboard-page .viva-auth-card:hover,
+  html[data-theme="dark"] .viva-dashboard-page .viva-glass:hover {
+    background:
+      radial-gradient(circle at 12% 8%, rgb(var(--viva-teal) / 0.22), transparent 15rem) padding-box,
+      radial-gradient(circle at 82% 14%, rgb(var(--viva-blue) / 0.18), transparent 17rem) padding-box,
+      linear-gradient(135deg, rgb(var(--viva-card) / 0.86), rgb(7 16 34 / 0.76)) padding-box,
+      linear-gradient(135deg, rgb(var(--viva-teal) / 0.82), rgb(var(--viva-blue) / 0.56), rgb(var(--viva-pink) / 0.50)) border-box;
+  }
+
+  .viva-auth-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      rgb(var(--viva-teal)),
+      rgb(var(--viva-blue)),
+      rgb(var(--viva-primary)),
+      rgb(var(--viva-pink))
+    );
+    background-size: 240% 240%;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    opacity: 0.16;
+    transition: opacity 220ms ease, background-position 520ms ease;
+  }
+
+  .viva-auth-card:hover::before {
+    background-position: 100% 50%;
+    opacity: 0.78;
+  }
+
+  html[data-theme="dark"] .viva-glass:hover,
+  html[data-theme="dark"] .viva-glow-card:hover,
+  html[data-theme="dark"] .viva-auth-card:hover {
+    background:
+      radial-gradient(circle at 12% 8%, rgb(var(--viva-teal) / 0.22), transparent 15rem) padding-box,
+      radial-gradient(circle at 86% 14%, rgb(var(--viva-blue) / 0.18), transparent 17rem) padding-box,
+      linear-gradient(135deg, rgb(var(--viva-card) / 0.86), rgb(7 16 34 / 0.76)) padding-box,
+      linear-gradient(135deg, rgb(var(--viva-teal) / 0.82), rgb(var(--viva-blue) / 0.56), rgb(var(--viva-pink) / 0.50)) border-box;
+    box-shadow:
+      var(--shadow-glass),
+      0 0 38px rgb(var(--viva-teal) / 0.20),
+      0 0 52px rgb(var(--viva-blue) / 0.18);
+  }
+
+  html[data-theme="dark"] .viva-button-ghost:hover {
+    background:
+      radial-gradient(circle at 16% 20%, rgb(var(--viva-teal) / 0.18), transparent 8rem),
+      linear-gradient(135deg, rgb(var(--viva-card) / 0.88), rgb(var(--viva-elevated) / 0.70));
+  }
+
+  .viva-auth-card > *,
+  .viva-glow-card > *,
+  .viva-glass > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  html[data-theme="dark"] .viva-auth-card {
+    background:
+      radial-gradient(circle at 4% 8%, rgb(var(--viva-teal) / 0.16), transparent 16rem),
+      radial-gradient(circle at 100% 100%, rgb(var(--viva-pink) / 0.09), transparent 16rem),
+      linear-gradient(145deg, rgb(var(--viva-card) / 0.82), rgb(4 10 23 / 0.76));
+    box-shadow:
+      0 30px 92px rgb(0 0 0 / 0.34),
+      0 0 42px rgb(var(--viva-primary) / 0.10),
+      0 1px 0 rgb(255 255 255 / 0.07) inset;
+  }
+
+  html[data-theme="dark"] .viva-auth-card::before {
+    opacity: 0.58;
+  }
+
+  .viva-gradient-text {
+    background: var(--viva-action-gradient);
+    background-size: 220% 100%;
+    background-position: 0% 50%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transition: background-position 520ms ease, filter 220ms ease;
+  }
+
+  html[data-theme="dark"] .viva-gradient-text {
+    background-position: 52% 50%;
+  }
+
+  .viva-auth-page:hover .viva-gradient-text,
+  .viva-auth-page:hover .viva-gradient-rule {
+    background-position: 100% 50%;
+  }
+
+  .viva-auth-page:hover .viva-gradient-text {
+    filter: drop-shadow(0 0 18px rgb(var(--viva-blue) / 0.14));
+  }
+
+  html[data-theme="dark"] .viva-auth-page:hover .viva-gradient-text {
+    background-position: 100% 50%;
+    filter: drop-shadow(0 0 18px rgb(var(--viva-blue) / 0.20));
+  }
+
+  .viva-gradient-rule {
+    background: var(--viva-action-gradient);
+    background-size: 220% 100%;
+    transition: background-position 520ms ease, box-shadow 220ms ease;
+    box-shadow: 0 0 18px rgb(var(--viva-blue) / 0.24);
+  }
+
+  .viva-auth-feature svg {
+    filter: drop-shadow(0 0 14px rgb(var(--viva-blue) / 0.22));
+    transition: color 180ms ease, filter 180ms ease, transform 180ms ease;
+  }
+
+  .viva-auth-feature:hover svg {
+    color: rgb(var(--viva-pink));
+    filter: drop-shadow(0 0 18px rgb(var(--viva-pink) / 0.32));
+    transform: translateY(-2px);
+  }
+
+  html[data-theme="dark"] .theme-label-light {
+    display: none;
+  }
+
+  html[data-theme="dark"] .theme-label-dark {
+    display: inline;
+  }
+
+  @media (max-width: 640px) {
+    body {
+      background:
+        radial-gradient(circle at 8% -8%, rgb(var(--viva-teal) / 0.08), transparent 18rem),
+        radial-gradient(circle at 94% 2%, rgb(var(--viva-primary) / 0.08), transparent 20rem),
+        linear-gradient(180deg, rgb(var(--viva-bg)), rgb(var(--viva-surface)) 360px, rgb(var(--viva-bg)));
+    }
+
+    .viva-auth-grid {
+      background-size: 44px 44px;
+      opacity: 0.14;
+    }
+
+    .viva-mesh-gradient,
+    .viva-dashboard-mesh,
+    .viva-mesh-gradient.viva-dashboard-mesh {
+      opacity: 0.20;
+    }
+
+    html[data-theme="dark"] .viva-mesh-gradient,
+    html[data-theme="dark"] .viva-dashboard-mesh,
+    html[data-theme="dark"] .viva-mesh-gradient.viva-dashboard-mesh {
+      opacity: 0.58;
+    }
+
+    .viva-button-primary,
+    .viva-button-ghost {
+      min-height: 2.75rem;
+      max-width: 100%;
+    }
+
+    .viva-glass:hover,
+    .viva-glow-card:hover,
+    .viva-auth-card:hover,
+    .viva-button-primary:hover,
+    .viva-button-ghost:hover {
+      transform: none;
+    }
+  }
 }

@@ -5,11 +5,11 @@ Viva is the shared multi-tenant SaaS foundation for **Reserva Viva** and **Venta
 - **Reserva Viva:** future voice receptionist, missed-call recovery, and booking support.
 - **Venta Viva:** future WhatsApp sales, catalog, cart, and checkout support.
 
-Step 1 builds only the SaaS foundation: auth, tenants, onboarding, dashboard, settings, Supabase migrations, RLS, and project memory docs.
+Steps 1-5 build the SaaS foundation and unpaid WhatsApp beta preparation: auth, tenants, onboarding, dashboard, settings, catalog, conversation/message storage, provider-agnostic channel bindings, WhatsApp beta setup records, Supabase migrations, RLS, and project memory docs.
 
 ## Current Scope
 
-Implemented in Step 1:
+Implemented in Steps 1-5:
 
 - Next.js, TypeScript, Tailwind
 - Supabase Auth email/password flow
@@ -17,19 +17,31 @@ Implemented in Step 1:
 - Protected dashboard routes
 - Settings updates for tenant profile and tenant settings
 - Membership-based RLS migrations
-- Provider-agnostic channel binding table for future WhatsApp/voice providers
+- Tenant-scoped catalog categories and product/service items
+- Tenant-scoped conversation and message records
+- Provider-agnostic channel binding table and dashboard UI for future WhatsApp/voice providers
+- WhatsApp beta setup page for Unipile readiness and pending connection records
 
 Not implemented yet:
 
-- WhatsApp, Unipile, Meta Cloud API, 360dialog
+- Live WhatsApp messaging, real Unipile QR/API calls, Meta Cloud API, 360dialog
 - Vapi voice
 - AI agent tools or OpenAI calls
 - Stripe billing or payment links
 - n8n automations
 - Cal.com booking sync
-- catalog/products, orders, conversations, customers
+- orders, payments, automations, customers, official API onboarding
 
 ## Local Setup
+
+For complete fresh-clone setup, GitHub handover, and deployment guidance, read:
+
+- `docs/PROJECT_OVERVIEW.md`
+- `docs/SETUP.md`
+- `docs/ARCHITECTURE.md`
+- `docs/ROADMAP.md`
+- `docs/HANDOVER_NOTES.md`
+- `GITHUB_HANDOVER_SUMMARY.md`
 
 1. Install dependencies.
 
@@ -51,7 +63,7 @@ Not implemented yet:
    NEXT_PUBLIC_APP_URL=http://localhost:3000
    ```
 
-4. Apply Supabase migration.
+4. Apply Supabase migrations.
 
    If you have the Supabase CLI:
 
@@ -63,6 +75,8 @@ Not implemented yet:
    ```
 
    The CLI will ask for the database password. Do not commit that password.
+
+   Without the CLI, paste each file in `supabase/migrations` into the Supabase SQL Editor in timestamp order and run it.
 
 5. For easiest local testing, disable email confirmation in Supabase Auth while developing:
 
@@ -81,6 +95,10 @@ Not implemented yet:
 - Onboarding creates tenant, owner membership, and tenant settings.
 - Dashboard displays tenant data.
 - Settings page updates tenant and tenant settings.
+- Catalog page can create categories and products/services.
+- Conversations page can create conversation/message records after the Step 3 migration is live.
+- Channels page can create provider-agnostic binding records.
+- WhatsApp beta page can prepare an unpaid Unipile beta lane record.
 - RLS blocks cross-tenant access.
 - Docs in `/docs` describe the product memory and build order.
 
@@ -93,3 +111,7 @@ git remote add origin https://github.com/RichSaenz1/RichardHardySaenz
 ```
 
 Deploy only after the Supabase migration is live and Vercel has the same environment variables.
+
+## Medical Privacy Launch Gate
+
+Medical clients are allowed to sign up. Before any live workflow processes protected health information, follow `/docs/MEDICAL_PRIVACY_SECURITY_PLAN.md`, `/docs/BAA_SUBPROCESSOR_MATRIX.md`, `/docs/PHI_GO_LIVE_RUNBOOK.md`, `/docs/DATA_RETENTION_AND_PRIVACY_REQUESTS.md`, and `/docs/INCIDENT_RESPONSE_RUNBOOK.md`. The dashboard Privacy ops page tracks these approval and request workflows.

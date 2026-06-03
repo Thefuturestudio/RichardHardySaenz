@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
+import { Save } from "lucide-react";
 import { updateSettings } from "@/app/dashboard/settings/actions";
 import { BUSINESS_TYPES, LANGUAGES, TIMEZONES, TONES } from "@/lib/constants";
 import type { ActionState } from "@/types";
@@ -21,8 +22,15 @@ export function SettingsForm({ tenant, settings, canEdit }: SettingsFormProps) {
   return (
     <form action={formAction} className="space-y-8">
       <fieldset disabled={!canEdit || isPending} className="space-y-8 disabled:opacity-70">
-        <section className="rounded-2xl border border-viva-line bg-white p-6 shadow-sm">
-          <h2 className="text-lg font-semibold text-viva-ink">Business profile</h2>
+        <section className="viva-glass rounded-3xl p-6">
+          <div>
+            <h2 className="font-display text-xl font-bold text-viva-ink">
+              Business profile
+            </h2>
+            <p className="mt-1 text-sm leading-6 text-viva-muted">
+              This identifies the tenant workspace across the Viva dashboard.
+            </p>
+          </div>
           <div className="mt-5 grid gap-5 sm:grid-cols-2">
             <label className="block sm:col-span-2">
               <span className="text-sm font-medium text-viva-ink">Business name</span>
@@ -30,7 +38,7 @@ export function SettingsForm({ tenant, settings, canEdit }: SettingsFormProps) {
                 name="business_name"
                 required
                 defaultValue={tenant.business_name}
-                className="mt-2 w-full rounded-lg border-viva-line bg-white px-4 py-3 text-viva-ink shadow-sm focus:border-viva-green focus:ring-viva-green"
+                className="viva-field mt-2 px-4 py-3"
               />
             </label>
 
@@ -40,7 +48,7 @@ export function SettingsForm({ tenant, settings, canEdit }: SettingsFormProps) {
                 name="business_type"
                 required
                 defaultValue={tenant.business_type}
-                className="mt-2 w-full rounded-lg border-viva-line bg-white px-4 py-3 text-viva-ink shadow-sm focus:border-viva-green focus:ring-viva-green"
+                className="viva-field mt-2 px-4 py-3"
               >
                 {BUSINESS_TYPES.map((type) => (
                   <option key={type.value} value={type.value}>
@@ -55,7 +63,7 @@ export function SettingsForm({ tenant, settings, canEdit }: SettingsFormProps) {
               <select
                 name="timezone"
                 defaultValue={tenant.timezone ?? "America/Panama"}
-                className="mt-2 w-full rounded-lg border-viva-line bg-white px-4 py-3 text-viva-ink shadow-sm focus:border-viva-green focus:ring-viva-green"
+                className="viva-field mt-2 px-4 py-3"
               >
                 {TIMEZONES.map((timezone) => (
                   <option key={timezone} value={timezone}>
@@ -70,7 +78,7 @@ export function SettingsForm({ tenant, settings, canEdit }: SettingsFormProps) {
               <input
                 name="city"
                 defaultValue={tenant.city ?? ""}
-                className="mt-2 w-full rounded-lg border-viva-line bg-white px-4 py-3 text-viva-ink shadow-sm focus:border-viva-green focus:ring-viva-green"
+                className="viva-field mt-2 px-4 py-3"
               />
             </label>
 
@@ -79,21 +87,28 @@ export function SettingsForm({ tenant, settings, canEdit }: SettingsFormProps) {
               <input
                 name="country"
                 defaultValue={tenant.country ?? ""}
-                className="mt-2 w-full rounded-lg border-viva-line bg-white px-4 py-3 text-viva-ink shadow-sm focus:border-viva-green focus:ring-viva-green"
+                className="viva-field mt-2 px-4 py-3"
               />
             </label>
           </div>
         </section>
 
-        <section className="rounded-2xl border border-viva-line bg-white p-6 shadow-sm">
-          <h2 className="text-lg font-semibold text-viva-ink">Runtime settings</h2>
+        <section className="viva-glow-card rounded-3xl p-6">
+          <div>
+            <h2 className="font-display text-xl font-bold text-viva-ink">
+              Runtime settings
+            </h2>
+            <p className="mt-1 text-sm leading-6 text-viva-muted">
+              Future channel and agent workflows will read these tenant values at runtime.
+            </p>
+          </div>
           <div className="mt-5 grid gap-5 sm:grid-cols-2">
             <label className="block">
               <span className="text-sm font-medium text-viva-ink">Language</span>
               <select
                 name="language"
                 defaultValue={language}
-                className="mt-2 w-full rounded-lg border-viva-line bg-white px-4 py-3 text-viva-ink shadow-sm focus:border-viva-green focus:ring-viva-green"
+                className="viva-field mt-2 px-4 py-3"
               >
                 {LANGUAGES.map((item) => (
                   <option key={item.value} value={item.value}>
@@ -108,7 +123,7 @@ export function SettingsForm({ tenant, settings, canEdit }: SettingsFormProps) {
               <select
                 name="tone"
                 defaultValue={settings?.tone ?? "friendly"}
-                className="mt-2 w-full rounded-lg border-viva-line bg-white px-4 py-3 text-viva-ink shadow-sm focus:border-viva-green focus:ring-viva-green"
+                className="viva-field mt-2 px-4 py-3"
               >
                 {TONES.map((tone) => (
                   <option key={tone.value} value={tone.value}>
@@ -126,7 +141,7 @@ export function SettingsForm({ tenant, settings, canEdit }: SettingsFormProps) {
                 name="human_fallback_number"
                 type="tel"
                 defaultValue={settings?.human_fallback_number ?? ""}
-                className="mt-2 w-full rounded-lg border-viva-line bg-white px-4 py-3 text-viva-ink shadow-sm focus:border-viva-green focus:ring-viva-green"
+                className="viva-field mt-2 px-4 py-3"
                 placeholder="+507..."
               />
             </label>
@@ -137,7 +152,7 @@ export function SettingsForm({ tenant, settings, canEdit }: SettingsFormProps) {
                 name="booking_url"
                 type="url"
                 defaultValue={settings?.booking_url ?? ""}
-                className="mt-2 w-full rounded-lg border-viva-line bg-white px-4 py-3 text-viva-ink shadow-sm focus:border-viva-green focus:ring-viva-green"
+                className="viva-field mt-2 px-4 py-3"
                 placeholder="https://..."
               />
             </label>
@@ -148,7 +163,7 @@ export function SettingsForm({ tenant, settings, canEdit }: SettingsFormProps) {
                 name="greeting"
                 rows={4}
                 defaultValue={settings?.greeting ?? ""}
-                className="mt-2 w-full rounded-lg border-viva-line bg-white px-4 py-3 text-viva-ink shadow-sm focus:border-viva-green focus:ring-viva-green"
+                className="viva-field mt-2 px-4 py-3"
                 placeholder="Gracias por contactar a nuestro negocio. Como puedo ayudarle?"
               />
             </label>
@@ -157,13 +172,13 @@ export function SettingsForm({ tenant, settings, canEdit }: SettingsFormProps) {
       </fieldset>
 
       {state.error ? (
-        <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+        <div className="rounded-xl border border-viva-error/30 bg-viva-error/10 px-4 py-3 text-sm text-viva-error">
           {state.error}
         </div>
       ) : null}
 
       {state.success ? (
-        <div className="rounded-lg border border-teal-200 bg-teal-50 px-4 py-3 text-sm text-teal-800">
+        <div className="rounded-xl border border-viva-success/30 bg-viva-success/10 px-4 py-3 text-sm text-viva-success">
           {state.success}
         </div>
       ) : null}
@@ -177,8 +192,9 @@ export function SettingsForm({ tenant, settings, canEdit }: SettingsFormProps) {
         <button
           type="submit"
           disabled={!canEdit || isPending}
-          className="rounded-lg bg-viva-green px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-teal-800 disabled:cursor-not-allowed disabled:opacity-60"
+          className="viva-button-primary h-12 px-5 text-sm font-bold"
         >
+          <Save className="h-4 w-4" />
           {isPending ? "Saving..." : "Save settings"}
         </button>
       </div>

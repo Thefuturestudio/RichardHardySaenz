@@ -29,12 +29,12 @@ export function Sidebar({ tenantName, userEmail, role }: SidebarProps) {
   }
 
   const navSections = [
-    { label: "Workspace", items: DASHBOARD_NAV.slice(0, 6) },
-    { label: "AI and automation", items: DASHBOARD_NAV.slice(6, 8) },
-    { label: "Channels", items: DASHBOARD_NAV.slice(8, 12) },
-    { label: "Launch ops", items: DASHBOARD_NAV.slice(12, 20) },
-    { label: "Control", items: DASHBOARD_NAV.slice(20, 23) },
-    { label: "Account", items: DASHBOARD_NAV.slice(23) },
+    { label: "Workspace", items: DASHBOARD_NAV.slice(0, 7) },
+    { label: "AI and automation", items: DASHBOARD_NAV.slice(7, 9) },
+    { label: "Channels", items: DASHBOARD_NAV.slice(9, 13) },
+    { label: "Launch ops", items: DASHBOARD_NAV.slice(13, 21) },
+    { label: "Control", items: DASHBOARD_NAV.slice(21, 24) },
+    { label: "Account", items: DASHBOARD_NAV.slice(24) },
   ];
 
   const nav = (

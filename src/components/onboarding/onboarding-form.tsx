@@ -1,7 +1,14 @@
 "use client";
 
 import { useActionState } from "react";
-import { ArrowRight, CheckCircle2, CreditCard, CalendarCheck2, MessageSquare } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCircle2,
+  CreditCard,
+  CalendarCheck2,
+  MessageSquare,
+  Stethoscope,
+} from "lucide-react";
 import { completeOnboarding } from "@/app/onboarding/actions";
 import { BUSINESS_TYPES, LANGUAGES, TIMEZONES } from "@/lib/constants";
 import type { ActionState } from "@/types";
@@ -18,7 +25,7 @@ export function OnboardingForm() {
     <form action={formAction} className="space-y-6">
       <div>
         <div className="text-sm font-medium text-viva-ink">First pilot motion</div>
-        <div className="mt-3 grid gap-3 lg:grid-cols-3">
+        <div className="mt-3 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
           {[
             {
               value: "combined",
@@ -37,6 +44,12 @@ export function OnboardingForm() {
               title: "Venta Viva",
               description: "Catalog, sales conversations, and payment-link drafts.",
               icon: CreditCard,
+            },
+            {
+              value: "viva_med",
+              title: "Viva Med",
+              description: "Medical appointments, safe handoff, and privacy gates.",
+              icon: Stethoscope,
             },
           ].map((motion) => {
             const Icon = motion.icon;

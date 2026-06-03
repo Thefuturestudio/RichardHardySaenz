@@ -9,7 +9,7 @@ const onboardingSchema = z.object({
   business_name: z.string().trim().min(2, "Business name is required."),
   business_type: z.string().trim().min(1, "Business type is required."),
   product_motion: z
-    .enum(["reserva", "venta", "combined"])
+    .enum(["reserva", "venta", "viva_med", "combined"])
     .default("combined"),
   city: z.string().trim().optional(),
   country: z.string().trim().optional(),

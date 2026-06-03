@@ -1,9 +1,10 @@
 # Viva Platform
 
-Viva is the shared multi-tenant SaaS foundation for **Reserva Viva** and **Venta Viva**.
+Viva is the shared multi-tenant SaaS foundation for **Reserva Viva**, **Venta Viva**, and the **Viva Med** medical vertical.
 
 - **Reserva Viva:** future voice receptionist, missed-call recovery, and booking support.
 - **Venta Viva:** future WhatsApp sales, catalog, cart, and checkout support.
+- **Viva Med:** medical appointments, safe handoff, privacy operations, and PHI launch gates.
 
 Steps 1-5 build the SaaS foundation and unpaid WhatsApp beta preparation: auth, tenants, onboarding, dashboard, settings, catalog, conversation/message storage, provider-agnostic channel bindings, WhatsApp beta setup records, Supabase migrations, RLS, and project memory docs.
 

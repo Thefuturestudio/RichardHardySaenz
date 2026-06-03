@@ -2,10 +2,11 @@
 
 ## What This Project Is
 
-VivaApp is a Next.js, TypeScript, Tailwind, and Supabase SaaS dashboard for The Future Studio's Viva platform. It is designed as one multi-tenant product with two commercial motions:
+VivaApp is a Next.js, TypeScript, Tailwind, and Supabase SaaS dashboard for The Future Studio's Viva platform. It is designed as one multi-tenant product with two commercial motions and one medical vertical:
 
 - Reserva Viva: receptionist, missed-call recovery, booking support, and human handoff.
 - Venta Viva: WhatsApp-led sales, catalog support, carts, checkout links, and owner notifications.
+- Viva Med: medical appointment operations, safe patient handoff, privacy operations, and PHI go-live gates.
 
 The current app is dashboard-first. It is not a marketing site and it is not a general-purpose medical advice chatbot.
 
@@ -50,4 +51,3 @@ Live provider activation is not complete. The dashboard contains many foundation
 - Prefer clarity over feature density.
 - Avoid unsafe medical claims, diagnosis, or treatment guidance.
 - Use demo data and internal previews until legal/provider approvals are complete.
-

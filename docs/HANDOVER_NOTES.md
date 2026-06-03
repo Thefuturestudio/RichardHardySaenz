@@ -15,6 +15,7 @@ This repo is intended to be movable to a new GitHub/Codex account without relyin
 
 - Viva remains one multi-tenant SaaS app.
 - Reserva Viva and Venta Viva are motions inside the same platform.
+- Viva Med is the medical vertical inside the same platform, not a separate app or database.
 - Medical and regulated categories remain allowed.
 - PHI-capable workflows are blocked until BAA/legal/provider/security approvals are complete.
 - Live external writes are not enabled by default.
@@ -104,4 +105,3 @@ Important docs and references are already in the repo:
 - `docs/INCIDENT_RESPONSE_RUNBOOK.md`
 
 An outside research note reviewed during handover also recommended making the current app legible before redesigning, then considering React Joyride or Driver.js for onboarding, Storybook for UI state matrices, and privacy-reviewed analytics only after PHI exclusions are clear.
-

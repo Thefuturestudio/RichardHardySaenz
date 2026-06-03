@@ -23,6 +23,7 @@ import {
   Settings,
   ShieldCheck,
   SlidersHorizontal,
+  Stethoscope,
   Users,
   Wifi,
 } from "lucide-react";
@@ -35,6 +36,10 @@ export const PRODUCT_MOTIONS = [
   {
     name: "Venta Viva",
     description: "WhatsApp sales, catalog support, carts, and checkout.",
+  },
+  {
+    name: "Viva Med",
+    description: "Medical operations, appointments, privacy gates, and safe handoff.",
   },
 ];
 
@@ -80,6 +85,7 @@ export const TIMEZONES = [
 
 export const DASHBOARD_NAV = [
   { href: "/dashboard", label: "Overview", icon: Home, activeExact: true },
+  { href: "/dashboard/viva-med", label: "Viva Med", icon: Stethoscope },
   { href: "/dashboard/conversations", label: "Conversations", icon: MessageSquare },
   { href: "/dashboard/bookings", label: "Bookings", icon: CalendarCheck2 },
   { href: "/dashboard/orders", label: "Orders", icon: Inbox },

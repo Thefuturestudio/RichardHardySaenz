@@ -113,6 +113,7 @@ Generated file paths for the app source, docs, migrations, assets, and tooling.
 - C:\Users\Rich\Documents\New project 5\src\app\dashboard\settings\page.tsx
 - C:\Users\Rich\Documents\New project 5\src\app\dashboard\test-center\page.tsx
 - C:\Users\Rich\Documents\New project 5\src\app\dashboard\test-data\page.tsx
+- C:\Users\Rich\Documents\New project 5\src\app\dashboard\viva-med\page.tsx
 - C:\Users\Rich\Documents\New project 5\src\app\dashboard\webhooks\page.tsx
 - C:\Users\Rich\Documents\New project 5\src\app\globals.css
 - C:\Users\Rich\Documents\New project 5\src\app\layout.tsx

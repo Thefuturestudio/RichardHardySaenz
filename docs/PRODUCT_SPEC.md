@@ -6,9 +6,11 @@
 
 **Venta Viva** helps businesses sell through chat. Future modules include WhatsApp product questions, recommendations, carts, payment links, and owner notifications.
 
+**Viva Med** is the medical vertical inside the same Viva platform. It focuses on medical appointment intake, safe patient handoff, privacy operations, and PHI go-live gating.
+
 ## Core Principle
 
-One SaaS platform supports both motions. Every business is a tenant. Shared platform logic reads tenant settings and connected channel bindings at runtime.
+One SaaS platform supports both commercial motions and the medical vertical. Every business is a tenant. Shared platform logic reads tenant settings and connected channel bindings at runtime.
 
 ## Implemented Scope
 

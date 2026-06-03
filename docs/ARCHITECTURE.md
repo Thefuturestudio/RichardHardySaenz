@@ -60,6 +60,7 @@ Public/auth routes:
 Dashboard routes:
 
 - `/dashboard`
+- `/dashboard/viva-med`
 - `/dashboard/conversations`
 - `/dashboard/bookings`
 - `/dashboard/orders`

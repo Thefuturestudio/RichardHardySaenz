@@ -31,7 +31,7 @@ export default async function OnboardingPage() {
           </h1>
           <p className="mt-3 max-w-2xl text-base leading-7 text-viva-muted">
             Add the business profile Viva will use later for Reserva Viva,
-            Venta Viva, or the combined Viva Platform offer.
+            Venta Viva, Viva Med, or the combined Viva Platform offer.
           </p>
         </div>
 

@@ -108,7 +108,7 @@ export function AuthShell({ title, subtitle, children }: AuthShellProps) {
 
           <p className="mt-8 max-w-[28rem] text-lg leading-8 text-viva-muted">
             Viva is the AI-powered business operations platform for Reserva Viva
-            and Venta Viva.
+            Venta Viva, and Viva Med.
           </p>
 
           <div className="mt-11 grid grid-cols-2 gap-y-7 sm:grid-cols-4 sm:divide-x sm:divide-viva-line/80">

@@ -1,9 +1,10 @@
 # Executive Summary
 
-Viva is one multi-tenant SaaS platform for two commercial motions:
+Viva is one multi-tenant SaaS platform for two commercial motions and one medical vertical:
 
 - **Reserva Viva:** receptionist, missed-call recovery, and booking support for service businesses.
 - **Venta Viva:** WhatsApp-led sales, product guidance, carts, and checkout support for chat-based sellers.
+- **Viva Med:** medical appointment operations, safe patient handoff, privacy operations, and PHI launch gates.
 
 The platform must stay one codebase, one tenant model, one dashboard, and one event model. Tenants are businesses. Tenant-specific settings are injected at runtime; assistants and workflows must not be cloned per customer.
 
@@ -17,4 +18,5 @@ Future phases are **NOT YET IMPLEMENTED**: live WhatsApp beta QR/API calls, Vapi
 
 - Parent platform: **Viva**
 - Product motions: **Reserva Viva** and **Venta Viva**
+- Medical vertical: **Viva Med**
 - Combined offer: **Viva Platform** or **Viva Suite**

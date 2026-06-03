@@ -24,6 +24,7 @@ VivaApp has a broad foundation build in place. The app is useful for product rev
 - Step 16: Provider activation console foundation.
 - Medical privacy/security docs and `data_privacy_requests` migration.
 - Privacy operations dashboard for approval checks and request tracking.
+- Viva Med dashboard surface for medical appointment, handoff, privacy, and launch-gate coordination.
 - Brand assets, Viva font assets, design reference docs, and UI export screenshots.
 - Development-only preview login route for local review when Supabase auth is unavailable.
 

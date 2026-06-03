@@ -42,7 +42,8 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: "Viva Platform",
-  description: "Multi-tenant SaaS foundation for Reserva Viva and Venta Viva.",
+  description:
+    "Multi-tenant SaaS foundation for Reserva Viva, Venta Viva, and Viva Med.",
 };
 
 export default function RootLayout({

@@ -2,7 +2,7 @@
 
 ## Project Boundary
 
-Build one multi-tenant SaaS platform named Viva. Do not split Reserva Viva and Venta Viva into separate apps or separate databases.
+Build one multi-tenant SaaS platform named Viva. Do not split Reserva Viva, Venta Viva, or Viva Med into separate apps or separate databases.
 
 ## Current Rule
 

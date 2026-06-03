@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Viva App Design System
-description: Design source of truth for Viva, The Future Studio's multi-tenant SaaS dashboard for Reserva Viva and Venta Viva.
+description: Design source of truth for Viva, The Future Studio's multi-tenant SaaS dashboard for Reserva Viva, Venta Viva, and Viva Med.
 colors:
   primary: "#3D46FF"
   primary-light: "#6B70FF"
@@ -169,7 +169,7 @@ components:
 
 ## Overview
 
-Viva is a premium operations dashboard for The Future Studio. It supports two commercial motions inside one multi-tenant SaaS product: Reserva Viva for bookings, receptionist workflows, and human handoff; Venta Viva for chat sales, catalog support, carts, checkout links, and owner notifications.
+Viva is a premium operations dashboard for The Future Studio. It supports two commercial motions and one medical vertical inside one multi-tenant SaaS product: Reserva Viva for bookings, receptionist workflows, and human handoff; Venta Viva for chat sales, catalog support, carts, checkout links, and owner notifications; and Viva Med for medical appointment operations, safe patient handoff, privacy operations, and PHI launch gates.
 
 This `DESIGN.md` is the source of truth before any visual implementation. It is based on the Viva Design System ZIP, the `VivaAppStyling` reference screenshots, and the current project memory. It should guide future styling, component decisions, and design QA. It does not expand product scope by itself.
 
